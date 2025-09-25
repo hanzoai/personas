@@ -1,6 +1,6 @@
-# 🧠 Persona - Legendary Programmer Personalities
+# 🧠 Persona - Legendary Personalities
 
-A comprehensive repository of 117+ programmer personalities with detailed psychological profiles, development philosophies, and tool preferences. Designed for AI agents, development environments, and educational purposes.
+A comprehensive repository of legendary personalities with detailed psychological profiles, development philosophies, and tool preferences. Designed for AI agents, development environments, and educational purposes.
 
 ## Overview
 
