@@ -219,7 +219,7 @@ If you use this repository in research or applications, please cite:
 @misc{hanzo-persona,
   title = {Persona: Legendary Programmer Personalities},
   author = {Hanzo AI},
-  year = {2024},
+  year = {2025,
   url = {https://github.com/hanzoai/persona}
 }
 ```
