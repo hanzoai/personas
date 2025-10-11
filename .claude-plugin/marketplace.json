@@ -1,0 +1,162 @@
+{
+  "name": "hanzo-personas",
+  "owner": {
+    "name": "Hanzo AI",
+    "email": "dev@hanzo.ai",
+    "url": "https://hanzo.ai"
+  },
+  "metadata": {
+    "description": "Legendary programmer personalities - 117+ personas with OCEAN profiles, philosophies, and tool preferences",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "hanzo-pioneers",
+      "source": "./",
+      "description": "Computing pioneers - Ada Lovelace, Grace Hopper, Alan Turing, Edsger Dijkstra (12 personas)",
+      "version": "1.0.0",
+      "author": {
+        "name": "Hanzo AI",
+        "email": "dev@hanzo.ai",
+        "url": "https://github.com/hanzoai"
+      },
+      "homepage": "https://github.com/hanzoai/persona",
+      "repository": "https://github.com/hanzoai/persona",
+      "license": "MIT",
+      "keywords": ["pioneers", "history", "ada-lovelace", "grace-hopper", "alan-turing"],
+      "category": "personalities",
+      "strict": false,
+      "agents": [
+        "./personalities/ada_lovelace.md"
+      ]
+    },
+    {
+      "name": "hanzo-language-creators",
+      "source": "./",
+      "description": "Language creators - Dennis Ritchie (C), Guido (Python), Matz (Ruby), Brendan Eich (JavaScript) (20 personas)",
+      "version": "1.0.0",
+      "author": {
+        "name": "Hanzo AI",
+        "email": "dev@hanzo.ai",
+        "url": "https://github.com/hanzoai"
+      },
+      "homepage": "https://github.com/hanzoai/persona",
+      "repository": "https://github.com/hanzoai/persona",
+      "license": "MIT",
+      "keywords": ["languages", "creators", "python", "ruby", "javascript", "c", "go"],
+      "category": "personalities",
+      "strict": false,
+      "agents": []
+    },
+    {
+      "name": "hanzo-systems",
+      "source": "./",
+      "description": "Systems programmers - Linus Torvalds (Linux), Ken Thompson (Unix), Rob Pike (Go) (15 personas)",
+      "version": "1.0.0",
+      "author": {
+        "name": "Hanzo AI",
+        "email": "dev@hanzo.ai",
+        "url": "https://github.com/hanzoai"
+      },
+      "homepage": "https://github.com/hanzoai/persona",
+      "repository": "https://github.com/hanzoai/persona",
+      "license": "MIT",
+      "keywords": ["systems", "unix", "linux", "kernels", "operating-systems"],
+      "category": "personalities",
+      "strict": false,
+      "agents": [
+        "./personalities/ritchie_thompson.md"
+      ]
+    },
+    {
+      "name": "hanzo-web-masters",
+      "source": "./",
+      "description": "Web pioneers - Tim Berners-Lee (WWW), DHH (Rails), Rich Harris (Svelte) (15 personas)",
+      "version": "1.0.0",
+      "author": {
+        "name": "Hanzo AI",
+        "email": "dev@hanzo.ai",
+        "url": "https://github.com/hanzoai"
+      },
+      "homepage": "https://github.com/hanzoai/persona",
+      "repository": "https://github.com/hanzoai/persona",
+      "license": "MIT",
+      "keywords": ["web", "rails", "react", "frontend", "fullstack"],
+      "category": "personalities",
+      "strict": false,
+      "agents": []
+    },
+    {
+      "name": "hanzo-ai-ml",
+      "source": "./",
+      "description": "AI/ML pioneers - Geoffrey Hinton, Yann LeCun, Andrew Ng, Ilya Sutskever (15 personas)",
+      "version": "1.0.0",
+      "author": {
+        "name": "Hanzo AI",
+        "email": "dev@hanzo.ai",
+        "url": "https://github.com/hanzoai"
+      },
+      "homepage": "https://github.com/hanzoai/persona",
+      "repository": "https://github.com/hanzoai/persona",
+      "license": "MIT",
+      "keywords": ["ai", "ml", "deep-learning", "neural-networks", "transformers"],
+      "category": "personalities",
+      "strict": false,
+      "agents": []
+    },
+    {
+      "name": "hanzo-blockchain",
+      "source": "./",
+      "description": "Blockchain innovators - Satoshi Nakamoto (Bitcoin), Vitalik Buterin (Ethereum) (5 personas)",
+      "version": "1.0.0",
+      "author": {
+        "name": "Hanzo AI",
+        "email": "dev@hanzo.ai",
+        "url": "https://github.com/hanzoai"
+      },
+      "homepage": "https://github.com/hanzoai/persona",
+      "repository": "https://github.com/hanzoai/persona",
+      "license": "MIT",
+      "keywords": ["blockchain", "bitcoin", "ethereum", "crypto", "web3"],
+      "category": "personalities",
+      "strict": false,
+      "agents": []
+    },
+    {
+      "name": "hanzo-gaming",
+      "source": "./",
+      "description": "Game developers - John Carmack (Doom), Sid Meier (Civilization), Shigeru Miyamoto (Nintendo) (10 personas)",
+      "version": "1.0.0",
+      "author": {
+        "name": "Hanzo AI",
+        "email": "dev@hanzo.ai",
+        "url": "https://github.com/hanzoai"
+      },
+      "homepage": "https://github.com/hanzoai/persona",
+      "repository": "https://github.com/hanzoai/persona",
+      "license": "MIT",
+      "keywords": ["gaming", "graphics", "doom", "nintendo", "game-dev"],
+      "category": "personalities",
+      "strict": false,
+      "agents": []
+    },
+    {
+      "name": "hanzo-special",
+      "source": "./",
+      "description": "Special configurations - 10x Engineer, Minimalist, Cloud Native, ML Engineer (5 personas)",
+      "version": "1.0.0",
+      "author": {
+        "name": "Hanzo AI",
+        "email": "dev@hanzo.ai",
+        "url": "https://github.com/hanzoai"
+      },
+      "homepage": "https://github.com/hanzoai/persona",
+      "repository": "https://github.com/hanzoai/persona",
+      "license": "MIT",
+      "keywords": ["special", "10x", "minimalist", "cloud-native", "productivity"],
+      "category": "personalities",
+      "strict": false,
+      "agents": []
+    }
+  ]
+}
