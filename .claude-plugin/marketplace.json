@@ -31,9 +31,9 @@
       ]
     },
     {
-      "name": "hanzo-language-creators",
+      "name": "hanzo-polyglot",
       "source": "./",
-      "description": "Language creators - Dennis Ritchie (C), Guido (Python), Matz (Ruby), Brendan Eich (JavaScript) (20 personas)",
+      "description": "Multi-language programmers - Dennis Ritchie (C), Guido (Python), Matz (Ruby), Brendan Eich (JS), Rob Pike (Go)",
       "version": "1.0.0",
       "author": {
         "name": "Hanzo AI",
@@ -43,7 +43,7 @@
       "homepage": "https://github.com/hanzoai/persona",
       "repository": "https://github.com/hanzoai/persona",
       "license": "MIT",
-      "keywords": ["languages", "creators", "python", "ruby", "javascript", "c", "go"],
+      "keywords": ["polyglot", "multi-language", "python", "ruby", "javascript", "c", "go", "rust"],
       "category": "personalities",
       "strict": false,
       "agents": []
@@ -69,9 +69,9 @@
       ]
     },
     {
-      "name": "hanzo-web-masters",
+      "name": "hanzo-oreilly",
       "source": "./",
-      "description": "Web pioneers - Tim Berners-Lee (WWW), DHH (Rails), Rich Harris (Svelte) (15 personas)",
+      "description": "O'Reilly authors and educators - Tim O'Reilly, Tim Berners-Lee, technical book authors and web pioneers",
       "version": "1.0.0",
       "author": {
         "name": "Hanzo AI",
@@ -81,15 +81,15 @@
       "homepage": "https://github.com/hanzoai/persona",
       "repository": "https://github.com/hanzoai/persona",
       "license": "MIT",
-      "keywords": ["web", "rails", "react", "frontend", "fullstack"],
+      "keywords": ["oreilly", "authors", "educators", "web", "technical-writing"],
       "category": "personalities",
       "strict": false,
       "agents": []
     },
     {
-      "name": "hanzo-ai-ml",
+      "name": "hanzo-rails",
       "source": "./",
-      "description": "AI/ML pioneers - Geoffrey Hinton, Yann LeCun, Andrew Ng, Ilya Sutskever (15 personas)",
+      "description": "Rails specialists - DHH and Ruby on Rails experts focused on convention over configuration",
       "version": "1.0.0",
       "author": {
         "name": "Hanzo AI",
@@ -99,7 +99,79 @@
       "homepage": "https://github.com/hanzoai/persona",
       "repository": "https://github.com/hanzoai/persona",
       "license": "MIT",
-      "keywords": ["ai", "ml", "deep-learning", "neural-networks", "transformers"],
+      "keywords": ["rails", "ruby", "dhh", "mvc", "fullstack"],
+      "category": "personalities",
+      "strict": false,
+      "agents": []
+    },
+    {
+      "name": "hanzo-aiml",
+      "source": "./",
+      "description": "AI/ML masters - Geoffrey Hinton, Yann LeCun, Andrew Ng, Ilya Sutskever, Andrej Karpathy - deep learning experts",
+      "version": "1.0.0",
+      "author": {
+        "name": "Hanzo AI",
+        "email": "dev@hanzo.ai",
+        "url": "https://github.com/hanzoai"
+      },
+      "homepage": "https://github.com/hanzoai/persona",
+      "repository": "https://github.com/hanzoai/persona",
+      "license": "MIT",
+      "keywords": ["ai", "ml", "deep-learning", "transformers", "neural-networks", "pytorch", "tensorflow"],
+      "category": "personalities",
+      "strict": false,
+      "agents": []
+    },
+    {
+      "name": "hanzo-k8s",
+      "source": "./",
+      "description": "Kubernetes experts - Cloud-native container orchestration specialists",
+      "version": "1.0.0",
+      "author": {
+        "name": "Hanzo AI",
+        "email": "dev@hanzo.ai",
+        "url": "https://github.com/hanzoai"
+      },
+      "homepage": "https://github.com/hanzoai/persona",
+      "repository": "https://github.com/hanzoai/persona",
+      "license": "MIT",
+      "keywords": ["kubernetes", "k8s", "containers", "orchestration", "cloud-native"],
+      "category": "personalities",
+      "strict": false,
+      "agents": []
+    },
+    {
+      "name": "hanzo-docker",
+      "source": "./",
+      "description": "Container specialists - Docker, containerization, microservices experts",
+      "version": "1.0.0",
+      "author": {
+        "name": "Hanzo AI",
+        "email": "dev@hanzo.ai",
+        "url": "https://github.com/hanzoai"
+      },
+      "homepage": "https://github.com/hanzoai/persona",
+      "repository": "https://github.com/hanzoai/persona",
+      "license": "MIT",
+      "keywords": ["docker", "containers", "microservices", "devops"],
+      "category": "personalities",
+      "strict": false,
+      "agents": []
+    },
+    {
+      "name": "hanzo-terraform",
+      "source": "./",
+      "description": "Infrastructure as Code - Terraform, Pulumi, CloudFormation specialists",
+      "version": "1.0.0",
+      "author": {
+        "name": "Hanzo AI",
+        "email": "dev@hanzo.ai",
+        "url": "https://github.com/hanzoai"
+      },
+      "homepage": "https://github.com/hanzoai/persona",
+      "repository": "https://github.com/hanzoai/persona",
+      "license": "MIT",
+      "keywords": ["terraform", "iac", "infrastructure-as-code", "cloud", "hashicorp"],
       "category": "personalities",
       "strict": false,
       "agents": []
@@ -141,9 +213,9 @@
       "agents": []
     },
     {
-      "name": "hanzo-special",
+      "name": "hanzo-minimalist",
       "source": "./",
-      "description": "Special configurations - 10x Engineer, Minimalist, Cloud Native, ML Engineer (5 personas)",
+      "description": "Clean code advocates - Simplicity-first, Unix philosophy, minimal dependencies",
       "version": "1.0.0",
       "author": {
         "name": "Hanzo AI",
@@ -153,7 +225,133 @@
       "homepage": "https://github.com/hanzoai/persona",
       "repository": "https://github.com/hanzoai/persona",
       "license": "MIT",
-      "keywords": ["special", "10x", "minimalist", "cloud-native", "productivity"],
+      "keywords": ["minimalist", "simple", "unix-philosophy", "clean-code"],
+      "category": "personalities",
+      "strict": false,
+      "agents": []
+    },
+    {
+      "name": "hanzo-10x",
+      "source": "./",
+      "description": "Maximum productivity - All tools enabled, full-stack mastery, extreme efficiency",
+      "version": "1.0.0",
+      "author": {
+        "name": "Hanzo AI",
+        "email": "dev@hanzo.ai",
+        "url": "https://github.com/hanzoai"
+      },
+      "homepage": "https://github.com/hanzoai/persona",
+      "repository": "https://github.com/hanzoai/persona",
+      "license": "MIT",
+      "keywords": ["10x", "productivity", "efficiency", "fullstack"],
+      "category": "personalities",
+      "strict": false,
+      "agents": []
+    },
+    {
+      "name": "hanzo-react",
+      "source": "./",
+      "description": "React ecosystem - Jordan Walke, Dan Abramov, Sebastian Markbåge - modern frontend patterns",
+      "version": "1.0.0",
+      "author": {
+        "name": "Hanzo AI",
+        "email": "dev@hanzo.ai",
+        "url": "https://github.com/hanzoai"
+      },
+      "homepage": "https://github.com/hanzoai/persona",
+      "repository": "https://github.com/hanzoai/persona",
+      "license": "MIT",
+      "keywords": ["react", "frontend", "javascript", "hooks", "jsx"],
+      "category": "personalities",
+      "strict": false,
+      "agents": []
+    },
+    {
+      "name": "hanzo-python",
+      "source": "./",
+      "description": "Python specialists - Guido van Rossum, Raymond Hettinger, David Beazley - Pythonic excellence",
+      "version": "1.0.0",
+      "author": {
+        "name": "Hanzo AI",
+        "email": "dev@hanzo.ai",
+        "url": "https://github.com/hanzoai"
+      },
+      "homepage": "https://github.com/hanzoai/persona",
+      "repository": "https://github.com/hanzoai/persona",
+      "license": "MIT",
+      "keywords": ["python", "pythonic", "zen-of-python", "guido"],
+      "category": "personalities",
+      "strict": false,
+      "agents": []
+    },
+    {
+      "name": "hanzo-rust",
+      "source": "./",
+      "description": "Rust experts - Memory safety, ownership, zero-cost abstractions, systems programming",
+      "version": "1.0.0",
+      "author": {
+        "name": "Hanzo AI",
+        "email": "dev@hanzo.ai",
+        "url": "https://github.com/hanzoai"
+      },
+      "homepage": "https://github.com/hanzoai/persona",
+      "repository": "https://github.com/hanzoai/persona",
+      "license": "MIT",
+      "keywords": ["rust", "memory-safe", "ownership", "systems"],
+      "category": "personalities",
+      "strict": false,
+      "agents": []
+    },
+    {
+      "name": "hanzo-go",
+      "source": "./",
+      "description": "Go specialists - Rob Pike, Ken Thompson - simplicity, concurrency, and minimalism",
+      "version": "1.0.0",
+      "author": {
+        "name": "Hanzo AI",
+        "email": "dev@hanzo.ai",
+        "url": "https://github.com/hanzoai"
+      },
+      "homepage": "https://github.com/hanzoai/persona",
+      "repository": "https://github.com/hanzoai/persona",
+      "license": "MIT",
+      "keywords": ["go", "golang", "concurrency", "simplicity", "channels"],
+      "category": "personalities",
+      "strict": false,
+      "agents": []
+    },
+    {
+      "name": "hanzo-devops",
+      "source": "./",
+      "description": "DevOps practitioners - CI/CD, automation, infrastructure, GitOps specialists",
+      "version": "1.0.0",
+      "author": {
+        "name": "Hanzo AI",
+        "email": "dev@hanzo.ai",
+        "url": "https://github.com/hanzoai"
+      },
+      "homepage": "https://github.com/hanzoai/persona",
+      "repository": "https://github.com/hanzoai/persona",
+      "license": "MIT",
+      "keywords": ["devops", "cicd", "automation", "infrastructure", "gitops"],
+      "category": "personalities",
+      "strict": false,
+      "agents": []
+    },
+    {
+      "name": "hanzo-security",
+      "source": "./",
+      "description": "Security experts - Bruce Schneier, Phil Zimmermann, cryptography and privacy specialists",
+      "version": "1.0.0",
+      "author": {
+        "name": "Hanzo AI",
+        "email": "dev@hanzo.ai",
+        "url": "https://github.com/hanzoai"
+      },
+      "homepage": "https://github.com/hanzoai/persona",
+      "repository": "https://github.com/hanzoai/persona",
+      "license": "MIT",
+      "keywords": ["security", "cryptography", "privacy", "pgp", "encryption"],
       "category": "personalities",
       "strict": false,
       "agents": []
