@@ -1,235 +1,98 @@
-# 🧠 Persona - Legendary Personalities
+# Hanzo Personas
 
-A comprehensive repository of legendary personalities with detailed psychological profiles, development philosophies, and tool preferences. Designed for AI agents, development environments, and educational purposes.
+712 personality profiles for AI agents, grounded in personality psychology.
 
-## Overview
+## Install
 
-This repository contains meticulously crafted personas of legendary programmers, each with:
-- **OCEAN (Big Five) personality traits** scored 0-100
-- **Development philosophy** and approach
-- **Preferred tools and environments**
-- **Historical context and achievements**
-- **Behavioral patterns and decision-making styles**
-
-## OCEAN Model
-
-Each personality is scored on the Big Five personality traits:
-
-- **Openness** (O): Creativity, abstract thinking, intellectual curiosity
-- **Conscientiousness** (C): Organization, attention to detail, goal-oriented behavior
-- **Extraversion** (E): Sociability, assertiveness, energy from interaction
-- **Agreeableness** (A): Cooperation, trust, empathy
-- **Neuroticism** (N): Emotional stability, stress handling, anxiety levels
-
-## Structure
-
-```
-personas/
-├── pioneers/           # Computing pioneers (Ada, Turing, Hopper)
-├── language-creators/  # Programming language designers
-├── systems/           # OS and systems programmers
-├── web/              # Web technology creators
-├── ai-ml/            # AI and ML pioneers
-├── security/         # Security and cryptography experts
-├── gaming/           # Game developers and graphics pioneers
-├── blockchain/       # Cryptocurrency and blockchain innovators
-├── cloud-devops/     # Modern cloud and DevOps leaders
-└── special/          # Special configurations (10x, minimal, etc.)
+```bash
+npm install @hanzo/personas
 ```
 
 ## Usage
 
-### For AI Agents
-```python
-from persona import load_personality
+```javascript
+import { list, get, getProfile, getPersonaMd } from '@hanzo/personas'
 
-# Load a specific personality
-guido = load_personality("guido")
-print(f"Philosophy: {guido.philosophy}")
-print(f"OCEAN: O={guido.ocean.O} C={guido.ocean.C} E={guido.ocean.E} A={guido.ocean.A} N={guido.ocean.N}")
+// List all 712 persona slugs
+const slugs = list()
+
+// Load a persona (profile.json + PERSONA.md)
+const feynman = get('feynman')
+console.log(feynman.profile.ocean)  // { openness: 95, ... }
+console.log(feynman.persona)         // "---\nname: Feynman\n..."
+
+// JSON profile only
+const linus = getProfile('linus')
+
+// PERSONA.md only
+const md = getPersonaMd('north-star')
 ```
 
-### For Development Environments
-```bash
-# Activate a personality mode
-persona activate linus
+## Structure
 
-# List available personalities
-persona list --category=systems
+Each persona lives in `personas/<slug>/`:
 
-# Show detailed profile
-persona show ada --verbose
+```
+personas/
+  ada/
+    profile.json    # compact JSON (OCEAN 0-100, tools, philosophy)
+    PERSONA.md      # rich prose (Big Five 0.0-1.0, 30 NEO PI-R facets, quirks)
+  feynman/
+    profile.json
+    PERSONA.md
+  linus/
+    profile.json    # JSON-only personas (no PERSONA.md yet)
 ```
 
-### For Educational Purposes
-Each persona includes:
-- Historical achievements
-- Key contributions to computing
-- Decision-making patterns
-- Communication styles
-- Learning approaches
+**712 total** — 14 have deep PERSONA.md files, all have JSON profiles.
 
-## Categories
+### profile.json
 
-### 🏛️ Pioneers (12)
-- Ada Lovelace - First programmer
-- Grace Hopper - Compiler pioneer
-- Alan Turing - Computing foundations
-- Edsger Dijkstra - Structured programming
-- And more...
-
-### 💻 Language Creators (20)
-- Dennis Ritchie (C)
-- Bjarne Stroustrup (C++)
-- Guido van Rossum (Python)
-- Yukihiro Matsumoto (Ruby)
-- And more...
-
-### 🖥️ Systems & Infrastructure (15)
-- Linus Torvalds (Linux)
-- Ken Thompson (Unix)
-- Bill Joy (BSD)
-- And more...
-
-### 🌐 Web & Frontend (15)
-- Tim Berners-Lee (WWW)
-- Brendan Eich (JavaScript)
-- DHH (Ruby on Rails)
-- And more...
-
-### 🤖 AI & Machine Learning (15)
-- Geoffrey Hinton
-- Yann LeCun
-- Andrew Ng
-- Ilya Sutskever
-- And more...
-
-### 🔒 Security & Cryptography (10)
-- Bruce Schneier
-- Phil Zimmermann
-- Whitfield Diffie
-- And more...
-
-### 🎮 Gaming & Graphics (10)
-- John Carmack (Doom)
-- Sid Meier (Civilization)
-- Shigeru Miyamoto (Nintendo)
-- And more...
-
-### ⛓️ Blockchain & Crypto (5)
-- Satoshi Nakamoto (Bitcoin)
-- Vitalik Buterin (Ethereum)
-- And more...
-
-### ☁️ Cloud & DevOps (10)
-- Mitchell Hashimoto (HashiCorp)
-- Solomon Hykes (Docker)
-- And more...
-
-### ⚡ Special Configurations (5)
-- 10x Engineer
-- Minimalist
-- Cloud Native
-- ML Engineer
-- Security First
-
-## Schema
-
-Each persona follows this structure:
-
-```yaml
-name: string
-programmer: string
-description: string
-category: string
-tags: [string]
-
-ocean:
-  openness: 0-100
-  conscientiousness: 0-100
-  extraversion: 0-100
-  agreeableness: 0-100
-  neuroticism: 0-100
-
-philosophy: string
-approach: string
-communication_style: string
-decision_making: string
-
-achievements:
-  - string
-
-tools:
-  essential: [string]
-  preferred: [string]
-  domains: [string]
-
-environment:
-  key: value
-
-quotes:
-  - string
-
-behavioral_traits:
-  learning_style: string
-  problem_solving: string
-  collaboration: string
-  leadership: string
-  innovation: string
-
-historical_context: string
-influence: string
-legacy: string
-```
-
-## Contributing
-
-We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on:
-- Adding new personalities
-- Improving OCEAN assessments
-- Enhancing biographical information
-- Updating tool preferences
-
-## Research & References
-
-The OCEAN scores and personality assessments are based on:
-- Biographical accounts
-- Published interviews
-- Historical documentation
-- Behavioral analysis of public communications
-- Peer testimonials and observations
-
-## Applications
-
-This repository can be used for:
-- **AI Agent Personality Modeling**: Give AI agents authentic programmer personalities
-- **Development Environment Customization**: Configure IDEs and tools based on preferences
-- **Educational Tools**: Teach programming history and philosophies
-- **Research**: Study personality traits in software development
-- **Gamification**: Create programmer personality quizzes and games
-
-## License
-
-MIT License - See [LICENSE](LICENSE) for details
-
-## Citation
-
-If you use this repository in research or applications, please cite:
-```
-@misc{hanzo-persona,
-  title = {Persona: Legendary Programmer Personalities},
-  author = {Hanzo AI},
-  year = {2025,
-  url = {https://github.com/hanzoai/persona}
+```json
+{
+  "id": "feynman",
+  "name": "Richard Feynman",
+  "category": "pioneer",
+  "ocean": { "openness": 95, "conscientiousness": 72, "extraversion": 80, "agreeableness": 50, "neuroticism": 30 },
+  "philosophy": "If you can't explain it simply, you don't understand it",
+  "tools": { "essential": ["read", "write", "think"], "domains": ["physics", "pedagogy"] }
 }
 ```
 
-## Related Projects
+### PERSONA.md
 
-- [Hanzo MCP](https://github.com/hanzoai/mcp) - Model Context Protocol implementation
-- [Hanzo Python SDK](https://github.com/hanzoai/python-sdk) - Python client library
-- [Hanzo Extension](https://github.com/hanzoai/extension) - VS Code extension
+Rich persona with 30 NEO PI-R trait facets, HEXACO honesty-humility,
+productive role mapping, cognitive style, working patterns, values, and
+documented quirks sourced from primary materials.
 
----
+See [personas/feynman/PERSONA.md](personas/feynman/PERSONA.md) for an example.
 
-Made with ❤️ by [Hanzo AI](https://hanzo.ai)
+## Categories
+
+| Category | Count | Examples |
+|----------|-------|---------|
+| Pioneers | 12 | Ada Lovelace, Grace Hopper, Alan Turing |
+| Language creators | 20 | Guido van Rossum, Yukihiro Matsumoto |
+| Systems | 15 | Linus Torvalds, Ken Thompson |
+| AI/ML | 15 | Geoffrey Hinton, Yann LeCun |
+| Web | 15 | Tim Berners-Lee, Brendan Eich |
+| Security | 10 | Bruce Schneier, Phil Zimmermann |
+| Thinkers | 300+ | Feynman, Tesla, Dijkstra, Jobs |
+| Archetypes | 5 | North Star, Engineer, Analyst, Mentor, Creative |
+| Real people | 1 | Zeekay |
+
+## Framework
+
+For loaders (Rust, TypeScript, Python), schemas, and validation tools see
+[@hanzo/persona](https://github.com/hanzoai/persona).
+
+## Research basis
+
+- **Big Five** (Costa & McCrae, 1992) — OCEAN traits
+- **NEO PI-R** (Costa & McCrae, 1992) — 30 facet subscales
+- **HEXACO** (Ashton & Lee, 2007) — Honesty-Humility factor
+- **Belbin team roles** (1981) — productive role mapping
+
+## License
+
+MIT

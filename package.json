@@ -1,32 +1,34 @@
 {
-  "name": "@hanzo/persona",
+  "name": "@hanzo/personas",
   "version": "1.0.0",
-  "description": "Comprehensive personality profiles with OCEAN scores for AI modeling",
-  "main": "profiles/loader.js",
+  "description": "712 personality profiles with Big Five traits, NEO PI-R facets, and PERSONA.md definitions",
   "type": "module",
+  "main": "index.js",
   "exports": {
-    ".": "./profiles/loader.js",
-    "./profiles/*": "./profiles/*",
-    "./index": "./profiles/index.json",
-    "./categories": "./profiles/categories.json"
+    ".": "./index.js",
+    "./personas/*": "./personas/*"
   },
-  "scripts": {
-    "split": "node scripts/split-personalities.js",
-    "validate": "node scripts/validate.js",
-    "test": "node test/test-loader.js"
-  },
+  "files": [
+    "index.js",
+    "personas/**/*.json",
+    "personas/**/*.md",
+    "README.md"
+  ],
   "keywords": [
     "personality",
     "ocean",
     "big-five",
+    "neo-pi-r",
+    "hexaco",
     "psychology",
     "ai",
-    "personas"
+    "personas",
+    "agents"
   ],
   "author": "Hanzo AI",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hanzoai/persona.git"
+    "url": "git+https://github.com/hanzoai/personas.git"
   }
 }
