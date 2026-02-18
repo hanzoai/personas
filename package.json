@@ -8,6 +8,9 @@
     ".": "./index.js",
     "./personas/*": "./personas/*"
   },
+  "scripts": {
+    "test": "node test.js"
+  },
   "files": [
     "index.js",
     "personas/**/*.json",
