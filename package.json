@@ -1,6 +1,6 @@
 {
   "name": "@hanzo/personas",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "712 personality profiles with Big Five traits, NEO PI-R facets, and PERSONA.md definitions",
   "type": "module",
   "main": "index.js",
