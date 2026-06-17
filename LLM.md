@@ -1,4 +1,4 @@
-# LLM.md - Hanzo Personas
+# Hanzo Personas
 
 ## Overview
 712 personality profiles with Big Five traits, NEO PI-R facets, and PERSONA.md definitions
