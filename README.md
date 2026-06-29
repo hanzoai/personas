@@ -1,3 +1,5 @@
+<p align="center"><img src=".github/hero.svg" alt="personas" width="880"></p>
+
 # Hanzo Personas
 
 712 personality profiles for AI agents, grounded in personality psychology.
