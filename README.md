@@ -95,4 +95,4 @@ For loaders (Rust, TypeScript, Python), schemas, and validation tools see
 
 ## License
 
-MIT
+MIT OR Apache-2.0, at your option — see [HIP-0137](https://github.com/hanzoai/hips/blob/main/HIPs/hip-0137-one-license.md).
