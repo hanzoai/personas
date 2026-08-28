@@ -25,8 +25,9 @@ console.log('  ✓ list()')
 // Test getProfile()
 const feynman = getProfile('feynman')
 assert(feynman != null, 'feynman profile should exist')
-assert(feynman && feynman.ocean, 'Should have ocean scores')
-assert(feynman && typeof feynman.ocean.openness === 'number', 'openness should be number')
+assert(feynman && typeof feynman.name === 'string', 'profile should carry a name')
+assert(feynman && typeof feynman.category === 'string', 'profile should carry a category')
+assert(feynman && feynman.ocean === undefined, 'no generated psychometrics')
 console.log('  ✓ getProfile()')
 
 // Test getProfile() missing

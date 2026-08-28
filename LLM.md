@@ -1,7 +1,8 @@
 # Hanzo Personas
 
 ## Overview
-712 personality profiles with Big Five traits, NEO PI-R facets, and PERSONA.md definitions
+A roster of 715 figures (id, name, category) and 19 hand-written PERSONA.md
+definitions carrying Big Five traits and NEO PI-R facets as authored judgement.
 
 ## Tech Stack
 - **Language**: TypeScript/JavaScript
