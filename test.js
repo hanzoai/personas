@@ -15,7 +15,15 @@ function assert(condition, msg) {
 // Test list()
 const slugs = list()
 console.log('list():', slugs.length, 'personas')
-assert(slugs.length >= 700, 'Expected 700+ personas, got ' + slugs.length)
+assert(slugs.length >= 600, 'Expected 600+ personas, got ' + slugs.length)
+
+// One entry per person. The generator stored each enrichment pass as its own
+// persona - Marie Curie was four people - so a raw count passed while the
+// corpus was 12% redundant. Uniqueness is what was actually broken.
+const rosterNames = slugs.map((s) => (getProfile(s) || {}).name).filter(Boolean)
+const rosterDupes = rosterNames.filter((n, i) => rosterNames.indexOf(n) !== i)
+assert(rosterDupes.length === 0, 'Duplicate names: ' + [...new Set(rosterDupes)].slice(0, 5).join(', '))
+console.log('  OK one entry per person (' + rosterNames.length + ' names, 0 duplicates)')
 assert(slugs.includes('feynman'), 'Should include feynman')
 assert(slugs.includes('zeekay'), 'Should include zeekay')
 assert(slugs.includes('north-star'), 'Should include north-star')
