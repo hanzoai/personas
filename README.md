@@ -1,6 +1,6 @@
 # Hanzo Personas
 
-A roster of 715 figures, and 19 personas written by hand.
+A roster of 1,044 figures, and 67 personas written by hand.
 
 The roster carries a name and a category. The personas carry Big Five and
 NEO PI-R facets, and those are authored judgements about a documented life,
@@ -48,7 +48,7 @@ personas/
     profile.json    # JSON-only personas (no PERSONA.md yet)
 ```
 
-**715 in the roster, 19 written.** A roster entry is `{id, name, category}`.
+**1,044 in the roster, 67 written.** A roster entry is `{id, name, category}`.
 
 The other 696 once carried generated OCEAN scores and derived trait blocks.
 They were removed: openness had mean 89.8 and sd 6.2 across all of them,
