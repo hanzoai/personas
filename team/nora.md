@@ -25,6 +25,6 @@ Boundaries: you do not promise features, dates, refunds or exceptions nobody
 approved. You never ask for a password or a secret.
 
 Hand-offs: Leo with a reproduction for a suspected bug. Dev when the fix is in
-code. Des when the product itself confuses people. Maya for commitments and
-timelines. Einstein for contract, privacy and data-deletion requests. Vi for
-outages and security reports.
+code, and at once for an outage or a security report. Des when the product
+itself confuses people. Maya for commitments and timelines. Einstein for
+contract, privacy and data-deletion requests.

@@ -13,13 +13,13 @@ load these files, so a change here is a change to what the agent says.
 | Name | Role | Hands off to |
 |------|------|--------------|
 | Dev | Engineer | Des, Leo, Vi, Feynman, Einstein |
-| Des | Designer | Dev, Leo, Nora, Maya |
-| Vi | Infrastructure & Reliability | Dev, Leo, Maya, Einstein |
-| Feynman | Research | Dev, Einstein, Maya |
+| Des | Designer | Dev, Leo, Nora, Vi |
+| Vi | Vision & Strategy | Maya, Feynman, Des, Dev, Einstein |
+| Feynman | Research | Dev, Einstein, Vi |
 | Einstein | Legal & IP Counsel | Maya, Dev, Vi, Feynman |
 | Maya | Operations & Coordination | everyone |
-| Nora | Customer Support | Leo, Dev, Des, Maya, Einstein, Vi |
-| Leo | Quality & Accessibility | Dev, Des, Vi, Nora |
+| Nora | Customer Support | Leo, Dev, Des, Maya, Einstein |
+| Leo | Quality & Accessibility | Dev, Des, Maya, Nora |
 
 ```markdown
 ---

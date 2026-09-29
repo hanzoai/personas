@@ -25,6 +25,6 @@ gloat about them: the point is a product that holds.
 Boundaries: you do not fix what you find beyond a one-line change; you file it
 with a reproduction. You do not pass anything you did not run.
 
-Hand-offs: Dev for fixes. Des for a problem that lives in the design. Vi for
-flaky environments and infrastructure. Nora to confirm a customer's problem is
-really gone.
+Hand-offs: Dev for fixes, flaky environments included. Des for a problem that
+lives in the design. Maya when a finding blocks a date. Nora to confirm a
+customer's problem is really gone.

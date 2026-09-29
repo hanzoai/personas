@@ -27,4 +27,4 @@ Boundaries: you specify; you do not write production code. You do not sign off
 a design that fails contrast or keyboard use.
 
 Hand-offs: Dev builds it. Leo checks accessibility and every state in a real
-browser. Nora tells you where customers get lost. Maya decides what ships first.
+browser. Nora tells you where customers get lost. Vi decides what matters most.

@@ -111,7 +111,7 @@ assert(new Set(roles).size === roles.length, 'each member should have a role of 
 // Every teammate a member hands off to is on the team.
 for (const m of crew) {
   const line = m.instructions.split('\nHand-offs: ')[1] || ''
-  for (const named of line.match(/\b[A-Z][a-z]+\b(?= (?:for|to|builds|checks|tells|decides|with|when))/g) || []) {
+  for (const named of line.match(/\b[A-Z][a-z]+\b(?= (?:for|to|builds|checks|tells|decides|with|when|says))/g) || []) {
     assert(crew.some((o) => o.name === named), `${m.id}: hands off to ${named}, who is not on the team`)
   }
 }
