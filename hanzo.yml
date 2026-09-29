@@ -1,0 +1,7 @@
+# Read by the hanzoai/ci reusable (.hanzo/workflows/cicd.yml) and by
+# platform.hanzo.ai. No `images:`: personas is data, published as a tag.
+test:
+  - name: node
+    run: node test.js
+  - name: go
+    run: go test ./...

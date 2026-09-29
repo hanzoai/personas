@@ -1,4 +1,4 @@
-import { list, get, getProfile, getPersonaMd, all } from './index.js'
+import { list, get, getProfile, getPersonaMd, all, member, team, parse } from './index.js'
 
 let passed = 0
 let failed = 0
@@ -81,6 +81,52 @@ const z = get('zeekay')
 assert(z && z.profile && z.persona, 'zeekay should have both profile and PERSONA.md')
 assert(z && z.persona && z.persona.includes('Architect'), 'zeekay PERSONA.md should mention Architect')
 console.log('  ✓ zeekay persona')
+
+// The core agent team: each member is who the product shows and what the
+// model is told. A name is what a person reads, so it is capitalized; the id is
+// the handle code keys on, so it is the name in lower case.
+const crew = team()
+const ids = crew.map((m) => m.id)
+assert(
+  JSON.stringify(ids) === JSON.stringify(['des', 'dev', 'einstein', 'feynman', 'leo', 'maya', 'nora', 'vi']),
+  'team() should be the eight core members sorted by id, got ' + ids.join(','),
+)
+for (const m of crew) {
+  assert(/^[A-Z][a-z]+$/.test(m.name), `${m.id}: name "${m.name}" should be one capitalized word`)
+  assert(m.name.toLowerCase() === m.id, `${m.id}: id should be the name in lower case`)
+  assert(m.role.length > 0, `${m.id}: should have a role`)
+  assert(/^enso(-[a-z]+)?$/.test(m.model), `${m.id}: model "${m.model}" should be an Enso tier`)
+  assert(m.instructions.startsWith(`You are ${m.name},`), `${m.id}: instructions should open "You are ${m.name},"`)
+  assert(!/\bas an ai\b/i.test(m.instructions), `${m.id}: instructions should not say "as an AI"`)
+  assert(/\nHand-offs: /.test(m.instructions), `${m.id}: instructions should say whom it hands off to`)
+  for (const other of crew) {
+    if (other.id !== m.id && new RegExp(`\\b${other.id}\\b`).test(m.instructions)) {
+      assert(false, `${m.id}: names ${other.id} in lower case; a teammate is written by name`)
+    }
+  }
+  if (m.persona) assert(getProfile(m.persona) != null, `${m.id}: persona ${m.persona} should be in the roster`)
+}
+const roles = crew.map((m) => m.role)
+assert(new Set(roles).size === roles.length, 'each member should have a role of its own')
+// Every teammate a member hands off to is on the team.
+for (const m of crew) {
+  const line = m.instructions.split('\nHand-offs: ')[1] || ''
+  for (const named of line.match(/\b[A-Z][a-z]+\b(?= (?:for|to|builds|checks|tells|decides|with|when))/g) || []) {
+    assert(crew.some((o) => o.name === named), `${m.id}: hands off to ${named}, who is not on the team`)
+  }
+}
+console.log('  ✓ team(): ' + crew.map((m) => `${m.name} (${m.role})`).join(', '))
+
+assert(member('dev') && member('dev').name === 'Dev', 'member(dev) should be Dev')
+assert(member('nobody') === null, 'member() should be null for no such member')
+let refused = false
+try {
+  parse('x', 'no front matter')
+} catch {
+  refused = true
+}
+assert(refused, 'parse() should refuse a file with no front matter')
+console.log('  ✓ member() and parse()')
 
 // Summary
 console.log('')

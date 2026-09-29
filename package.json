@@ -1,11 +1,19 @@
 {
   "name": "@hanzo/personas",
-  "version": "1.0.2",
-  "description": "712 personality profiles with Big Five traits, NEO PI-R facets, and PERSONA.md definitions",
+  "version": "1.0.3",
+  "description": "Hanzo's core agent team (team/*.md) and a roster of 1,044 figures with hand-written PERSONA.md definitions",
   "type": "module",
   "main": "index.js",
   "exports": {
-    ".": "./index.js",
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.js"
+    },
+    "./team.js": {
+      "types": "./team.d.ts",
+      "default": "./team.js"
+    },
+    "./team/*": "./team/*",
     "./personas/*": "./personas/*"
   },
   "scripts": {
@@ -13,6 +21,10 @@
   },
   "files": [
     "index.js",
+    "index.d.ts",
+    "team.js",
+    "team.d.ts",
+    "team/*.md",
     "personas/**/*.json",
     "personas/**/*.md",
     "README.md"
@@ -33,5 +45,6 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hanzoai/personas.git"
-  }
+  },
+  "types": "index.d.ts"
 }

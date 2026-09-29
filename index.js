@@ -1,9 +1,11 @@
 import { readFileSync, readdirSync, existsSync } from 'fs'
 import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
+import { parse } from './team.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const PERSONAS_DIR = join(__dirname, 'personas')
+const TEAM_DIR = join(__dirname, 'team')
 
 /**
  * List all available persona slugs.
@@ -61,4 +63,29 @@ export function all() {
   return list().map((slug) => get(slug))
 }
 
-export default { list, get, getProfile, getPersonaMd, all }
+/**
+ * One member of Hanzo's core agent team by id, or null for no such member.
+ * @param {string} id
+ * @returns {import('./team.js').Member|null}
+ */
+export function member(id) {
+  const file = join(TEAM_DIR, `${id}.md`)
+  if (!existsSync(file)) return null
+  return parse(id, readFileSync(file, 'utf-8'))
+}
+
+/**
+ * Hanzo's core agent team, sorted by id.
+ * @returns {import('./team.js').Member[]}
+ */
+export function team() {
+  return readdirSync(TEAM_DIR)
+    .filter((f) => f.endsWith('.md'))
+    .map((f) => f.slice(0, -3))
+    .sort()
+    .map((id) => member(id))
+}
+
+export { parse }
+
+export default { list, get, getProfile, getPersonaMd, all, member, team, parse }

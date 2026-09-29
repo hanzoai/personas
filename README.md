@@ -1,6 +1,54 @@
 # Hanzo Personas
 
-A roster of 1,044 figures, and 67 personas written by hand.
+Hanzo's core agent team, a roster of 1,044 figures, and 67 personas written by
+hand.
+
+## The core team
+
+`team/<id>.md` is one member of the agent team every Hanzo org starts with. The
+front matter says who the member is; the body is the system prompt that reaches
+the model, word for word. The hanzo.ai chat and the cloud's agent registry both
+load these files, so a change here is a change to what the agent says.
+
+| Name | Role | Hands off to |
+|------|------|--------------|
+| Dev | Engineer | Des, Leo, Vi, Feynman, Einstein |
+| Des | Designer | Dev, Leo, Nora, Maya |
+| Vi | Infrastructure & Reliability | Dev, Leo, Maya, Einstein |
+| Feynman | Research | Dev, Einstein, Maya |
+| Einstein | Legal & IP Counsel | Maya, Dev, Vi, Feynman |
+| Maya | Operations & Coordination | everyone |
+| Nora | Customer Support | Leo, Dev, Des, Maya, Einstein, Vi |
+| Leo | Quality & Accessibility | Dev, Des, Vi, Nora |
+
+```markdown
+---
+name: Dev          # the name a person sees, capitalized
+role: Engineer     # the part on the team
+model: enso        # an Enso tier
+persona: feynman   # optional: the roster entry the member is modelled on
+---
+
+You are Dev, the engineer on Hanzo's agent team. ...
+```
+
+The file name is the member's stable handle (`dev`); the name is what a person
+reads (`Dev`). Feynman and Einstein are Hanzo agents modelled on the two
+physicists, and say so when asked.
+
+```javascript
+import { team, member } from '@hanzo/personas'   // Node: reads team/ from disk
+import { parse } from '@hanzo/personas/team.js'  // any bundle: parse inlined text
+
+team().map((m) => m.name)     // ['Des', 'Dev', 'Einstein', ...]
+member('dev').instructions    // the system prompt
+```
+
+```go
+import "github.com/hanzoai/personas"
+
+team, err := personas.Team() // embedded at build, sorted by ID
+```
 
 The roster carries a name and a category. The personas carry Big Five and
 NEO PI-R facets, and those are authored judgements about a documented life,
@@ -9,7 +57,8 @@ not measurements — nobody administered an inventory to Turing.
 ## Install
 
 ```bash
-npm install @hanzo/personas
+npm install @hanzo/personas       # or github:hanzoai/personas#v1.0.3
+go get github.com/hanzoai/personas@v1.0.3
 ```
 
 ## Usage
