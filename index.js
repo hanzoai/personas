@@ -64,11 +64,13 @@ export function all() {
 }
 
 /**
- * One member of Hanzo's core agent team by id, or null for no such member.
+ * One member of Hanzo's core agent team by id (lower case letters), or null for
+ * no such member.
  * @param {string} id
  * @returns {import('./team.js').Member|null}
  */
 export function member(id) {
+  if (!/^[a-z]+$/.test(id)) return null
   const file = join(TEAM_DIR, `${id}.md`)
   if (!existsSync(file)) return null
   return parse(id, readFileSync(file, 'utf-8'))

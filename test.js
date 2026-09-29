@@ -119,6 +119,8 @@ console.log('  ✓ team(): ' + crew.map((m) => `${m.name} (${m.role})`).join(', 
 
 assert(member('dev') && member('dev').name === 'Dev', 'member(dev) should be Dev')
 assert(member('nobody') === null, 'member() should be null for no such member')
+assert(member('../README') === null, 'member() should read nothing outside team/')
+assert(member('DEV') === null, 'member() should take the id in lower case only')
 let refused = false
 try {
   parse('x', 'no front matter')

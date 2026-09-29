@@ -8,29 +8,34 @@ hand.
 `team/<id>.md` is one member of the agent team every Hanzo org starts with. The
 front matter says who the member is; the body is the system prompt that reaches
 the model, word for word. The hanzo.ai chat and the cloud's agent registry both
-load these files, so a change here is a change to what the agent says.
+load these files at a pinned tag: a new tag, pinned by both, is a change to what
+the agent says.
 
 | Name | Role | Hands off to |
 |------|------|--------------|
 | Dev | Engineer | Des, Leo, Vi, Feynman, Einstein |
 | Des | Designer | Dev, Leo, Nora, Vi |
-| Vi | Vision & Strategy | Maya, Feynman, Des, Dev, Einstein |
-| Feynman | Research | Dev, Einstein, Vi |
+| Vi | Strategist | Maya, Feynman, Des, Dev, Einstein |
+| Feynman | Researcher | Dev, Einstein, Vi |
 | Einstein | Legal & IP Counsel | Maya, Dev, Vi, Feynman |
-| Maya | Operations & Coordination | everyone |
-| Nora | Customer Support | Leo, Dev, Des, Maya, Einstein |
-| Leo | Quality & Accessibility | Dev, Des, Maya, Nora |
+| Maya | Chief of Staff | everyone |
+| Nora | Support Lead | Leo, Dev, Des, Maya, Einstein |
+| Leo | Quality & Accessibility Engineer | Dev, Des, Maya, Nora |
 
 ```markdown
 ---
-name: Dev          # the name a person sees, capitalized
-role: Engineer     # the part on the team
-model: enso        # an Enso tier
-persona: feynman   # optional: the roster entry the member is modelled on
+name: Dev
+role: Engineer
+model: enso
 ---
 
 You are Dev, the engineer on Hanzo's agent team. ...
 ```
+
+`name` is what a person sees, capitalized. `role` is the member's part on the
+team. `model` is an Enso tier. `persona`, optional, is the roster slug the member
+is modelled on (`feynman`). Front matter is flat `key: value` lines with no
+comments or quotes, and the file uses LF line endings.
 
 The file name is the member's stable handle (`dev`); the name is what a person
 reads (`Dev`). Feynman and Einstein are Hanzo agents modelled on the two
@@ -57,8 +62,8 @@ not measurements — nobody administered an inventory to Turing.
 ## Install
 
 ```bash
-npm install github:hanzoai/personas#v1.0.4
-go get github.com/hanzoai/personas@v1.0.4
+npm install github:hanzoai/personas#v1.0.5
+go get github.com/hanzoai/personas@v1.0.5
 ```
 
 ## Usage
