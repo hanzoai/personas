@@ -57,8 +57,8 @@ not measurements — nobody administered an inventory to Turing.
 ## Install
 
 ```bash
-npm install @hanzo/personas       # or github:hanzoai/personas#v1.0.3
-go get github.com/hanzoai/personas@v1.0.3
+npm install github:hanzoai/personas#v1.0.4
+go get github.com/hanzoai/personas@v1.0.4
 ```
 
 ## Usage
