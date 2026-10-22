@@ -8,7 +8,7 @@ import (
 	"testing"
 )
 
-// TestTeam checks what a consumer relies on: eight members, each named for a
+// TestTeam checks what a consumer relies on: nine members, each named for a
 // person to read, keyed by the lower-case handle, on an Enso tier, with a
 // system prompt that opens with the member's own name.
 func TestTeam(t *testing.T) {
@@ -20,7 +20,7 @@ func TestTeam(t *testing.T) {
 	for _, m := range team {
 		ids = append(ids, m.ID)
 	}
-	if got, want := strings.Join(ids, ","), "des,dev,einstein,feynman,leo,maya,nora,vi"; got != want {
+	if got, want := strings.Join(ids, ","), "des,dev,einstein,feynman,mark,opera,qual,su,vi"; got != want {
 		t.Fatalf("team = %s, want %s", got, want)
 	}
 	word := regexp.MustCompile(`^[A-Z][a-z]+$`)
@@ -40,6 +40,9 @@ func TestTeam(t *testing.T) {
 			t.Errorf("%s and %s share the role %q", other, m.ID, m.Role)
 		}
 		roles[m.Role] = m.ID
+		if m.Persona == "" && !strings.HasPrefix(strings.ToLower(m.Role), m.ID) {
+			t.Errorf("%s: a role-based member's id should be a prefix of its role %q", m.ID, m.Role)
+		}
 		if m.Persona != "" {
 			if _, err := os.Stat(filepath.Join("personas", m.Persona, "profile.json")); err != nil {
 				t.Errorf("%s: persona %q is not in the roster", m.ID, m.Persona)
@@ -63,7 +66,7 @@ func TestParseMatchesTheFile(t *testing.T) {
 	if m.Instructions != strings.TrimSpace(body) {
 		t.Fatal("instructions differ from the file's body")
 	}
-	if m.Name != "Dev" || m.Role != "Engineer" || m.Model != "enso" || m.Persona != "" {
+	if m.Name != "Dev" || m.Role != "Developer" || m.Model != "enso" || m.Persona != "" {
 		t.Fatalf("dev = %+v", m)
 	}
 }

@@ -13,14 +13,18 @@ the agent says.
 
 | Name | Role | Hands off to |
 |------|------|--------------|
-| Dev | Engineer | Des, Leo, Vi, Feynman, Einstein |
-| Des | Designer | Dev, Leo, Nora, Vi |
-| Vi | Strategist | Maya, Feynman, Des, Dev, Einstein |
+| Dev | Developer | Des, Qual, Vi, Feynman, Einstein |
+| Des | Designer | Dev, Qual, Su, Vi |
+| Vi | Visionary | Opera, Mark, Feynman, Des, Dev, Einstein |
 | Feynman | Researcher | Dev, Einstein, Vi |
-| Einstein | Legal & IP Counsel | Maya, Dev, Vi, Feynman |
-| Maya | Chief of Staff | everyone |
-| Nora | Support Lead | Leo, Dev, Des, Maya, Einstein |
-| Leo | Quality & Accessibility Engineer | Dev, Des, Maya, Nora |
+| Einstein | Legal & IP Counsel | Opera, Dev, Vi, Feynman |
+| Mark | Marketing | Vi, Des, Dev, Feynman, Einstein, Su, Opera |
+| Opera | Operations | everyone |
+| Su | Support | Qual, Dev, Des, Opera, Einstein |
+| Qual | Quality | Dev, Des, Opera, Su |
+
+A role-based member's name is a prefix of its role (Dev, Developer; Su, Support);
+a member modelled on a person (Feynman, Einstein) keeps the person's name.
 
 ```markdown
 ---

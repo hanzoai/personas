@@ -88,8 +88,8 @@ console.log('  ✓ zeekay persona')
 const crew = team()
 const ids = crew.map((m) => m.id)
 assert(
-  JSON.stringify(ids) === JSON.stringify(['des', 'dev', 'einstein', 'feynman', 'leo', 'maya', 'nora', 'vi']),
-  'team() should be the eight core members sorted by id, got ' + ids.join(','),
+  JSON.stringify(ids) === JSON.stringify(['des', 'dev', 'einstein', 'feynman', 'mark', 'opera', 'qual', 'su', 'vi']),
+  'team() should be the nine core members sorted by id, got ' + ids.join(','),
 )
 for (const m of crew) {
   assert(/^[A-Z][a-z]+$/.test(m.name), `${m.id}: name "${m.name}" should be one capitalized word`)
@@ -104,6 +104,7 @@ for (const m of crew) {
       assert(false, `${m.id}: names ${other.id} in lower case; a teammate is written by name`)
     }
   }
+  if (!m.persona) assert(m.role.toLowerCase().startsWith(m.id), `${m.id}: a role-based member's id should be a prefix of its role "${m.role}"`)
   if (m.persona) assert(getProfile(m.persona) != null, `${m.id}: persona ${m.persona} should be in the roster`)
 }
 const roles = crew.map((m) => m.role)
