@@ -9,6 +9,7 @@ import (
 	"fmt"
 	"path"
 	"sort"
+	"strconv"
 	"strings"
 )
 
@@ -23,6 +24,11 @@ type Member struct {
 	Name string
 	// Group is the department it belongs to: "Engineering & Intelligence".
 	Group string
+	// Seat is the display order; Owns names the accountable business function.
+	Seat int
+	Owns string
+	// Tools are requested subsystems, never implicit permission grants.
+	Tools []string
 	// Role is the function it fills: "Development".
 	Role string
 	// Model is the model the member runs on: an Enso tier.
@@ -80,10 +86,20 @@ func Parse(id, text string) (Member, error) {
 			return Member{}, fmt.Errorf("personas: team/%s.md has no %s", id, k)
 		}
 	}
+	seat, _ := strconv.Atoi(meta["seat"])
+	var tools []string
+	for _, value := range strings.Split(meta["tools"], ",") {
+		if value = strings.TrimSpace(value); value != "" {
+			tools = append(tools, value)
+		}
+	}
 	return Member{
 		ID:           id,
 		Name:         meta["name"],
 		Group:        meta["group"],
+		Seat:         seat,
+		Owns:         meta["owns"],
+		Tools:        tools,
 		Role:         meta["role"],
 		Model:        meta["model"],
 		Instructions: strings.TrimSpace(body),

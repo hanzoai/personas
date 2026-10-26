@@ -1,6 +1,6 @@
 {
   "name": "@hanzo/personas",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Hanzo's core agent team (team/*.md), the people who lead it (people/*.md), the persona schema, the OCEAN test, and a roster of 1,044 figures",
   "type": "module",
   "main": "dist/index.js",
@@ -30,12 +30,23 @@
     "./people/*": "./people/*",
     "./personas/*": "./personas/*",
     "./assets/*": "./assets/*",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./company.js": {
+      "types": "./dist/company.d.ts",
+      "default": "./dist/company.js"
+    },
+    "./company.json": "./company.json",
+    "./dev.js": {
+      "types": "./dist/dev.d.ts",
+      "default": "./dist/dev.js"
+    }
   },
   "scripts": {
     "build": "tsc -p .",
     "test": "node --test src/*.test.ts && go test ./...",
-    "prepack": "npm run build"
+    "prepack": "npm run build",
+    "company:defaults": "node tools/company-defaults.ts",
+    "dev:defaults": "node tools/dev-defaults.ts"
   },
   "files": [
     "dist",
@@ -48,7 +59,9 @@
     "README.md",
     "LICENSE",
     "LICENSE-MIT",
-    "LICENSE-APACHE"
+    "LICENSE-APACHE",
+    "company.json",
+    "COMPANY.md"
   ],
   "keywords": [
     "personality",

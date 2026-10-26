@@ -28,7 +28,7 @@ export interface Member {
   ocean: Ocean | null
   /** How `ocean` came to be: `designed` for a managed teammate's role. */
   profile: 'designed' | null
-  /** The cloud subsystems it should use: the tool names an agent made from it is granted. */
+  /** Requested cloud subsystems; the host must authorize actual tool access. */
   tools: string[]
   /** Its first message to a person. */
   greeting: string
