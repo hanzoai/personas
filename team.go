@@ -21,12 +21,12 @@ type Member struct {
 	ID string
 	// Name is the name a person sees: "Dev".
 	Name string
-	// Role is the member's part on the team: "Engineer".
+	// Group is the department it belongs to: "Engineering & Intelligence".
+	Group string
+	// Role is the function it fills: "Development".
 	Role string
 	// Model is the model the member runs on: an Enso tier.
 	Model string
-	// Persona is the slug under personas/ the member is modelled on, or "".
-	Persona string
 	// Instructions is the system prompt, word for word.
 	Instructions string
 }
@@ -83,9 +83,9 @@ func Parse(id, text string) (Member, error) {
 	return Member{
 		ID:           id,
 		Name:         meta["name"],
+		Group:        meta["group"],
 		Role:         meta["role"],
 		Model:        meta["model"],
-		Persona:      meta["persona"],
 		Instructions: strings.TrimSpace(body),
 	}, nil
 }

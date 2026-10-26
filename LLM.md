@@ -2,15 +2,18 @@
 
 ## Overview
 A roster of 1,044 figures (id, name, category) and 67 hand-written PERSONA.md
-definitions carrying Big Five traits and NEO PI-R facets as authored judgement.
+definitions carrying Big Five traits and NEO PI-R facets as authored judgement;
+Hanzo's thirty-two managed agents (team/, six departments), the people who lead it (people/), the one
+persona schema and compiler, and the public-domain IPIP OCEAN test (src/). README.md
+says what each is and the rules (consent for a living person; designed profiles).
 
 ## Tech Stack
-- **Language**: TypeScript/JavaScript
+- **Language**: TypeScript (src/ builds to dist/); Go reads team/ for the cloud
 
 ## Build & Run
 ```bash
 npm install && npm run build
-npm test
+npm test            # node --test "src/*.test.ts" && go test ./...
 ```
 
 ## Structure

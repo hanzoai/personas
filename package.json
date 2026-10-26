@@ -1,30 +1,48 @@
 {
   "name": "@hanzo/personas",
-  "version": "1.0.6",
-  "description": "Hanzo's core agent team (team/*.md) and a roster of 1,044 figures with hand-written PERSONA.md definitions",
+  "version": "1.1.0",
+  "description": "Hanzo's core agent team (team/*.md), the people who lead it (people/*.md), the persona schema, the OCEAN test, and a roster of 1,044 figures",
   "type": "module",
-  "main": "index.js",
+  "main": "dist/index.js",
   "exports": {
     ".": {
-      "types": "./index.d.ts",
-      "default": "./index.js"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
     },
     "./team.js": {
-      "types": "./team.d.ts",
-      "default": "./team.js"
+      "types": "./dist/team.d.ts",
+      "default": "./dist/team.js"
     },
+    "./persona.js": {
+      "types": "./dist/persona.d.ts",
+      "default": "./dist/persona.js"
+    },
+    "./ocean.js": {
+      "types": "./dist/ocean.d.ts",
+      "default": "./dist/ocean.js"
+    },
+    "./compile.js": {
+      "types": "./dist/compile.d.ts",
+      "default": "./dist/compile.js"
+    },
+    "./schema/*": "./schema/*",
     "./team/*": "./team/*",
-    "./personas/*": "./personas/*"
+    "./people/*": "./people/*",
+    "./personas/*": "./personas/*",
+    "./assets/*": "./assets/*",
+    "./package.json": "./package.json"
   },
   "scripts": {
-    "test": "node test.js"
+    "build": "tsc -p .",
+    "test": "node --test src/*.test.ts && go test ./...",
+    "prepack": "npm run build"
   },
   "files": [
-    "index.js",
-    "index.d.ts",
-    "team.js",
-    "team.d.ts",
+    "dist",
     "team/*.md",
+    "people/*.md",
+    "schema/*.json",
+    "assets",
     "personas/**/*.json",
     "personas/**/*.md",
     "README.md",
@@ -49,5 +67,9 @@
     "type": "git",
     "url": "git+https://github.com/hanzoai/personas.git"
   },
-  "types": "index.d.ts"
+  "types": "dist/index.d.ts",
+  "devDependencies": {
+    "typescript": "^7.0.2",
+    "@types/node": "^24.0.0"
+  }
 }

@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hanzo.ai/schemas/persona.json",
+  "title": "Persona",
+  "description": "Who someone is: identity, temperament, voice, knowledge, limits and provenance. src/persona.ts is the same schema in TypeScript.",
+  "type": "object",
+  "required": ["handle", "name", "provenance"],
+  "additionalProperties": false,
+  "$defs": {
+    "score": { "type": "number", "minimum": 0, "maximum": 1 },
+    "strings": { "type": "array", "items": { "type": "string", "maxLength": 200 }, "maxItems": 24 }
+  },
+  "properties": {
+    "handle": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{1,31}$" },
+    "name": { "type": "string", "minLength": 1, "maxLength": 80 },
+    "role": { "type": "string", "maxLength": 80 },
+    "bio": { "type": "string", "maxLength": 280 },
+    "avatar": { "type": "string", "maxLength": 512 },
+    "ocean": {
+      "type": "object",
+      "required": ["domains", "source"],
+      "additionalProperties": false,
+      "properties": {
+        "domains": {
+          "type": "object",
+          "required": ["openness", "conscientiousness", "extraversion", "agreeableness", "neuroticism"],
+          "additionalProperties": false,
+          "properties": {
+            "openness": { "$ref": "#/$defs/score" },
+            "conscientiousness": { "$ref": "#/$defs/score" },
+            "extraversion": { "$ref": "#/$defs/score" },
+            "agreeableness": { "$ref": "#/$defs/score" },
+            "neuroticism": { "$ref": "#/$defs/score" }
+          }
+        },
+        "facets": { "type": "object", "additionalProperties": { "$ref": "#/$defs/score" } },
+        "source": { "enum": ["test", "authored", "designed"] },
+        "instrument": {
+          "type": "object",
+          "required": ["name", "version", "items"],
+          "properties": { "name": { "type": "string" }, "version": { "type": "string" }, "items": { "type": "integer" }, "at": { "type": "string", "format": "date-time" } }
+        }
+      },
+      "if": { "properties": { "source": { "const": "test" } } },
+      "then": { "required": ["instrument"] }
+    },
+    "voice": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "style": { "type": "string", "maxLength": 200 },
+        "tone": { "type": "string", "maxLength": 200 },
+        "vocabulary": { "$ref": "#/$defs/strings" },
+        "humor": { "type": "string", "maxLength": 200 }
+      }
+    },
+    "expertise": { "$ref": "#/$defs/strings" },
+    "values": { "$ref": "#/$defs/strings" },
+    "boundaries": { "$ref": "#/$defs/strings" },
+    "knowledge": {
+      "type": "array",
+      "maxItems": 24,
+      "items": { "type": "object", "required": ["title", "url"], "properties": { "title": { "type": "string" }, "url": { "type": "string", "format": "uri" } } }
+    },
+    "links": { "type": "object", "additionalProperties": { "type": "string" } },
+    "provenance": {
+      "type": "object",
+      "required": ["kind", "consent"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": { "enum": ["self", "team", "historical", "fictional", "other"] },
+        "author": { "type": "string" },
+        "basedOn": { "type": "string" },
+        "sources": { "type": "array", "items": { "type": "string" } },
+        "consent": {
+          "type": "object",
+          "required": ["status"],
+          "properties": { "status": { "enum": ["recorded", "pending", "not-required"] }, "by": { "type": "string" }, "at": { "type": "string", "format": "date-time" } },
+          "if": { "properties": { "status": { "const": "recorded" } } },
+          "then": { "required": ["by"] }
+        }
+      },
+      "allOf": [
+        { "if": { "properties": { "kind": { "const": "self" } } }, "then": { "properties": { "consent": { "properties": { "status": { "enum": ["recorded", "pending"] } } } } } },
+        { "if": { "properties": { "kind": { "const": "historical" } } }, "then": { "required": ["sources"], "properties": { "sources": { "minItems": 1 } } } }
+      ]
+    },
+    "license": { "type": "string" },
+    "share": { "enum": ["private", "org", "link", "market"] }
+  }
+}

@@ -2,6 +2,9 @@
 # platform.hanzo.ai. No `images:`: personas is data, published as a tag.
 test:
   - name: node
-    run: node test.js
+    run: |
+      npm install
+      npm run build
+      node --test "src/*.test.ts"
   - name: go
     run: go test ./...
