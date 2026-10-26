@@ -2,6 +2,10 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { parse, parsePerson, type Member, type Person } from './team.ts'
+import { buildCompanyDefaults, type CompanyPolicy } from './company.ts'
+
+export { buildCompanyDefaults, composeCompanyInstructions, type CompanyPolicy, type EmployeeDefault } from './company.ts'
+export { devConfigFiles } from './dev.ts'
 
 export { grouped, parse, parsePerson, speaks, type Member, type Person } from './team.ts'
 export { compile, tokens } from './compile.ts'
@@ -14,6 +18,16 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
 const PERSONAS_DIR = join(ROOT, 'personas')
 const TEAM_DIR = join(ROOT, 'team')
 const PEOPLE_DIR = join(ROOT, 'people')
+
+/** Read a fresh copy so callers cannot alter another organization's defaults. */
+export function companyPolicy(): CompanyPolicy {
+  return JSON.parse(readFileSync(join(ROOT, 'company.json'), 'utf8')) as CompanyPolicy
+}
+
+/** Opt-in operating defaults for the same 32 seats, with no tools granted or agents started. */
+export function companyDefaults(): ReturnType<typeof buildCompanyDefaults> {
+  return buildCompanyDefaults(team(), companyPolicy())
+}
 
 /** A roster entry: personas/<slug>/profile.json. */
 export interface Profile {

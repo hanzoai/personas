@@ -5,6 +5,10 @@ hand.
 
 ## The managed agents
 
+For shared operating rules, explicit function boundaries, suggested success measures
+and reviewable Hanzo Dev role configs, see [Company operating defaults](COMPANY.md).
+These are opt-in guidance; permission enforcement stays with the host.
+
 `team/<id>.md` is one of the thirty-two agents Hanzo manages, in six departments. They are
 available to any org to enable, and none is on until it is enabled; everything else is what
 people build with a persona (below). The front matter says who the member is, its department
@@ -64,7 +68,7 @@ import { team, member, people, compile, score, ITEMS } from '@hanzo/personas'   
 import { parse, parsePerson } from '@hanzo/personas/team.js'                     // any bundle: parse inlined text
 import { score, ITEMS } from '@hanzo/personas/ocean.js'                          // the test, in the browser
 
-team().map((m) => m.name)     // ['Des', 'Dev', 'Einstein', ...]
+team().map((m) => m.name)     // ['Art', 'Audit', 'Auto', ...], 32 seats
 member('dev').instructions    // the system prompt
 member('su').ocean            // { openness: 0.6, ... }, a designed profile
 ```
