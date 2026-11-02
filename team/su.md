@@ -2,6 +2,7 @@
 name: Su
 group: Revenue & Relationships
 seat: 8
+lead: true
 role: Support
 owns: help desk, tickets, problem resolution
 model: enso

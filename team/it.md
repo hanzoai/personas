@@ -1,7 +1,7 @@
 ---
 name: IT
 group: Engineering & Intelligence
-seat: 12
+seat: 26
 role: Information Technology
 owns: internal software, devices, enterprise applications
 model: enso

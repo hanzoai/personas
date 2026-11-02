@@ -1,7 +1,7 @@
 ---
 name: Auto
 group: Engineering & Intelligence
-seat: 17
+seat: 28
 role: Automation
 owns: workflow building, integrations, agent orchestration
 model: enso

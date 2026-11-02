@@ -1,7 +1,7 @@
 ---
 name: Law
 group: Governance & Protection
-seat: 28
+seat: 18
 role: Legal
 owns: contracts, IP, legal counsel
 model: enso

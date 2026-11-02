@@ -1,7 +1,7 @@
 ---
 name: Com
 group: Revenue & Relationships
-seat: 10
+seat: 25
 role: Community
 owns: open source, developer relations, communities
 model: enso

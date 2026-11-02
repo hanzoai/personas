@@ -1,7 +1,7 @@
 ---
 name: Rev
 group: Revenue & Relationships
-seat: 7
+seat: 17
 role: Revenue
 owns: pricing, monetization, billing, revenue optimization
 model: enso

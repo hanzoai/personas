@@ -14,7 +14,7 @@ func TestCompanyDefaults(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if defaults.SchemaVersion != 1 || defaults.Entrypoint != "vi" || len(defaults.Members) != 32 {
+	if defaults.SchemaVersion != 1 || defaults.Entrypoint != "vi" || len(defaults.Members) != 34 {
 		t.Fatalf("unexpected company bundle: %+v", defaults)
 	}
 	groups := map[string]bool{}

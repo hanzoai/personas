@@ -1,7 +1,7 @@
 ---
 name: QA
 group: Engineering & Intelligence
-seat: 14
+seat: 27
 role: Quality Assurance
 owns: testing, regression, release validation
 model: enso

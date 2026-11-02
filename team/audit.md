@@ -1,7 +1,7 @@
 ---
 name: Audit
 group: Governance & Protection
-seat: 31
+seat: 34
 role: Internal Audit
 owns: independent testing and assurance
 model: enso

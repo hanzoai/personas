@@ -1,7 +1,8 @@
 ---
 name: Huma
 group: Executive & Management
-seat: 4
+seat: 11
+lead: true
 role: Human Resources
 owns: recruiting, talent, people management
 model: enso

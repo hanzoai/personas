@@ -1,7 +1,8 @@
 ---
 name: Mark
 group: Revenue & Relationships
-seat: 6
+seat: 4
+lead: true
 role: Marketing
 owns: brand, campaigns, demand generation
 model: enso

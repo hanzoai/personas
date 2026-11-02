@@ -1,7 +1,8 @@
 ---
 name: Sal
 group: Revenue & Relationships
-seat: 5
+seat: 7
+lead: true
 role: Sales
 owns: prospecting, pipelines, negotiations, closing
 model: enso

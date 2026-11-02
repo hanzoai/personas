@@ -3,7 +3,7 @@
 ## Overview
 A roster of 1,044 figures (id, name, category) and 67 hand-written PERSONA.md
 definitions carrying Big Five traits and NEO PI-R facets as authored judgement;
-Hanzo's thirty-two managed agents (team/, six departments), the people who lead it (people/), the one
+Hanzo's thirty-four managed agents (team/, six departments; the first twelve seats are the grid a roster opens on), the people who lead it (people/), the one
 persona schema and compiler, and the public-domain IPIP OCEAN test (src/). README.md
 says what each is and the rules (consent for a living person; designed profiles).
 

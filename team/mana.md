@@ -1,7 +1,8 @@
 ---
 name: Mana
 group: Executive & Management
-seat: 3
+seat: 12
+lead: true
 role: Management/Product
 owns: projects, roadmaps, prioritization
 model: enso

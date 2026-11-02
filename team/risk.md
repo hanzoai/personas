@@ -1,7 +1,7 @@
 ---
 name: Risk
 group: Governance & Protection
-seat: 30
+seat: 33
 role: Risk Management
 owns: enterprise risk, continuity, assessment
 model: enso

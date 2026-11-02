@@ -2,6 +2,7 @@
 name: Vi
 group: Executive & Management
 seat: 1
+lead: true
 role: CEO/Vision
 owns: corporate strategy, fundraising, executive decisions
 model: enso

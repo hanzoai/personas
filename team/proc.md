@@ -1,7 +1,7 @@
 ---
 name: Proc
 group: Financial & Commercial Infrastructure
-seat: 25
+seat: 29
 role: Procurement
 owns: purchasing, sourcing, vendor negotiations
 model: enso

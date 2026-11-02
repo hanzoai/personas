@@ -26,6 +26,8 @@ type Member struct {
 	Group string
 	// Seat is the display order; Owns names the accountable business function.
 	Seat int
+	// Lead marks the first twelve seats, the grid a roster opens on.
+	Lead bool
 	Owns string
 	// Tools are requested subsystems, never implicit permission grants.
 	Tools []string
@@ -98,6 +100,7 @@ func Parse(id, text string) (Member, error) {
 		Name:         meta["name"],
 		Group:        meta["group"],
 		Seat:         seat,
+		Lead:         meta["lead"] == "true",
 		Owns:         meta["owns"],
 		Tools:        tools,
 		Role:         meta["role"],

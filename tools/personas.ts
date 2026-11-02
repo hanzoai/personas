@@ -1,5 +1,5 @@
 /**
- * Writes team/<id>.md for the thirty-two managed agents from a local model.
+ * Writes team/<id>.md for the thirty-four managed agents from a local model.
  *
  *   node tools/personas.ts [--only fin,law] [--force] [--url http://host:port/v1]
  *
@@ -8,7 +8,7 @@
  * constrains to SCHEMA (json_schema, greedy): the five OCEAN scores 0..100 with a
  * one-line rationale each, voice, expertise, boundaries, the tools to use (from
  * TOOLS, which are names of the cloud's real subsystems), who it hands off to (the
- * other thirty-one) and its first message. Everything is then validated in code
+ * other thirty-three) and its first message. Everything is then validated in code
  * (ranges, names, lengths, the compiled prompt's token budget); an invalid answer
  * is retried with its errors appended, up to ATTEMPTS. The valid answer becomes a
  * Persona, which compile() turns into the prompt, so a team member reads exactly
@@ -51,42 +51,51 @@ interface Seat {
   owns: string
 }
 
+/**
+ * The first LEADS seats are the grid a roster opens on, in seat order; the rest
+ * are listed under it (owner, 2026-11-01: Vi, Fin, Dev, Mark, Opera, Des, Sal, Su,
+ * Cyber, Sci, Huma, Mana). Written to their files as `lead: true`.
+ */
+export const LEADS = 12
+
 const G = ['Executive & Management', 'Revenue & Relationships', 'Engineering & Intelligence', 'Creative & Knowledge', 'Financial & Commercial Infrastructure', 'Governance & Protection'] as const
 const seat = (group: (typeof G)[number], name: string, role: string, owns: string): Seat => ({ id: name.toLowerCase(), name, group, role, owns })
 
 export const ROSTER: Seat[] = [
   seat(G[0], 'Vi', 'CEO/Vision', 'corporate strategy, fundraising, executive decisions'),
-  seat(G[0], 'Opera', 'Operations', 'business execution, operating cadence, coordination'),
-  seat(G[0], 'Mana', 'Management/Product', 'projects, roadmaps, prioritization'),
-  seat(G[0], 'Huma', 'Human Resources', 'recruiting, talent, people management'),
-  seat(G[1], 'Sal', 'Sales', 'prospecting, pipelines, negotiations, closing'),
-  seat(G[1], 'Mark', 'Marketing', 'brand, campaigns, demand generation'),
-  seat(G[1], 'Rev', 'Revenue', 'pricing, monetization, billing, revenue optimization'),
-  seat(G[1], 'Su', 'Support', 'help desk, tickets, problem resolution'),
-  seat(G[1], 'Cust', 'Customer Success', 'onboarding, retention, renewals, account health'),
-  seat(G[1], 'Com', 'Community', 'open source, developer relations, communities'),
+  seat(G[4], 'Fin', 'Finance', 'accounting, treasury, forecasting, budgeting'),
   seat(G[2], 'Dev', 'Development', 'code, engineering, software systems'),
-  seat(G[2], 'IT', 'Information Technology', 'internal software, devices, enterprise applications'),
-  seat(G[2], 'Cyber', 'Cybersecurity', 'security operations, vulnerability management, access security'),
-  seat(G[2], 'QA', 'Quality Assurance', 'testing, regression, release validation'),
-  seat(G[2], 'Data', 'Data & Analytics', 'pipelines, dashboards, intelligence'),
-  seat(G[2], 'Sci', 'Science & Research', 'research, experimentation, innovation'),
-  seat(G[2], 'Auto', 'Automation', 'workflow building, integrations, agent orchestration'),
+  seat(G[1], 'Mark', 'Marketing', 'brand, campaigns, demand generation'),
+  seat(G[0], 'Opera', 'Operations', 'business execution, operating cadence, coordination'),
   seat(G[3], 'Des', 'Design', 'UX/UI, design systems, product experience'),
+  seat(G[1], 'Sal', 'Sales', 'prospecting, pipelines, negotiations, closing'),
+  seat(G[1], 'Su', 'Support', 'help desk, tickets, problem resolution'),
+  seat(G[2], 'Cyber', 'Cybersecurity', 'security operations, vulnerability management, access security'),
+  seat(G[2], 'Sci', 'Science & Research', 'research, experimentation, innovation'),
+  seat(G[0], 'Huma', 'Human Resources', 'recruiting, talent, people management'),
+  seat(G[0], 'Mana', 'Management/Product', 'projects, roadmaps, prioritization'),
+  seat(G[2], 'Data', 'Data & Analytics', 'pipelines, dashboards, intelligence'),
+  seat(G[3], 'Lang', 'Languages & Translation', 'translation, multilingual communication, localization'),
+  seat(G[3], 'Edu', 'Education', 'training, courses, interactive learning'),
   seat(G[3], 'Art', 'Art & Video', 'images, animation, film, visual production'),
+  seat(G[1], 'Rev', 'Revenue', 'pricing, monetization, billing, revenue optimization'),
+  seat(G[5], 'Law', 'Legal', 'contracts, IP, legal counsel'),
+  seat(G[3], 'Vid', 'Video', 'video production, editing, motion, video channels'),
+  seat(G[1], 'Biz', 'Business Development', 'partnerships, alliances, channel and co-selling deals'),
   seat(G[3], 'Mu', 'Music & Audio', 'music, voice production, sound design'),
   seat(G[3], 'Doc', 'Documentation', 'technical docs, knowledge bases, manuals'),
-  seat(G[3], 'Edu', 'Education', 'training, courses, interactive learning'),
-  seat(G[3], 'Lang', 'Languages & Translation', 'translation, multilingual communication, localization'),
-  seat(G[4], 'Fin', 'Finance', 'accounting, treasury, forecasting, budgeting'),
+  seat(G[5], 'Gov', 'Government Affairs', 'public policy, government relationships, regulatory engagement'),
+  seat(G[1], 'Cust', 'Customer Success', 'onboarding, retention, renewals, account health'),
+  seat(G[1], 'Com', 'Community', 'open source, developer relations, communities'),
+  seat(G[2], 'IT', 'Information Technology', 'internal software, devices, enterprise applications'),
+  seat(G[2], 'QA', 'Quality Assurance', 'testing, regression, release validation'),
+  seat(G[2], 'Auto', 'Automation', 'workflow building, integrations, agent orchestration'),
   seat(G[4], 'Proc', 'Procurement', 'purchasing, sourcing, vendor negotiations'),
   seat(G[4], 'Supply', 'Supply Chain', 'logistics, inventory, fulfillment, supplier operations'),
   seat(G[4], 'Corp', 'Corporate Development', 'M&A, acquisitions, divestitures, strategic investments'),
-  seat(G[5], 'Law', 'Legal', 'contracts, IP, legal counsel'),
   seat(G[5], 'Comp', 'Compliance', 'regulatory requirements, monitoring and controls'),
   seat(G[5], 'Risk', 'Risk Management', 'enterprise risk, continuity, assessment'),
   seat(G[5], 'Audit', 'Internal Audit', 'independent testing and assurance'),
-  seat(G[5], 'Gov', 'Government Affairs', 'public policy, government relationships, regulatory engagement'),
 ]
 
 /** Names of the cloud's real subsystems (manifest/apps.go), with what each is where the name does not say. */
@@ -130,7 +139,7 @@ const SCHEMA = {
   },
 } as const
 
-const SYSTEM = `You write the persona of one member of Hanzo's team of thirty-two AI agents, each owning one business function. Hanzo is an AI lab and cloud. Reply with JSON only, in the schema given.
+const SYSTEM = `You write the persona of one member of Hanzo's team of thirty-four AI agents, each owning one business function. Hanzo is an AI lab and cloud. Reply with JSON only, in the schema given.
 
 ocean: the five Big Five domain scores, whole numbers 0 to 100, DESIGNED for what this function asks of its owner, each with a one-line reason that names the work. Use the research: conscientiousness predicts performance in every job, so keep it 60 or more and raise it where errors are costly (finance, audit, security, legal, QA); extraversion matters for people-facing and persuading work (sales, marketing, community, executive) and is lower for solitary, careful work; agreeableness is high for service and community, moderate for management, lower for audit, negotiation and risk, where saying no is the job; neuroticism (emotional reactivity) stays low, 40 or less, for every agent; openness is high for creative, research and strategy work and moderate for compliance and audit. Differ across agents: a profile that is 50 everywhere says nothing.
 voice: style is how it writes (sentence shape, what it leads with); tone is how it sounds. Specific to the function, never "professional and friendly".
@@ -144,7 +153,7 @@ const ask = (s: Seat, errors: string[]): string =>
   [
     `Agent: ${s.name} (id ${s.id}), ${s.role}, in the group "${s.group}".`,
     `Owns: ${s.owns}.`,
-    `The thirty-two: ${ROSTER.map((r) => `${r.id} (${r.role})`).join('; ')}.`,
+    `The thirty-four: ${ROSTER.map((r) => `${r.id} (${r.role})`).join('; ')}.`,
     `Tools you may choose from: ${Object.entries(TOOLS)
       .map(([k, v]) => `${k} (${v})`)
       .join('; ')}.`,
@@ -218,6 +227,7 @@ export function render(s: Seat, spec: Spec): string {
     `name: ${s.name}`,
     `group: ${s.group}`,
     `seat: ${ROSTER.indexOf(s) + 1}`,
+    ...(ROSTER.indexOf(s) < LEADS ? ['lead: true'] : []),
     `role: ${s.role}`,
     `owns: ${s.owns}`,
     'model: enso',

@@ -1,7 +1,7 @@
 ---
 name: Gov
 group: Governance & Protection
-seat: 32
+seat: 23
 role: Government Affairs
 owns: public policy, government relationships, regulatory engagement
 model: enso

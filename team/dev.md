@@ -1,7 +1,8 @@
 ---
 name: Dev
 group: Engineering & Intelligence
-seat: 11
+seat: 3
+lead: true
 role: Development
 owns: code, engineering, software systems
 model: enso

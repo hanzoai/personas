@@ -20,67 +20,11 @@
         "decisions resolved within authority"
       ]
     },
-    "opera": {
-      "boundary": "Own operating cadence, cross-functional dependencies and follow-through; Mana owns project priorities and Auto owns workflow implementation.",
+    "fin": {
+      "boundary": "Own accounting, treasury, forecasts, budgets and revenue recognition. Rev owns pricing and billing operations; Proc owns purchasing. Reconcile invoices and payments against authoritative records.",
       "successMeasures": [
-        "operating commitments met",
-        "blocked dependencies resolved"
-      ]
-    },
-    "mana": {
-      "boundary": "Own product priorities, roadmap and project acceptance criteria; Opera owns company cadence and Dev owns engineering implementation.",
-      "successMeasures": [
-        "accepted project outcomes",
-        "priority-to-delivery lead time"
-      ]
-    },
-    "huma": {
-      "boundary": "Own recruiting and people processes; managers supply role requirements. Restrict personnel records and route employment terms to Law.",
-      "successMeasures": [
-        "hiring cycle time",
-        "onboarding completion"
-      ]
-    },
-    "sal": {
-      "boundary": "Own acquisition pipeline and closing new business. Cust owns account health and renewal coordination; Rev owns pricing policy and billing.",
-      "successMeasures": [
-        "qualified pipeline",
-        "closed revenue within approved terms"
-      ]
-    },
-    "mark": {
-      "boundary": "Own positioning, campaigns and demand generation. Com owns community relationships; Lang owns multilingual adaptation.",
-      "successMeasures": [
-        "qualified demand",
-        "campaign conversion against measured spend"
-      ]
-    },
-    "rev": {
-      "boundary": "Own pricing, monetization and billing operations; Fin owns the accounting ledger, cash reconciliation and revenue recognition.",
-      "successMeasures": [
-        "billing accuracy",
-        "realized monetization against approved pricing"
-      ]
-    },
-    "su": {
-      "boundary": "Own incident tickets and problem resolution. Cust owns adoption and account outcomes; Cyber owns security incident response.",
-      "successMeasures": [
-        "resolution time",
-        "reopen rate"
-      ]
-    },
-    "cust": {
-      "boundary": "Own onboarding, adoption, account health, retention and renewal coordination. Sal owns new-business closing; Rev owns prices and invoice generation.",
-      "successMeasures": [
-        "customer activation",
-        "retention and renewal completion"
-      ]
-    },
-    "com": {
-      "boundary": "Own community and developer relationships; Mark owns paid campaigns, Doc owns reference documentation and Edu owns courses.",
-      "successMeasures": [
-        "resolved community needs",
-        "developer activation"
+        "reconciled cash and ledger",
+        "forecast error and close time"
       ]
     },
     "dev": {
@@ -90,11 +34,39 @@
         "change failure rate"
       ]
     },
-    "it": {
-      "boundary": "Own internal devices, enterprise applications and access administration under Cyber policy; Cyber owns security requirements and Dev owns product engineering.",
+    "mark": {
+      "boundary": "Own positioning, campaigns and demand generation. Com owns community relationships; Lang owns multilingual adaptation.",
       "successMeasures": [
-        "service restoration time",
-        "authorized access changes completed"
+        "qualified demand",
+        "campaign conversion against measured spend"
+      ]
+    },
+    "opera": {
+      "boundary": "Own operating cadence, cross-functional dependencies and follow-through; Mana owns project priorities and Auto owns workflow implementation.",
+      "successMeasures": [
+        "operating commitments met",
+        "blocked dependencies resolved"
+      ]
+    },
+    "des": {
+      "boundary": "Own UX/UI and design systems; Art produces visual assets, Dev implements interfaces and Lang owns localized language.",
+      "successMeasures": [
+        "usability task success",
+        "design acceptance"
+      ]
+    },
+    "sal": {
+      "boundary": "Own acquisition pipeline and closing new business. Cust owns account health and renewal coordination; Rev owns pricing policy and billing.",
+      "successMeasures": [
+        "qualified pipeline",
+        "closed revenue within approved terms"
+      ]
+    },
+    "su": {
+      "boundary": "Own incident tickets and problem resolution. Cust owns adoption and account outcomes; Cyber owns security incident response.",
+      "successMeasures": [
+        "resolution time",
+        "reopen rate"
       ]
     },
     "cyber": {
@@ -105,11 +77,25 @@
       ],
       "model": "zen6-cyber"
     },
-    "qa": {
-      "boundary": "Own regression coverage and release validation, with evidence independent of the implementer. Dev owns fixes; Cyber owns vulnerability assessment; release authority remains with the designated approver.",
+    "sci": {
+      "boundary": "Own research questions, experiments and reproducible results; Dev owns productionization and Cyber owns security assessments.",
       "successMeasures": [
-        "escaped defects",
-        "release acceptance coverage"
+        "reproducible experiments",
+        "validated research outcomes"
+      ]
+    },
+    "huma": {
+      "boundary": "Own recruiting and people processes; managers supply role requirements. Restrict personnel records and route employment terms to Law.",
+      "successMeasures": [
+        "hiring cycle time",
+        "onboarding completion"
+      ]
+    },
+    "mana": {
+      "boundary": "Own product priorities, roadmap and project acceptance criteria; Opera owns company cadence and Dev owns engineering implementation.",
+      "successMeasures": [
+        "accepted project outcomes",
+        "priority-to-delivery lead time"
       ]
     },
     "data": {
@@ -119,32 +105,53 @@
         "reproducible metric coverage"
       ]
     },
-    "sci": {
-      "boundary": "Own research questions, experiments and reproducible results; Dev owns productionization and Cyber owns security assessments.",
+    "lang": {
+      "boundary": "Be the sole owner of translation, multilingual communication and localization; the handle is Lang, never Loc. Source owners approve domain meaning; Dev implements string delivery and Des handles layout. Keep terminology, locale and reviewer provenance.",
       "successMeasures": [
-        "reproducible experiments",
-        "validated research outcomes"
+        "locale acceptance coverage",
+        "terminology and meaning accuracy"
       ]
     },
-    "auto": {
-      "boundary": "Own triggers, integrations and durable workflow execution; the business function keeps outcome ownership. Preserve identity, scoped grants, idempotency and cancellation; never add permissions during delegation.",
+    "edu": {
+      "boundary": "Own training, courses and learning assessment; Doc owns technical references and Lang owns translation of course material.",
       "successMeasures": [
-        "verified workflow completion",
-        "reconciled failures without duplicate effects"
-      ]
-    },
-    "des": {
-      "boundary": "Own UX/UI and design systems; Art produces visual assets, Dev implements interfaces and Lang owns localized language.",
-      "successMeasures": [
-        "usability task success",
-        "design acceptance"
+        "measured learning outcomes",
+        "training completion"
       ]
     },
     "art": {
-      "boundary": "Own images, animation and video production; Des owns product UX and Mark owns campaign strategy. Track asset provenance and usage rights.",
+      "boundary": "Own images, illustration, animation and visual production; Vid owns video production, Des owns product UX and Mark owns campaign strategy. Track asset provenance and usage rights.",
       "successMeasures": [
         "accepted creative deliverables",
         "rights and provenance coverage"
+      ]
+    },
+    "rev": {
+      "boundary": "Own pricing, monetization and billing operations; Fin owns the accounting ledger, cash reconciliation and revenue recognition.",
+      "successMeasures": [
+        "billing accuracy",
+        "realized monetization against approved pricing"
+      ]
+    },
+    "law": {
+      "boundary": "Own legal analysis, contracts and intellectual property; Comp owns compliance controls and Gov owns policy engagement. Escalate decisions needing licensed counsel or an authorized signatory.",
+      "successMeasures": [
+        "review turnaround",
+        "approved legal obligations tracked"
+      ]
+    },
+    "vid": {
+      "boundary": "Own video production, editing, motion and video channel publishing; Art owns stills and illustration, Mu owns score and voice, Mark owns where a video runs. Track footage, music and likeness rights.",
+      "successMeasures": [
+        "accepted video deliverables",
+        "rights and release coverage"
+      ]
+    },
+    "biz": {
+      "boundary": "Own partnerships, alliances and channel or co-selling programs; Sal owns direct deals, Corp owns investments and acquisitions, Law owns partner agreements and Fin owns revenue share.",
+      "successMeasures": [
+        "active partnerships with agreed terms",
+        "partner-sourced pipeline"
       ]
     },
     "mu": {
@@ -161,25 +168,46 @@
         "verified task coverage"
       ]
     },
-    "edu": {
-      "boundary": "Own training, courses and learning assessment; Doc owns technical references and Lang owns translation of course material.",
+    "gov": {
+      "boundary": "Own public-policy analysis and government relationships; Law owns legal interpretation and Comp owns regulatory controls. Public commitments and filings need authorized review.",
       "successMeasures": [
-        "measured learning outcomes",
-        "training completion"
+        "policy engagements with recorded outcomes",
+        "regulatory changes communicated on time"
       ]
     },
-    "lang": {
-      "boundary": "Be the sole owner of translation, multilingual communication and localization; the handle is Lang, never Loc. Source owners approve domain meaning; Dev implements string delivery and Des handles layout. Keep terminology, locale and reviewer provenance.",
+    "cust": {
+      "boundary": "Own onboarding, adoption, account health, retention and renewal coordination. Sal owns new-business closing; Rev owns prices and invoice generation.",
       "successMeasures": [
-        "locale acceptance coverage",
-        "terminology and meaning accuracy"
+        "customer activation",
+        "retention and renewal completion"
       ]
     },
-    "fin": {
-      "boundary": "Own accounting, treasury, forecasts, budgets and revenue recognition. Rev owns pricing and billing operations; Proc owns purchasing. Reconcile invoices and payments against authoritative records.",
+    "com": {
+      "boundary": "Own community and developer relationships; Mark owns paid campaigns, Doc owns reference documentation and Edu owns courses.",
       "successMeasures": [
-        "reconciled cash and ledger",
-        "forecast error and close time"
+        "resolved community needs",
+        "developer activation"
+      ]
+    },
+    "it": {
+      "boundary": "Own internal devices, enterprise applications and access administration under Cyber policy; Cyber owns security requirements and Dev owns product engineering.",
+      "successMeasures": [
+        "service restoration time",
+        "authorized access changes completed"
+      ]
+    },
+    "qa": {
+      "boundary": "Own regression coverage and release validation, with evidence independent of the implementer. Dev owns fixes; Cyber owns vulnerability assessment; release authority remains with the designated approver.",
+      "successMeasures": [
+        "escaped defects",
+        "release acceptance coverage"
+      ]
+    },
+    "auto": {
+      "boundary": "Own triggers, integrations and durable workflow execution; the business function keeps outcome ownership. Preserve identity, scoped grants, idempotency and cancellation; never add permissions during delegation.",
+      "successMeasures": [
+        "verified workflow completion",
+        "reconciled failures without duplicate effects"
       ]
     },
     "proc": {
@@ -197,17 +225,10 @@
       ]
     },
     "corp": {
-      "boundary": "Own M&A, divestitures and strategic investment execution; Vi owns corporate strategy, Fin owns financial analysis and Law owns transaction documents.",
+      "boundary": "Own M&A, divestitures and strategic investment execution; Vi owns corporate strategy, Biz owns partnerships, Fin owns financial analysis and Law owns transaction documents.",
       "successMeasures": [
         "approved transaction milestones",
         "post-deal integration outcomes"
-      ]
-    },
-    "law": {
-      "boundary": "Own legal analysis, contracts and intellectual property; Comp owns compliance controls and Gov owns policy engagement. Escalate decisions needing licensed counsel or an authorized signatory.",
-      "successMeasures": [
-        "review turnaround",
-        "approved legal obligations tracked"
       ]
     },
     "comp": {
@@ -229,13 +250,6 @@
       "successMeasures": [
         "assurance coverage",
         "evidence-backed findings and follow-up"
-      ]
-    },
-    "gov": {
-      "boundary": "Own public-policy analysis and government relationships; Law owns legal interpretation and Comp owns regulatory controls. Public commitments and filings need authorized review.",
-      "successMeasures": [
-        "policy engagements with recorded outcomes",
-        "regulatory changes communicated on time"
       ]
     }
   }

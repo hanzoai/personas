@@ -1,7 +1,8 @@
 ---
 name: Des
 group: Creative & Knowledge
-seat: 18
+seat: 6
+lead: true
 role: Design
 owns: UX/UI, design systems, product experience
 model: enso

@@ -1,7 +1,7 @@
 ---
 name: Mu
 group: Creative & Knowledge
-seat: 20
+seat: 21
 role: Music & Audio
 owns: music, voice production, sound design
 model: enso

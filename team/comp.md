@@ -1,7 +1,7 @@
 ---
 name: Comp
 group: Governance & Protection
-seat: 29
+seat: 32
 role: Compliance
 owns: regulatory requirements, monitoring and controls
 model: enso

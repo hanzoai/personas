@@ -24,18 +24,23 @@ test('the roster: one entry per person, the named figures present', () => {
   assert.ok(z?.profile && z.persona?.includes('Architect'))
 })
 
-test('the managed agents: thirty-two seats in six departments, each who the product shows and what the model is told', () => {
+test('the managed agents: thirty-four seats in six departments, each who the product shows and what the model is told', () => {
   const crew = team()
   assert.deepEqual(crew.map((m) => m.id).sort(), ROSTER.map((s) => s.id).sort())
   assert.deepEqual(grouped(crew).map((g) => [g.group, g.members.length]), [
     ['Executive & Management', 4],
-    ['Revenue & Relationships', 6],
-    ['Engineering & Intelligence', 7],
-    ['Creative & Knowledge', 6],
     ['Financial & Commercial Infrastructure', 4],
+    ['Engineering & Intelligence', 7],
+    ['Revenue & Relationships', 7],
+    ['Creative & Knowledge', 7],
     ['Governance & Protection', 5],
   ])
-  assert.deepEqual(crew.map((m) => m.seat).sort((a, b) => a - b), Array.from({ length: 32 }, (_, i) => i + 1))
+  assert.deepEqual(crew.map((m) => m.seat).sort((a, b) => a - b), Array.from({ length: 34 }, (_, i) => i + 1))
+  assert.deepEqual(
+    [...crew].sort((a, b) => a.seat - b.seat).filter((m) => m.lead).map((m) => m.id),
+    ['vi', 'fin', 'dev', 'mark', 'opera', 'des', 'sal', 'su', 'cyber', 'sci', 'huma', 'mana'],
+    'the grid a roster opens on is the first twelve seats',
+  )
   for (const m of crew) {
     const seat = ROSTER[m.seat - 1]
     assert.deepEqual([m.name, m.group, m.role, m.owns], [seat.name, seat.group, seat.role, seat.owns], `${m.id} is the owner's seat ${m.seat}`)
@@ -52,7 +57,7 @@ test('the managed agents: thirty-two seats in six departments, each who the prod
     assert.ok(named.length >= 3 && new Set(named).size === named.length, `${m.id}: three or more distinct hand-offs`)
     for (const n of named) assert.ok(n !== m.name && crew.some((o) => o.name === n), `${m.id} hands off to ${n}, who is not another member`)
   }
-  assert.equal(new Set(crew.map((m) => m.role)).size, 32, 'a function of its own each')
+  assert.equal(new Set(crew.map((m) => m.role)).size, 34, 'a function of its own each')
   assert.equal(member('dev')?.name, 'Dev')
   assert.equal(member('nobody'), null)
   assert.equal(member('../README'), null)

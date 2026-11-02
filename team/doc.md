@@ -1,7 +1,7 @@
 ---
 name: Doc
 group: Creative & Knowledge
-seat: 21
+seat: 22
 role: Documentation
 owns: technical docs, knowledge bases, manuals
 model: enso

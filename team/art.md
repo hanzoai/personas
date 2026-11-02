@@ -1,7 +1,7 @@
 ---
 name: Art
 group: Creative & Knowledge
-seat: 19
+seat: 16
 role: Art & Video
 owns: images, animation, film, visual production
 model: enso

@@ -1,7 +1,7 @@
 ---
 name: Data
 group: Engineering & Intelligence
-seat: 15
+seat: 13
 role: Data & Analytics
 owns: pipelines, dashboards, intelligence
 model: enso

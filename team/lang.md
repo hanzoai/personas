@@ -1,7 +1,7 @@
 ---
 name: Lang
 group: Creative & Knowledge
-seat: 23
+seat: 14
 role: Languages & Translation
 owns: translation, multilingual communication, localization
 model: enso

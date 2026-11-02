@@ -1,7 +1,8 @@
 ---
 name: Cyber
 group: Engineering & Intelligence
-seat: 13
+seat: 9
+lead: true
 role: Cybersecurity
 owns: security operations, vulnerability management, access security
 model: enso

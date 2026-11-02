@@ -8,7 +8,7 @@ import (
 	"testing"
 )
 
-// TestTeam checks what a consumer relies on: thirty-two members, each named for a
+// TestTeam checks what a consumer relies on: thirty-four members, each named for a
 // person to read, keyed by the lower-case handle, on an Enso tier, with a
 // system prompt that opens with the member's own name.
 func TestTeam(t *testing.T) {
@@ -20,7 +20,7 @@ func TestTeam(t *testing.T) {
 	for _, m := range team {
 		ids = append(ids, m.ID)
 	}
-	if got, want := strings.Join(ids, ","), "art,audit,auto,com,comp,corp,cust,cyber,data,des,dev,doc,edu,fin,gov,huma,it,lang,law,mana,mark,mu,opera,proc,qa,rev,risk,sal,sci,su,supply,vi"; got != want {
+	if got, want := strings.Join(ids, ","), "art,audit,auto,biz,com,comp,corp,cust,cyber,data,des,dev,doc,edu,fin,gov,huma,it,lang,law,mana,mark,mu,opera,proc,qa,rev,risk,sal,sci,su,supply,vi,vid"; got != want {
 		t.Fatalf("team = %s, want %s", got, want)
 	}
 	word := regexp.MustCompile(`^[A-Z][A-Za-z]+$`)
@@ -40,6 +40,9 @@ func TestTeam(t *testing.T) {
 			t.Errorf("%s and %s share the role %q", other, m.ID, m.Role)
 		}
 		roles[m.Role] = m.ID
+		if m.Lead != (m.Seat <= 12) {
+			t.Errorf("%s: seat %d, lead %v: the first twelve seats are the grid", m.ID, m.Seat, m.Lead)
+		}
 	}
 }
 

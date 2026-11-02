@@ -1,7 +1,7 @@
 ---
 name: Cust
 group: Revenue & Relationships
-seat: 9
+seat: 24
 role: Customer Success
 owns: onboarding, retention, renewals, account health
 model: enso

@@ -1,7 +1,8 @@
 ---
 name: Opera
 group: Executive & Management
-seat: 2
+seat: 5
+lead: true
 role: Operations
 owns: business execution, operating cadence, coordination
 model: enso

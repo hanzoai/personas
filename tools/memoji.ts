@@ -68,6 +68,8 @@ const LOOKS: Record<string, Look> = {
   risk: { skin: SKIN.s3, hair: HAIR.brown, hairStyle: 'short' },
   audit: { skin: SKIN.s1, hair: HAIR.black, hairStyle: 'bun', gear: ['glasses'] },
   gov: { skin: SKIN.s5, hair: '#1c1917', hairStyle: 'swoop', gear: ['tie'] },
+  vid: { skin: SKIN.s5, hair: HAIR.teal, hairStyle: 'messy', gear: ['headphones'], eyes: 'happy' },
+  biz: { skin: SKIN.s2, hair: HAIR.brown, hairStyle: 'swoop', gear: ['tie'], eyes: 'happy' },
 }
 
 /** The chest badge's glyph for each function: strokes in a 24-unit box. */
@@ -104,6 +106,8 @@ const EMBLEM: Record<string, string> = {
   risk: '<path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18v.5"/>',
   audit: '<circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/>',
   gov: '<path d="M3 9l9-6 9 6zM5 11v7M9.5 11v7M14.5 11v7M19 11v7M3 21h18"/>',
+  vid: '<rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3z"/>',
+  biz: '<path d="M10 14a4 4 0 005.7 0l3-3a4 4 0 00-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 00-5.7 0l-3 3a4 4 0 005.7 5.7l1-1"/>',
 }
 
 const shade = (hex: string, by: number): string => {

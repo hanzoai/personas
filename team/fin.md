@@ -1,7 +1,8 @@
 ---
 name: Fin
 group: Financial & Commercial Infrastructure
-seat: 24
+seat: 2
+lead: true
 role: Finance
 owns: accounting, treasury, forecasting, budgeting
 model: enso

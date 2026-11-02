@@ -1,7 +1,7 @@
 ---
 name: Supply
 group: Financial & Commercial Infrastructure
-seat: 26
+seat: 30
 role: Supply Chain
 owns: logistics, inventory, fulfillment, supplier operations
 model: enso

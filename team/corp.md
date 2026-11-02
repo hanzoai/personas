@@ -1,7 +1,7 @@
 ---
 name: Corp
 group: Financial & Commercial Infrastructure
-seat: 27
+seat: 31
 role: Corporate Development
 owns: M&A, acquisitions, divestitures, strategic investments
 model: enso

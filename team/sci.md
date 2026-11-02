@@ -1,7 +1,8 @@
 ---
 name: Sci
 group: Engineering & Intelligence
-seat: 16
+seat: 10
+lead: true
 role: Science & Research
 owns: research, experimentation, innovation
 model: enso

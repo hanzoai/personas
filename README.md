@@ -1,6 +1,6 @@
 # Hanzo Personas
 
-Hanzo's thirty-two managed agents, a roster of 1,044 figures, and 67 personas written by
+Hanzo's thirty-four managed agents, a roster of 1,044 figures, and 67 personas written by
 hand.
 
 ## The managed agents
@@ -9,10 +9,10 @@ For shared operating rules, explicit function boundaries, suggested success meas
 and reviewable Hanzo Dev role configs, see [Company operating defaults](COMPANY.md).
 These are opt-in guidance; permission enforcement stays with the host.
 
-`team/<id>.md` is one of the thirty-two agents Hanzo manages, in six departments. They are
+`team/<id>.md` is one of the thirty-four agents Hanzo manages, in six departments. They are
 available to any org to enable, and none is on until it is enabled; everything else is what
 people build with a persona (below). The front matter says who the member is, its department
-(`group`), its place (`seat`), the function it fills (`role`), what it owns (`owns`), its five
+(`group`), its place (`seat`; the first twelve also say `lead: true`, the grid a roster opens on), the function it fills (`role`), what it owns (`owns`), its five
 designed OCEAN scores with a reason for each (`why_*`), the cloud subsystems it should use
 (`tools`) and its first message (`greeting`); the body is the system prompt that reaches the
 model, word for word. The hanzo.ai chat and the cloud's agent registry both load these files
@@ -28,7 +28,7 @@ at a pinned tag: a new tag, pinned by both, is a change to what the agent says.
 | Governance & Protection | Law (Legal), Comp (Compliance), Risk (Risk Management), Audit (Internal Audit), Gov (Government Affairs) |
 
 Each prompt is the persona compiled (`compile()`, at most 300 tokens) plus a `hand-offs:` line
-naming the agents it passes work to, so the thirty-two work as a team. Anything a person must
+naming the agents it passes work to, so the thirty-four work as a team. Anything a person must
 decide (a payment, a hire, a filing, a legal opinion) is a boundary in the member's own file.
 
 `tools/personas.ts` writes the files: it asks a local OpenAI-compatible model for each seat's
@@ -68,7 +68,7 @@ import { team, member, people, compile, score, ITEMS } from '@hanzo/personas'   
 import { parse, parsePerson } from '@hanzo/personas/team.js'                     // any bundle: parse inlined text
 import { score, ITEMS } from '@hanzo/personas/ocean.js'                          // the test, in the browser
 
-team().map((m) => m.name)     // ['Art', 'Audit', 'Auto', ...], 32 seats
+team().map((m) => m.name)     // ['Art', 'Audit', 'Auto', ...], 34 seats
 member('dev').instructions    // the system prompt
 member('su').ocean            // { openness: 0.6, ... }, a designed profile
 ```
@@ -87,7 +87,7 @@ not measurements — nobody administered an inventory to Turing.
 
 ```bash
 npm install github:hanzoai/personas#v1.0.5
-go get github.com/hanzoai/personas@v1.0.5
+go get github.com/hanzoai/personas@v1.2.0
 ```
 
 ## Usage
@@ -229,7 +229,7 @@ percentile and not a diagnosis.
 
 ## Designed profiles for the managed team
 
-Each of the thirty-two carries `profile: designed`: five domain scores written for what its
+Each of the thirty-four carries `profile: designed`: five domain scores written for what its
 function asks of its owner, not measured from a person, each with its reason in the file. They
 follow the research: conscientiousness predicts performance in every job (Barrick & Mount, 1991,
 *Personnel Psychology* 44(1)), so none is under 0.60 and the error-costly functions (finance,
@@ -241,7 +241,7 @@ Psychology* 83(3); Bell, 2007, *J. Applied Psychology* 92(3)).
 
 ## Avatars
 
-`assets/memoji/<id>.svg` (and `.png`, `@2x.png`) for the thirty-two, drawn from one set of
+`assets/memoji/<id>.svg` (and `.png`, `@2x.png`) for the thirty-four, drawn from one set of
 parts by `node tools/memoji.ts` (a ground in its department's colour, a badge for its function); `assets/people/` holds the founders' photographs.
 
 ## Build and test

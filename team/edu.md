@@ -1,7 +1,7 @@
 ---
 name: Edu
 group: Creative & Knowledge
-seat: 22
+seat: 15
 role: Education
 owns: training, courses, interactive learning
 model: enso
