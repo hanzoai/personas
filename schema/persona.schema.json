@@ -10,11 +10,14 @@
     "score": { "type": "number", "minimum": 0, "maximum": 1 },
     "strings": { "type": "array", "items": { "type": "string", "maxLength": 200 }, "maxItems": 24 }
   },
+  "if": { "properties": { "ocean": { "properties": { "source": { "const": "exemplars" } }, "required": ["source"] } }, "required": ["ocean"] },
+  "then": { "required": ["exemplars"] },
   "properties": {
     "handle": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{1,31}$" },
     "name": { "type": "string", "minLength": 1, "maxLength": 80 },
     "role": { "type": "string", "maxLength": 80 },
     "bio": { "type": "string", "maxLength": 280 },
+    "craft": { "type": "string", "maxLength": 100 },
     "avatar": { "type": "string", "maxLength": 512 },
     "ocean": {
       "type": "object",
@@ -34,7 +37,7 @@
           }
         },
         "facets": { "type": "object", "additionalProperties": { "$ref": "#/$defs/score" } },
-        "source": { "enum": ["test", "authored", "designed"] },
+        "source": { "enum": ["test", "authored", "designed", "exemplars"] },
         "instrument": {
           "type": "object",
           "required": ["name", "version", "items"],
@@ -63,6 +66,23 @@
       "items": { "type": "object", "required": ["title", "url"], "properties": { "title": { "type": "string" }, "url": { "type": "string", "format": "uri" } } }
     },
     "links": { "type": "object", "additionalProperties": { "type": "string" } },
+    "exemplars": {
+      "description": "The personas this one is a blend of. Each weight is its share of the scores; the weights sum to 1.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["handle", "name", "weight"],
+        "additionalProperties": false,
+        "properties": {
+          "handle": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{1,31}$" },
+          "name": { "type": "string", "minLength": 1, "maxLength": 80 },
+          "weight": { "type": "number", "exclusiveMinimum": 0, "maximum": 1 },
+          "bio": { "type": "string", "maxLength": 280 },
+          "craft": { "type": "string", "maxLength": 100 }
+        }
+      }
+    },
     "provenance": {
       "type": "object",
       "required": ["kind", "consent"],

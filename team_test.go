@@ -61,6 +61,13 @@ func TestTeam(t *testing.T) {
 			t.Errorf("%s: name %q, role %q, want %q, %q", id, m.Name, m.Role, want.name, want.role)
 		}
 	}
+	// The role skills the cloud attaches as skill_<name>: Ponytail's dev mode and
+	// the quality review for Dev, the UI skill for Des.
+	for id, want := range map[string]string{"dev": "dev,code-review", "des": "ui", "qa": "code-review,dev", "cyber": "code-review"} {
+		if got := strings.Join(byID[id].Skills, ","); got != want {
+			t.Errorf("%s: skills %q, want %q", id, got, want)
+		}
+	}
 }
 
 // TestParseMatchesTheFile holds Parse to the file: the body after the front

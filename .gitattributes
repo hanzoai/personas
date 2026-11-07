@@ -1,2 +1,3 @@
 # A persona's front matter is parsed line by line on LF (team.js, team.go).
 team/*.md text eol=lf
+personas/*/PERSONA.md text eol=lf

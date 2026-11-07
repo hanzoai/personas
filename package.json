@@ -1,7 +1,7 @@
 {
   "name": "@hanzo/personas",
-  "version": "1.2.1",
-  "description": "Hanzo's core agent team (team/*.md), the people who lead it (people/*.md), the persona schema, the OCEAN test, and a roster of 1,044 figures",
+  "version": "1.2.2",
+  "description": "Hanzo's core agent team (team/*.md), the people who lead it (people/*.md), the persona schema, the OCEAN test, and a roster of 1,098 figures",
   "type": "module",
   "main": "dist/index.js",
   "exports": {
@@ -24,6 +24,14 @@
     "./compile.js": {
       "types": "./dist/compile.d.ts",
       "default": "./dist/compile.js"
+    },
+    "./blend.js": {
+      "types": "./dist/blend.d.ts",
+      "default": "./dist/blend.js"
+    },
+    "./figure.js": {
+      "types": "./dist/figure.d.ts",
+      "default": "./dist/figure.js"
     },
     "./schema/*": "./schema/*",
     "./team/*": "./team/*",

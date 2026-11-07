@@ -3,8 +3,8 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { test } from 'node:test'
 import { fileURLToPath } from 'node:url'
-import { all, compile, get, getProfile, grouped, list, member, parse, parsePerson, people, score, speaks, team, tokens, validate, ITEMS, DOMAINS, type Persona } from './index.ts'
-import { ROSTER, TOOLS } from '../tools/personas.ts'
+import { all, blend, compile, figure, get, getProfile, grouped, list, member, parse, parsePerson, people, score, speaks, team, tokens, validate, ITEMS, DOMAINS, FACETS, type Persona } from './index.ts'
+import { BUDGET, EXEMPLARS, ROSTER, SKILLS, TOOLS } from '../tools/personas.ts'
 
 const HERE = dirname(fileURLToPath(import.meta.url))
 const MEMOJI = join(HERE, '..', 'assets', 'memoji')
@@ -49,7 +49,7 @@ test('the managed agents: thirty-four seats in six departments, each who the pro
     assert.ok(m.instructions.startsWith(`You are ${m.name}, ${m.role}.`), `${m.id}: opens with its name and function`)
     assert.ok(!/\bas an ai\b/i.test(m.instructions))
     assert.match(m.instructions, /\nhand-offs: /)
-    assert.ok(tokens(m.instructions) <= 300, `${m.id}: ${tokens(m.instructions)} tokens`)
+    assert.ok(tokens(m.instructions) <= BUDGET, `${m.id}: ${tokens(m.instructions)} tokens`)
     assert.ok(m.greeting.includes(m.name) && m.greeting.length <= 180, `${m.id}: a greeting that says who it is`)
     assert.ok(m.tools.length >= 2 && m.tools.every((t) => t in TOOLS), `${m.id}: tools are real subsystems`)
     const line = m.instructions.split('\nhand-offs: ')[1] ?? ''
@@ -65,19 +65,64 @@ test('the managed agents: thirty-four seats in six departments, each who the pro
   assert.throws(() => parse('x', 'no front matter'))
 })
 
-test('every member carries a designed OCEAN profile with a reason for each domain, and a face', () => {
+test('every member is the blend of three or more exemplars, with a reason for each domain, and a face', () => {
   for (const m of team()) {
     assert.ok(m.ocean, `${m.id} has OCEAN`)
-    assert.equal(m.profile, 'designed')
-    for (const d of DOMAINS) assert.ok(m.ocean[d] >= 0 && m.ocean[d] <= 1)
-    assert.ok(m.ocean.conscientiousness >= 0.6 && m.ocean.neuroticism <= 0.4, `${m.id}: the role-wide floor and ceiling`)
-    const spread = Math.max(...DOMAINS.map((d) => m.ocean![d])) - Math.min(...DOMAINS.map((d) => m.ocean![d]))
-    assert.ok(spread >= 0.3, `${m.id}: a profile that says something`)
+    assert.equal(m.profile, 'exemplars')
+    assert.deepEqual(m.exemplars, EXEMPLARS[m.id], `${m.id}: the exemplars its seat names`)
+    assert.ok(m.exemplars.length >= 3, `${m.id}: at least three exemplars`)
+    const b = blend(m.exemplars.map((id) => ({ persona: figure(id)! })))
+    for (const d of DOMAINS) assert.ok(Math.abs(m.ocean[d] - b.ocean.domains[d]) <= 0.005 + 1e-9, `${m.id}: ${d} ${m.ocean[d]} is the blend ${b.ocean.domains[d]}`)
+    const named = b.exemplars.map((e) => e.name)
+    assert.ok(m.instructions.includes(`\nexemplars: ${named.slice(0, -1).join(', ')} and ${named.at(-1)}; work with their craft and judgement; you are a Hanzo agent, not them, and never claim their memories, quotes or acts.\n`), `${m.id}: names its exemplars`)
     const text = readFileSync(join(TEAM_DIR, `${m.id}.md`), 'utf8')
-    for (const d of DOMAINS) assert.match(text, new RegExp(`\\nwhy_${d}: \\S.{10,}`), `${m.id}: why ${d}`)
+    for (const d of DOMAINS) {
+      const why = new RegExp(`\\nwhy_${d}: (.+)\\n`).exec(text)?.[1] ?? ''
+      assert.ok(why.length >= 60 && named.some((n) => why.includes(n)), `${m.id}: why ${d} is analysis that names an exemplar`)
+    }
     for (const file of [`${m.id}.svg`, `${m.id}.png`, `${m.id}@2x.png`]) assert.ok(existsSync(join(MEMOJI, file)), `assets/memoji/${file}`)
   }
   assert.deepEqual(readdirSync(MEMOJI).filter((f) => f.endsWith('.svg')).map((f) => f.slice(0, -4)).sort(), team().map((m) => m.id).sort(), 'no face without a member')
+})
+
+// The 35 reasoned lines of a PERSONA.md's "## OCEAN analysis": each domain, then its six facets.
+const ANALYSIS = DOMAINS.flatMap((d) => [`- ${d}: `, ...FACETS[d].map((f) => `  - ${f}: `)])
+
+test('every exemplar is a written figure who has died, with a bio, a craft and a cited reason for every score', () => {
+  const ids = [...new Set(Object.values(EXEMPLARS).flat())]
+  assert.equal(ids.length, new Set(ids).size)
+  for (const id of ids) {
+    const p = figure(id)
+    assert.ok(p, `${id}: a written PERSONA.md`)
+    assert.ok(getProfile(id), `${id}: in the roster`)
+    assert.equal(p.provenance.kind, 'historical', `${id}: has died`)
+    assert.ok(p.bio && p.bio.length <= 280 && p.craft && p.craft.length <= 100, `${id}: a bio and a craft`)
+    assert.deepEqual(validate(p), [], `${id}: a valid persona`)
+    assert.deepEqual(Object.keys(p.ocean!.facets!).sort(), DOMAINS.flatMap((d) => FACETS[d]).sort(), `${id}: thirty facets`)
+    const sources = p.provenance.sources!
+    assert.ok(sources.length >= 2, `${id}: two or more sources`)
+    const text = readFileSync(join(HERE, '..', 'personas', id, 'PERSONA.md'), 'utf8')
+    const lines = /\n## OCEAN analysis\n\n([\s\S]*?)\n\n## Sources\n/.exec(text)?.[1].split('\n') ?? []
+    assert.equal(lines.length, ANALYSIS.length, `${id}: 35 analysis lines`)
+    lines.forEach((line, i) => {
+      assert.ok(line.startsWith(ANALYSIS[i]), `${id}: line ${i + 1} is ${ANALYSIS[i].trim()}`)
+      const cites = /\[(\d+(?:, \d+)*)\]$/.exec(line)?.[1].split(', ').map(Number) ?? []
+      assert.ok(cites.length && cites.every((n) => n >= 1 && n <= sources.length), `${id}: ${ANALYSIS[i].trim()} cites its sources`)
+      assert.ok(line.length - ANALYSIS[i].length >= 40, `${id}: ${ANALYSIS[i].trim()} gives a reason`)
+    })
+  }
+})
+
+test('the role skills: the hardcore software set for Dev, the UI skill for Des, nothing outside the catalogue', () => {
+  assert.deepEqual(member('dev')?.skills, ['dev', 'code-review'])
+  assert.deepEqual(member('des')?.skills, ['ui'])
+  assert.deepEqual(member('qa')?.skills, ['code-review', 'dev'])
+  assert.deepEqual(member('cyber')?.skills, ['code-review'])
+  // hanzo-inc/cloud apps/skills builtin.go: the role skills the cloud serves.
+  for (const m of team()) {
+    assert.deepEqual(m.skills, SKILLS[m.id] ?? [], `${m.id}: the skills its seat names`)
+    for (const s of m.skills) assert.ok(['code-review', 'dev', 'ui'].includes(s), `${m.id}: ${s} is in the catalogue`)
+  }
 })
 
 test('the people: Antje and Zach, speaking only once each records consent', () => {

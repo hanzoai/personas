@@ -2,6 +2,8 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { parse, parsePerson, type Member, type Person } from './team.ts'
+import { parseFigure } from './figure.ts'
+import type { Persona } from './persona.ts'
 import { buildCompanyDefaults, type CompanyPolicy } from './company.ts'
 
 export { buildCompanyDefaults, composeCompanyInstructions, type CompanyPolicy, type EmployeeDefault } from './company.ts'
@@ -10,8 +12,10 @@ export { devConfigFiles } from './dev.ts'
 export { grouped, parse, parsePerson, speaks, type Member, type Person } from './team.ts'
 export { compile, tokens } from './compile.ts'
 export { ITEMS, INSTRUMENT, CHOICES, SAYS, band, score } from './ocean.ts'
-export { DOMAINS, validate } from './persona.ts'
-export type { Agent, Domain, Kind, Ocean, Persona, Scores, Share } from './persona.ts'
+export { DOMAINS, FACETS, validate } from './persona.ts'
+export type { Agent, Domain, Exemplar, Kind, Ocean, Persona, Scores, Share } from './persona.ts'
+export { blend, type Blend, type Part } from './blend.ts'
+export { parseFigure } from './figure.ts'
 
 // dist/ and src/ both sit one level under the package root.
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
@@ -24,7 +28,7 @@ export function companyPolicy(): CompanyPolicy {
   return JSON.parse(readFileSync(join(ROOT, 'company.json'), 'utf8')) as CompanyPolicy
 }
 
-/** Opt-in operating defaults for the same 32 seats, with no tools granted or agents started. */
+/** Opt-in operating defaults for the same 34 seats, with no tools granted or agents started. */
 export function companyDefaults(): ReturnType<typeof buildCompanyDefaults> {
   return buildCompanyDefaults(team(), companyPolicy())
 }
@@ -62,6 +66,13 @@ export function getProfile(slug: string): Profile | null {
 export function getPersonaMd(slug: string): string | null {
   const file = join(PERSONAS_DIR, slug, 'PERSONA.md')
   return existsSync(file) ? readFileSync(file, 'utf-8') : null
+}
+
+/** A written figure's PERSONA.md as a Persona, or null for no such slug or none written. */
+export function figure(slug: string): Persona | null {
+  if (!/^[a-z0-9][a-z0-9_-]*$/.test(slug)) return null
+  const md = getPersonaMd(slug)
+  return md === null ? null : parseFigure(slug, md)
 }
 
 /** A figure with its profile and PERSONA.md, or null for no such slug. */

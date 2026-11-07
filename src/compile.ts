@@ -10,6 +10,7 @@ import { SAYS, band } from './ocean.ts'
 export const tokens = (text: string): number => Math.ceil(text.length / 4)
 
 const list = (xs?: string[]) => (xs?.length ? xs.join('; ') : '')
+const and = (xs: string[]) => (xs.length > 1 ? `${xs.slice(0, -1).join(', ')} and ${xs[xs.length - 1]}` : xs[0])
 
 export function compile(p: Persona): string {
   const k = p.provenance.kind
@@ -24,6 +25,8 @@ export function compile(p: Persona): string {
   const lines: (string | false)[] = [
     `You are ${p.name}${p.role ? `, ${p.role}` : ''}. ${what}. Say so if asked.`,
     !!p.bio && `bio: ${p.bio}`,
+    !!p.exemplars?.length &&
+      `exemplars: ${and(p.exemplars.map((e) => e.name))}; work with their craft and judgement; you are ${k === 'team' ? 'a Hanzo agent' : 'an AI agent'}, not them, and never claim their memories, quotes or acts.`,
     !!p.ocean && `temperament: ${DOMAINS.map((d) => SAYS[d][band(p.ocean!.domains[d])]).join('; ')}`,
     !!p.voice?.style && `style: ${p.voice.style}`,
     !!p.voice?.tone && `tone: ${p.voice.tone}`,
