@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-label="tesla">
+<defs>
+<linearGradient id="g-tesla" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#312e81"/><stop offset="1" stop-color="#0f172a"/></linearGradient>
+<radialGradient id="f-tesla" cx=".36" cy=".3" r=".8"><stop offset="0" stop-color="#ffedcd"/><stop offset="1" stop-color="#ddba9a"/></radialGradient>
+<clipPath id="c-tesla"><circle cx="128" cy="128" r="128"/></clipPath>
+</defs>
+<g clip-path="url(#c-tesla)">
+<rect width="256" height="256" fill="url(#g-tesla)"/>
+<circle cx="96" cy="76" r="84" fill="#818cf8" opacity=".14"/>
+<path d="M26 256 C30 212 66 194 128 194 C190 194 226 212 230 256 Z" fill="#3730a3"/><path d="M26 256 C30 212 66 194 128 194 C100 212 96 240 98 256 Z" fill="#4b44b7" opacity=".5"/><path d="M96 194 L128 230 L160 194" stroke="#818cf8" stroke-width="6" fill="none"/>
+<rect x="110" y="168" width="36" height="36" rx="14" fill="#d7b494"/>
+<ellipse cx="68" cy="128" rx="9" ry="13" fill="#e9c6a6"/><ellipse cx="188" cy="128" rx="9" ry="13" fill="#e9c6a6"/>
+<ellipse cx="128" cy="120" rx="58" ry="62" fill="url(#f-tesla)"/>
+<path d="M68 118 C64 84 78 66 96 64 C86 82 82 98 76 116 Z" fill="#111827"/><path d="M188 118 C192 84 178 66 160 64 C170 82 174 98 180 116 Z" fill="#111827"/>
+<g stroke="#040b1a" stroke-width="4.8" stroke-linecap="round" fill="none"><path d="M88 102 L118 108"/><path d="M168 102 L138 108"/></g>
+<g fill="#1f2937"><ellipse cx="104" cy="125" rx="7" ry="8.5"/><ellipse cx="152" cy="125" rx="7" ry="8.5"/></g>
+<g fill="#fff"><circle cx="106.5" cy="121.5" r="2.5"/><circle cx="154.5" cy="121.5" r="2.5"/></g>
+<ellipse cx="88" cy="144" rx="10" ry="6" fill="#f87171" opacity=".22"/><ellipse cx="168" cy="144" rx="10" ry="6" fill="#f87171" opacity=".22"/>
+<path d="M126 130 L124 142 Q128 145 132 142" stroke="#be9b7b" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+<path d="M114 158 Q128 163 142 158" stroke="#a48161" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M104 150 Q116 142 128 148 Q140 142 152 150 Q140 156 128 151 Q116 156 104 150 Z" fill="#111827"/>
+
+</g>
+</svg>

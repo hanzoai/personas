@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-label="jp_morgan">
+<defs>
+<linearGradient id="g-jp_morgan" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1e3a8a"/><stop offset="1" stop-color="#091538"/></linearGradient>
+<radialGradient id="f-jp_morgan" cx=".36" cy=".3" r=".8"><stop offset="0" stop-color="#ffe3bf"/><stop offset="1" stop-color="#d8b08c"/></radialGradient>
+<clipPath id="c-jp_morgan"><circle cx="128" cy="128" r="128"/></clipPath>
+</defs>
+<g clip-path="url(#c-jp_morgan)">
+<rect width="256" height="256" fill="url(#g-jp_morgan)"/>
+<circle cx="96" cy="76" r="84" fill="#60a5fa" opacity=".14"/>
+<path d="M26 256 C30 212 66 194 128 194 C190 194 226 212 230 256 Z" fill="#1d4ed8"/><path d="M26 256 C30 212 66 194 128 194 C100 212 96 240 98 256 Z" fill="#3162ec" opacity=".5"/><path d="M104 194 L128 226 L152 194 Z" fill="#dbeafe"/><path d="M122 210 L134 210 L138 252 L128 260 L118 252 Z" fill="#60a5fa"/>
+<rect x="110" y="168" width="36" height="36" rx="14" fill="#d2aa86"/>
+<ellipse cx="68" cy="128" rx="9" ry="13" fill="#e4bc98"/><ellipse cx="188" cy="128" rx="9" ry="13" fill="#e4bc98"/>
+<ellipse cx="128" cy="120" rx="58" ry="62" fill="url(#f-jp_morgan)"/>
+<path d="M70 116 C64 68 96 44 132 46 C168 48 192 70 186 116 C180 98 168 84 150 80 C130 92 96 90 70 116 Z" fill="#2b2118"/><path d="M96 66 C118 56 146 56 168 70" stroke="#3f352c" stroke-width="5" stroke-linecap="round" fill="none"/>
+<g stroke="#1e140b" stroke-width="4.8" stroke-linecap="round" fill="none"><path d="M88 102 L118 108"/><path d="M168 102 L138 108"/></g>
+<g fill="#1f2937"><ellipse cx="104" cy="125" rx="7" ry="8.5"/><ellipse cx="152" cy="125" rx="7" ry="8.5"/></g>
+<g fill="#fff"><circle cx="106.5" cy="121.5" r="2.5"/><circle cx="154.5" cy="121.5" r="2.5"/></g>
+<ellipse cx="88" cy="144" rx="10" ry="6" fill="#f87171" opacity=".22"/><ellipse cx="168" cy="144" rx="10" ry="6" fill="#f87171" opacity=".22"/>
+<path d="M126 130 L124 142 Q128 145 132 142" stroke="#b9916d" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+<path d="M114 158 Q128 163 142 158" stroke="#9f7753" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M72 132 C72 178 96 198 128 198 C160 198 184 178 184 132 C176 156 156 168 128 168 C100 168 80 156 72 132 Z" fill="#2b2118"/><path d="M104 150 Q128 142 152 150" stroke="#453b32" stroke-width="6" stroke-linecap="round" fill="none"/>
+
+</g>
+</svg>

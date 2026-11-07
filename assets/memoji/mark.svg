@@ -7,7 +7,7 @@
 <g clip-path="url(#c-mark)">
 <rect width="256" height="256" fill="url(#g-mark)"/>
 <circle cx="84" cy="64" r="70" fill="#fff" opacity=".13"/>
-<path d="M62 118 C54 190 62 214 84 222 L172 222 C194 214 202 190 194 118 Z" fill="#9a3412"/><path d="M26 256 C30 214 66 196 128 196 C190 196 226 214 230 256 Z" fill="#ea580c"/><path d="M26 256 C30 214 66 196 128 196 C100 214 96 240 98 256 Z" fill="#fc6a1e" opacity=".5"/><path d="M104 196 L128 226 L152 196 Z" fill="#ffedd5"/><circle cx="182" cy="226" r="16" fill="#f8fafc"/><g transform="translate(172 216) scale(.83)" fill="none" stroke="#9a3412" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h4l7 4V6L8 10z"/><path d="M18 9c1.5 1 1.5 5 0 6"/></g>
+<path d="M62 118 C52 190 60 218 84 226 L172 226 C196 218 204 190 194 118 Z" fill="#9a3412"/><path d="M26 256 C30 214 66 196 128 196 C190 196 226 214 230 256 Z" fill="#ea580c"/><path d="M26 256 C30 214 66 196 128 196 C100 214 96 240 98 256 Z" fill="#fc6a1e" opacity=".5"/><path d="M104 196 L128 226 L152 196 Z" fill="#ffedd5"/><circle cx="182" cy="226" r="16" fill="#f8fafc"/><g transform="translate(172 216) scale(.83)" fill="none" stroke="#9a3412" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h4l7 4V6L8 10z"/><path d="M18 9c1.5 1 1.5 5 0 6"/></g>
 <rect x="110" y="168" width="36" height="36" rx="14" fill="#d8b08c"/>
 <ellipse cx="68" cy="128" rx="9" ry="13" fill="#e7bf9b"/><ellipse cx="188" cy="128" rx="9" ry="13" fill="#e7bf9b"/>
 <ellipse cx="128" cy="120" rx="58" ry="62" fill="url(#f-mark)"/>

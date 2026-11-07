@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-label="cecilia_payne_gaposchkin">
+<defs>
+<linearGradient id="g-cecilia_payne_gaposchkin" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#334155"/><stop offset="1" stop-color="#0f172a"/></linearGradient>
+<radialGradient id="f-cecilia_payne_gaposchkin" cx=".36" cy=".3" r=".8"><stop offset="0" stop-color="#ffe3bf"/><stop offset="1" stop-color="#d8b08c"/></radialGradient>
+<clipPath id="c-cecilia_payne_gaposchkin"><circle cx="128" cy="128" r="128"/></clipPath>
+</defs>
+<g clip-path="url(#c-cecilia_payne_gaposchkin)">
+<rect width="256" height="256" fill="url(#g-cecilia_payne_gaposchkin)"/>
+<circle cx="96" cy="76" r="84" fill="#94a3b8" opacity=".14"/>
+<circle cx="128" cy="38" r="22" fill="#5a3a22"/><path d="M26 256 C30 212 66 194 128 194 C190 194 226 212 230 256 Z" fill="#f1f5f9"/><path d="M98 194 L128 242 L158 194 Z" fill="#1e293b"/><path d="M92 194 L116 244 M164 194 L140 244" stroke="#cbd5e1" stroke-width="4"/>
+<rect x="110" y="168" width="36" height="36" rx="14" fill="#d2aa86"/>
+<ellipse cx="68" cy="128" rx="9" ry="13" fill="#e4bc98"/><ellipse cx="188" cy="128" rx="9" ry="13" fill="#e4bc98"/>
+<ellipse cx="128" cy="120" rx="58" ry="62" fill="url(#f-cecilia_payne_gaposchkin)"/>
+<path d="M70 114 C66 66 98 50 128 50 C158 50 190 66 186 114 C176 94 156 84 128 86 C100 84 80 94 70 114 Z" fill="#5a3a22"/>
+<g stroke="#4d2d15" stroke-width="4.8" stroke-linecap="round" fill="none"><path d="M88 104 Q104 94 118 102"/><path d="M138 102 Q152 94 168 104"/></g>
+<g fill="#1f2937"><ellipse cx="104" cy="125" rx="7" ry="8.5"/><ellipse cx="152" cy="125" rx="7" ry="8.5"/></g>
+<g fill="#fff"><circle cx="106.5" cy="121.5" r="2.5"/><circle cx="154.5" cy="121.5" r="2.5"/></g>
+<ellipse cx="88" cy="144" rx="10" ry="6" fill="#f87171" opacity=".22"/><ellipse cx="168" cy="144" rx="10" ry="6" fill="#f87171" opacity=".22"/>
+<path d="M126 130 L124 142 Q128 145 132 142" stroke="#b9916d" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+<path d="M114 158 Q128 163 142 158" stroke="#9f7753" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+
+</g>
+</svg>

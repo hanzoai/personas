@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-label="gk_chesterton">
+<defs>
+<linearGradient id="g-gk_chesterton" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#334155"/><stop offset="1" stop-color="#0f172a"/></linearGradient>
+<radialGradient id="f-gk_chesterton" cx=".36" cy=".3" r=".8"><stop offset="0" stop-color="#ffe3bf"/><stop offset="1" stop-color="#d8b08c"/></radialGradient>
+<clipPath id="c-gk_chesterton"><circle cx="128" cy="128" r="128"/></clipPath>
+</defs>
+<g clip-path="url(#c-gk_chesterton)">
+<rect width="256" height="256" fill="url(#g-gk_chesterton)"/>
+<circle cx="96" cy="76" r="84" fill="#94a3b8" opacity=".14"/>
+<path d="M26 256 C30 212 66 194 128 194 C190 194 226 212 230 256 Z" fill="#1e293b"/><path d="M26 256 C30 212 66 194 128 194 C100 212 96 240 98 256 Z" fill="#323d4f" opacity=".5"/><path d="M104 194 L128 226 L152 194 Z" fill="#e2e8f0"/><path d="M122 210 L134 210 L138 252 L128 260 L118 252 Z" fill="#94a3b8"/>
+<rect x="110" y="168" width="36" height="36" rx="14" fill="#d2aa86"/>
+<ellipse cx="68" cy="128" rx="9" ry="13" fill="#e4bc98"/><ellipse cx="188" cy="128" rx="9" ry="13" fill="#e4bc98"/>
+<ellipse cx="128" cy="120" rx="58" ry="62" fill="url(#f-gk_chesterton)"/>
+<path d="M72 112 C68 64 100 48 128 48 C158 48 190 64 184 112 C172 90 150 80 128 82 C106 80 84 90 72 112 Z" fill="#5a3a22"/>
+<g stroke="#4d2d15" stroke-width="4.8" stroke-linecap="round" fill="none"><path d="M90 106 Q104 98 118 104"/><path d="M138 104 Q152 98 166 106"/></g>
+<g fill="#1f2937"><ellipse cx="104" cy="125" rx="7" ry="8.5"/><ellipse cx="152" cy="125" rx="7" ry="8.5"/></g>
+<g fill="#fff"><circle cx="106.5" cy="121.5" r="2.5"/><circle cx="154.5" cy="121.5" r="2.5"/></g>
+<ellipse cx="88" cy="144" rx="10" ry="6" fill="#f87171" opacity=".22"/><ellipse cx="168" cy="144" rx="10" ry="6" fill="#f87171" opacity=".22"/>
+<path d="M126 130 L124 142 Q128 145 132 142" stroke="#b9916d" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+<path d="M110 156 Q128 170 146 156" stroke="#7c2d12" stroke-width="4.5" fill="#fff" stroke-linecap="round" stroke-linejoin="round"/>
+
+<g fill="#ffffff18" stroke="#d4af37" stroke-width="3.8"><circle cx="102" cy="124" r="16"/><circle cx="154" cy="124" r="16"/></g><path d="M118 124 L138 124" stroke="#d4af37" stroke-width="3.8"/>
+</g>
+</svg>

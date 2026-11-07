@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-label="walt_disney">
+<defs>
+<linearGradient id="g-walt_disney" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#78350f"/><stop offset="1" stop-color="#271306"/></linearGradient>
+<radialGradient id="f-walt_disney" cx=".36" cy=".3" r=".8"><stop offset="0" stop-color="#ffedcd"/><stop offset="1" stop-color="#ddba9a"/></radialGradient>
+<clipPath id="c-walt_disney"><circle cx="128" cy="128" r="128"/></clipPath>
+</defs>
+<g clip-path="url(#c-walt_disney)">
+<rect width="256" height="256" fill="url(#g-walt_disney)"/>
+<circle cx="96" cy="76" r="84" fill="#fbbf24" opacity=".14"/>
+<path d="M26 256 C30 212 66 194 128 194 C190 194 226 212 230 256 Z" fill="#92400e"/><path d="M26 256 C30 212 66 194 128 194 C100 212 96 240 98 256 Z" fill="#a65422" opacity=".5"/><path d="M104 194 L128 226 L152 194 Z" fill="#fef3c7"/><path d="M122 210 L134 210 L138 252 L128 260 L118 252 Z" fill="#fbbf24"/>
+<rect x="110" y="168" width="36" height="36" rx="14" fill="#d7b494"/>
+<ellipse cx="68" cy="128" rx="9" ry="13" fill="#e9c6a6"/><ellipse cx="188" cy="128" rx="9" ry="13" fill="#e9c6a6"/>
+<ellipse cx="128" cy="120" rx="58" ry="62" fill="url(#f-walt_disney)"/>
+<path d="M70 116 C64 68 96 44 132 46 C168 48 192 70 186 116 C180 98 168 84 150 80 C130 92 96 90 70 116 Z" fill="#111827"/><path d="M96 66 C118 56 146 56 168 70" stroke="#252c3b" stroke-width="5" stroke-linecap="round" fill="none"/>
+<g stroke="#040b1a" stroke-width="4.8" stroke-linecap="round" fill="none"><path d="M90 106 Q104 98 118 104"/><path d="M138 104 Q152 98 166 106"/></g>
+<g fill="#1f2937"><ellipse cx="104" cy="125" rx="7" ry="8.5"/><ellipse cx="152" cy="125" rx="7" ry="8.5"/></g>
+<g fill="#fff"><circle cx="106.5" cy="121.5" r="2.5"/><circle cx="154.5" cy="121.5" r="2.5"/></g>
+<ellipse cx="88" cy="144" rx="10" ry="6" fill="#f87171" opacity=".22"/><ellipse cx="168" cy="144" rx="10" ry="6" fill="#f87171" opacity=".22"/>
+<path d="M126 130 L124 142 Q128 145 132 142" stroke="#be9b7b" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+<path d="M110 156 Q128 170 146 156" stroke="#7c2d12" stroke-width="4.5" fill="#fff" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M104 150 Q116 142 128 148 Q140 142 152 150 Q140 156 128 151 Q116 156 104 150 Z" fill="#111827"/>
+
+</g>
+</svg>

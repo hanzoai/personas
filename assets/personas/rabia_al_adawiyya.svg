@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-label="rabia_al_adawiyya">
+<defs>
+<linearGradient id="g-rabia_al_adawiyya" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#312e81"/><stop offset="1" stop-color="#0f172a"/></linearGradient>
+<radialGradient id="f-rabia_al_adawiyya" cx=".36" cy=".3" r=".8"><stop offset="0" stop-color="#e0a27d"/><stop offset="1" stop-color="#ad6f4a"/></radialGradient>
+<clipPath id="c-rabia_al_adawiyya"><circle cx="128" cy="128" r="128"/></clipPath>
+</defs>
+<g clip-path="url(#c-rabia_al_adawiyya)">
+<rect width="256" height="256" fill="url(#g-rabia_al_adawiyya)"/>
+<circle cx="96" cy="76" r="84" fill="#818cf8" opacity=".14"/>
+<path d="M58 106 C48 176 54 228 74 248 L182 248 C202 228 208 176 198 106 C192 54 162 38 128 38 C94 38 64 54 58 106 Z" fill="#1e293b"/><path d="M26 256 C30 212 66 194 128 194 C190 194 226 212 230 256 Z" fill="#3730a3"/><path d="M26 256 C30 212 66 194 128 194 C100 212 96 240 98 256 Z" fill="#4b44b7" opacity=".5"/><path d="M58 206 L146 256 L198 206" stroke="#e0e7ff" stroke-width="14" opacity=".85" fill="none"/>
+<rect x="110" y="168" width="36" height="36" rx="14" fill="#a76944"/>
+<ellipse cx="68" cy="128" rx="9" ry="13" fill="#b97b56"/><ellipse cx="188" cy="128" rx="9" ry="13" fill="#b97b56"/>
+<ellipse cx="128" cy="120" rx="58" ry="62" fill="url(#f-rabia_al_adawiyya)"/>
+<path d="M64 116 C64 64 96 44 128 44 C160 44 192 64 192 116 C178 90 156 78 128 78 C100 78 78 90 64 116 Z" fill="#334155"/>
+<g stroke="#040b1a" stroke-width="4.8" stroke-linecap="round" fill="none"><path d="M88 104 Q104 94 118 102"/><path d="M138 102 Q152 94 168 104"/></g>
+<g fill="#1f2937"><ellipse cx="104" cy="125" rx="7" ry="8.5"/><ellipse cx="152" cy="125" rx="7" ry="8.5"/></g>
+<g fill="#fff"><circle cx="106.5" cy="121.5" r="2.5"/><circle cx="154.5" cy="121.5" r="2.5"/></g>
+<ellipse cx="88" cy="144" rx="10" ry="6" fill="#f87171" opacity=".22"/><ellipse cx="168" cy="144" rx="10" ry="6" fill="#f87171" opacity=".22"/>
+<path d="M126 130 L124 142 Q128 145 132 142" stroke="#8e502b" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+<path d="M114 158 Q128 163 142 158" stroke="#743611" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+
+</g>
+</svg>
