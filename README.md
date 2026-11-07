@@ -23,7 +23,7 @@ at a pinned tag: a new tag, pinned by both, is a change to what the agent says.
 | Executive & Management | Vi (CEO/Vision), Opera (Operations), Mana (Management/Product), Huma (Human Resources) |
 | Revenue & Relationships | Sal (Sales), Mark (Marketing), Rev (Revenue), Su (Support), Cust (Customer Success), Com (Community) |
 | Engineering & Intelligence | Dev (Development), IT (Information Technology), Cyber (Cybersecurity), QA (Quality Assurance), Data (Data & Analytics), Sci (Science & Research), Auto (Automation) |
-| Creative & Knowledge | Des (Design), Art (Art & Video), Mu (Music & Audio), Doc (Documentation), Edu (Education), Lang (Languages & Translation) |
+| Creative & Knowledge | Des (Design), Art (Visual Art), Mo (Motion Pictures), Mu (Music & Audio), Doc (Documentation), Ed (Education), Lang (Languages & Translation) |
 | Financial & Commercial Infrastructure | Fin (Finance), Proc (Procurement), Supply (Supply Chain), Corp (Corporate Development) |
 | Governance & Protection | Law (Legal), Comp (Compliance), Risk (Risk Management), Audit (Internal Audit), Gov (Government Affairs) |
 
@@ -87,7 +87,7 @@ not measurements — nobody administered an inventory to Turing.
 
 ```bash
 npm install github:hanzoai/personas#v1.0.5
-go get github.com/hanzoai/personas@v1.2.0
+go get github.com/hanzoai/personas@v1.2.1
 ```
 
 ## Usage

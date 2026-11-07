@@ -9,7 +9,7 @@ import (
 )
 
 // TestTeam checks what a consumer relies on: thirty-four members, each named for a
-// person to read, keyed by the lower-case handle, on an Enso tier, with a
+// person to read, keyed by a permanent lower-case handle, on an Enso tier, with a
 // system prompt that opens with the member's own name.
 func TestTeam(t *testing.T) {
 	team, err := Team()
@@ -24,11 +24,17 @@ func TestTeam(t *testing.T) {
 		t.Fatalf("team = %s, want %s", got, want)
 	}
 	word := regexp.MustCompile(`^[A-Z][A-Za-z]+$`)
+	handle := regexp.MustCompile(`^[a-z]+$`)
 	enso := regexp.MustCompile(`^enso(-[a-z]+)?$`)
 	roles := map[string]string{}
+	byID := map[string]Member{}
 	for _, m := range team {
-		if !word.MatchString(m.Name) || strings.ToLower(m.Name) != m.ID {
-			t.Errorf("%s: name %q is not the capitalized handle", m.ID, m.Name)
+		byID[m.ID] = m
+		if !word.MatchString(m.Name) {
+			t.Errorf("%s: name %q is not a capitalized word", m.ID, m.Name)
+		}
+		if !handle.MatchString(m.ID) {
+			t.Errorf("%s: handle is not lower-case letters", m.ID)
 		}
 		if !enso.MatchString(m.Model) {
 			t.Errorf("%s: model %q is not an Enso tier", m.ID, m.Model)
@@ -42,6 +48,17 @@ func TestTeam(t *testing.T) {
 		roles[m.Role] = m.ID
 		if m.Lead != (m.Seat <= 12) {
 			t.Errorf("%s: seat %d, lead %v: the first twelve seats are the grid", m.ID, m.Seat, m.Lead)
+		}
+	}
+	// The owner's names: the role shortened. The handle the seat was created
+	// with stays, so tools, bindings and live seats keyed by it stay in place.
+	for id, want := range map[string]struct{ name, role string }{
+		"edu": {"Ed", "Education"},
+		"vid": {"Mo", "Motion Pictures"},
+		"art": {"Art", "Visual Art"},
+	} {
+		if m := byID[id]; m.Name != want.name || m.Role != want.role {
+			t.Errorf("%s: name %q, role %q, want %q, %q", id, m.Name, m.Role, want.name, want.role)
 		}
 	}
 }

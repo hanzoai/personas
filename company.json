@@ -120,7 +120,7 @@
       ]
     },
     "art": {
-      "boundary": "Own images, illustration, animation and visual production; Vid owns video production, Des owns product UX and Mark owns campaign strategy. Track asset provenance and usage rights.",
+      "boundary": "Own images, illustration, animation and visual production; Mo owns video production, Des owns product UX and Mark owns campaign strategy. Track asset provenance and usage rights.",
       "successMeasures": [
         "accepted creative deliverables",
         "rights and provenance coverage"
@@ -162,7 +162,7 @@
       ]
     },
     "doc": {
-      "boundary": "Own authoritative technical documentation and knowledge-base source text; Lang owns translation and Edu owns instructional courses.",
+      "boundary": "Own authoritative technical documentation and knowledge-base source text; Lang owns translation and Ed owns instructional courses.",
       "successMeasures": [
         "documentation accuracy",
         "verified task coverage"
@@ -183,7 +183,7 @@
       ]
     },
     "com": {
-      "boundary": "Own community and developer relationships; Mark owns paid campaigns, Doc owns reference documentation and Edu owns courses.",
+      "boundary": "Own community and developer relationships; Mark owns paid campaigns, Doc owns reference documentation and Ed owns courses.",
       "successMeasures": [
         "resolved community needs",
         "developer activation"

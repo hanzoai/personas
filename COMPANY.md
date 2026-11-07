@@ -65,7 +65,7 @@ are separate steps. Do not overwrite user-edited personas during migration.
 - Cyber sets security requirements and runs authorized assessments; IT implements
   internal access changes; Dev fixes code; QA validates changes; Audit tests
   controls independently.
-- Doc owns reference material; Edu owns training; Lang owns translated language.
+- Doc owns reference material; Ed owns training; Lang owns translated language.
 - Proc owns sourcing and purchasing; Supply owns fulfillment and inventory.
 - Law owns legal analysis; Comp owns compliance controls; Risk owns risk treatment
   tracking; Gov owns public-policy engagement.
