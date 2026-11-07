@@ -1,6 +1,6 @@
 {
   "name": "@hanzo/personas",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Hanzo's core agent team (team/*.md), the people who lead it (people/*.md), the persona schema, the OCEAN test, and a roster of 1,044 figures",
   "type": "module",
   "main": "dist/index.js",

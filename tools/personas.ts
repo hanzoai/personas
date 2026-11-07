@@ -59,7 +59,12 @@ interface Seat {
 export const LEADS = 12
 
 const G = ['Executive & Management', 'Revenue & Relationships', 'Engineering & Intelligence', 'Creative & Knowledge', 'Financial & Commercial Infrastructure', 'Governance & Protection'] as const
-const seat = (group: (typeof G)[number], name: string, role: string, owns: string): Seat => ({ id: name.toLowerCase(), name, group, role, owns })
+/**
+ * A seat's name is its role shortened (Mark, Su). Its id is the permanent handle the
+ * cloud keys tools, channel bindings and live seats by: the lower-case name, or, for a
+ * seat renamed after it was created, the id it was created with (`id`).
+ */
+const seat = (group: (typeof G)[number], name: string, role: string, owns: string, id = name.toLowerCase()): Seat => ({ id, name, group, role, owns })
 
 export const ROSTER: Seat[] = [
   seat(G[0], 'Vi', 'CEO/Vision', 'corporate strategy, fundraising, executive decisions'),
@@ -76,11 +81,11 @@ export const ROSTER: Seat[] = [
   seat(G[0], 'Mana', 'Management/Product', 'projects, roadmaps, prioritization'),
   seat(G[2], 'Data', 'Data & Analytics', 'pipelines, dashboards, intelligence'),
   seat(G[3], 'Lang', 'Languages & Translation', 'translation, multilingual communication, localization'),
-  seat(G[3], 'Edu', 'Education', 'training, courses, interactive learning'),
-  seat(G[3], 'Art', 'Art & Video', 'images, animation, film, visual production'),
+  seat(G[3], 'Ed', 'Education', 'training, courses, interactive learning', 'edu'),
+  seat(G[3], 'Art', 'Visual Art', 'images, animation, film, visual production'),
   seat(G[1], 'Rev', 'Revenue', 'pricing, monetization, billing, revenue optimization'),
   seat(G[5], 'Law', 'Legal', 'contracts, IP, legal counsel'),
-  seat(G[3], 'Vid', 'Video', 'video production, editing, motion, video channels'),
+  seat(G[3], 'Mo', 'Motion Pictures', 'video production, editing, motion, video channels', 'vid'),
   seat(G[1], 'Biz', 'Business Development', 'partnerships, alliances, channel and co-selling deals'),
   seat(G[3], 'Mu', 'Music & Audio', 'music, voice production, sound design'),
   seat(G[3], 'Doc', 'Documentation', 'technical docs, knowledge bases, manuals'),

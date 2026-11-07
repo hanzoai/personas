@@ -44,7 +44,7 @@ test('the managed agents: thirty-four seats in six departments, each who the pro
   for (const m of crew) {
     const seat = ROSTER[m.seat - 1]
     assert.deepEqual([m.name, m.group, m.role, m.owns], [seat.name, seat.group, seat.role, seat.owns], `${m.id} is the owner's seat ${m.seat}`)
-    assert.equal(m.name.toLowerCase(), m.id)
+    assert.match(m.id, /^[a-z]+$/, `${m.id}: a lower-case handle`)
     assert.match(m.model, /^enso(-[a-z]+)?$/)
     assert.ok(m.instructions.startsWith(`You are ${m.name}, ${m.role}.`), `${m.id}: opens with its name and function`)
     assert.ok(!/\bas an ai\b/i.test(m.instructions))
