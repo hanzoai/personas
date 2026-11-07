@@ -1,6 +1,6 @@
 # Hanzo Personas
 
-Hanzo's thirty-four managed agents, a roster of 1,098 figures, and 153 personas written by
+Hanzo's twenty-four managed agents, a roster of 1,100 figures, and 155 personas written by
 hand.
 
 ## The managed agents
@@ -9,7 +9,7 @@ For shared operating rules, explicit function boundaries, suggested success meas
 and reviewable Hanzo Dev role configs, see [Company operating defaults](COMPANY.md).
 These are opt-in guidance; permission enforcement stays with the host.
 
-`team/<id>.md` is one of the thirty-four agents Hanzo manages, in six departments. They are
+`team/<id>.md` is one of the twenty-four agents Hanzo manages, in six departments. They are
 available to any org to enable, and none is on until it is enabled; everything else is what
 people build with a persona (below). The front matter says who the member is, its department
 (`group`), its place (`seat`; the first twelve also say `lead: true`, the grid a roster opens on), the function it fills (`role`), what it owns (`owns`), the
@@ -23,14 +23,14 @@ at a pinned tag: a new tag, pinned by both, is a change to what the agent says.
 | Department | Agents |
 |------------|--------|
 | Executive & Management | Vi (CEO/Vision), Opera (Operations), Mana (Management/Product), Huma (Human Resources) |
-| Revenue & Relationships | Sal (Sales), Mark (Marketing), Rev (Revenue), Su (Support), Cust (Customer Success), Com (Community) |
-| Engineering & Intelligence | Dev (Development), IT (Information Technology), Cyber (Cybersecurity), QA (Quality Assurance), Data (Data & Analytics), Sci (Science & Research), Auto (Automation) |
+| Revenue & Relationships | Sal (Sales), Mark (Marketing), Rev (Revenue), Su (Support), Biz (Business Development) |
+| Engineering & Intelligence | Dev (Development), Cyber (Cybersecurity), Data (Data & Analytics), Sci (Science & Research) |
 | Creative & Knowledge | Des (Design), Art (Visual Art), Mo (Motion Pictures), Mu (Music & Audio), Doc (Documentation), Ed (Education), Lang (Languages & Translation) |
-| Financial & Commercial Infrastructure | Fin (Finance), Proc (Procurement), Supply (Supply Chain), Corp (Corporate Development) |
-| Governance & Protection | Law (Legal), Comp (Compliance), Risk (Risk Management), Audit (Internal Audit), Gov (Government Affairs) |
+| Financial & Commercial Infrastructure | Fin (Finance), Grant (Grants) |
+| Governance & Protection | Law (Legal), Gov (Government Affairs) |
 
 Each prompt is the persona compiled (`compile()`, with an `exemplars:` line, at most 340 tokens) plus a `hand-offs:` line
-naming the agents it passes work to, so the thirty-four work as a team. Anything a person must
+naming the agents it passes work to, so the twenty-four work as a team. Anything a person must
 decide (a payment, a hire, a filing, a legal opinion) is a boundary in the member's own file.
 
 `tools/personas.ts` writes the files: it asks a local OpenAI-compatible model for each seat's
@@ -75,7 +75,7 @@ import { team, member, people, compile, score, ITEMS } from '@hanzo/personas'   
 import { parse, parsePerson } from '@hanzo/personas/team.js'                     // any bundle: parse inlined text
 import { score, ITEMS } from '@hanzo/personas/ocean.js'                          // the test, in the browser
 
-team().map((m) => m.name)     // ['Art', 'Audit', 'Auto', ...], 34 seats
+team().map((m) => m.name)     // ['Art', 'Biz', 'Cyber', ...], 24 seats
 member('dev').instructions    // the system prompt
 member('su').ocean            // { openness: 0.59, ... }, the blend of its exemplars
 figure('david_ogilvy')        // a written figure as a Persona, OCEAN and facets included
@@ -99,7 +99,7 @@ not measurements — nobody administered an inventory to Turing.
 
 ```bash
 npm install github:hanzoai/personas#v1.0.5
-go get github.com/hanzoai/personas@v1.2.2
+go get github.com/hanzoai/personas@v1.3.2
 ```
 
 ## Usage
@@ -138,7 +138,7 @@ personas/
     profile.json    # JSON-only personas (no PERSONA.md yet)
 ```
 
-**1,098 in the roster, 153 written.** A roster entry is `{id, name, category}`.
+**1,100 in the roster, 155 written.** A roster entry is `{id, name, category}`.
 
 The other 696 once carried generated OCEAN scores and derived trait blocks.
 They were removed: openness had mean 89.8 and sd 6.2 across all of them,
@@ -256,7 +256,7 @@ percentile and not a diagnosis.
 
 ## Exemplar profiles for the managed team
 
-Each of the thirty-four carries `profile: exemplars`: its five domain scores are the equal blend
+Each of the twenty-four carries `profile: exemplars`: its five domain scores are the equal blend
 of three exemplars, masters of its role who have died, chosen for how well their working lives
 are documented, so none needs a consent record (`EXEMPLARS` in tools/personas.ts). Every
 exemplar has a written PERSONA.md whose `## OCEAN analysis` gives each domain and each of the
@@ -271,8 +271,10 @@ A seat's `skills` are role skills the cloud serves (hanzo-inc/cloud `apps/skills
 
 ## Avatars
 
-`assets/memoji/<id>.svg` (and `.png`, `@2x.png`) for the thirty-four, drawn from one set of
-parts by `node tools/memoji.ts` (a ground in its department's colour, a badge for its function); `assets/people/` holds the founders' photographs.
+`assets/memoji/<id>.svg` for the twenty-four, drawn from one set of parts by `node tools/memoji.ts`
+(a ground in its department's colour, a badge for its function); `<id>.png` and `<id>@2x.png` are
+the illustrated portraits, the owner's roster avatars resized to 256 and 512 pixels (Lanczos).
+`assets/personas/<id>.svg` is every figure's face; `assets/people/` holds the founders' photographs.
 
 ## Build and test
 

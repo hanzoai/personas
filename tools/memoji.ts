@@ -1,5 +1,5 @@
 /**
- * The team's memojis and the 1,098 historical figures' memojis, drawn from one
+ * The team's memojis and the 1,100 historical figures' memojis, drawn from one
  * cohesive 3D-shaded character system: a round-faced figure with soft studio light
  * from the upper left, period hair, facial hair, eyewear and attire, and a chest
  * badge for its discipline.
@@ -146,6 +146,7 @@ const LOOKS: Record<string, Look> = {
   mo: { skin: SKIN.s5, hair: HAIR.teal, hairStyle: 'messy', gear: ['headphones'], eyes: 'happy' },
   vid: { skin: SKIN.s5, hair: HAIR.teal, hairStyle: 'messy', gear: ['headphones'], eyes: 'happy' },
   biz: { skin: SKIN.s2, hair: HAIR.brown, hairStyle: 'swoop', gear: ['tie'], eyes: 'happy' },
+  grant: { skin: SKIN.s2, hair: HAIR.dark, hairStyle: 'swoop', gear: ['glasses'] },
 }
 
 /** The chest badge's glyph for each function: strokes in a 24-unit box. */
@@ -175,6 +176,7 @@ const EMBLEM: Record<string, string> = {
   mo: '<rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3z"/>',
   vid: '<rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3z"/>',
   biz: '<path d="M10 14a4 4 0 005.7 0l3-3a4 4 0 00-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 00-5.7 0l-3 3a4 4 0 005.7 5.7l1-1"/>',
+  grant: '<path d="M5 3h9l4 4v5M5 3v17h7M14 3v4h4M8 9h6M8 13h4"/><circle cx="17" cy="16" r="3"/><path d="M15.5 18.6L15 22l2-1 2 1-.5-3.4"/>',
 }
 
 const shade = (hex: string, by: number): string => {

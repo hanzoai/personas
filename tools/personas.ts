@@ -1,5 +1,5 @@
 /**
- * Writes team/<id>.md for the thirty-four managed agents from a local model.
+ * Writes team/<id>.md for the twenty-four managed agents from a local model.
  *
  *   node tools/personas.ts [--only fin,law] [--force] [--url http://host:port/v1]
  *
@@ -11,7 +11,7 @@
  * server constrains to SCHEMA (json_schema, greedy): for each OCEAN domain, a line on
  * what in the exemplars' documented behaviour puts the seat's score there, then voice,
  * expertise, boundaries, the tools to use (from TOOLS, which are names of the cloud's
- * real subsystems), who it hands off to (the other thirty-three) and its first
+ * real subsystems), who it hands off to (the other twenty-three) and its first
  * message. Everything is then validated in code (names, lengths, the compiled
  * prompt's token budget); an invalid answer is retried with its errors appended, up
  * to ATTEMPTS. The valid answer becomes a Persona, which compile() turns into the
@@ -35,7 +35,7 @@
  * compacting, 79 GiB of GTT held) and shut itself down, twice, before returning a spec. The
  * specs were written by hand to the same SCHEMA and passed the same check and token budget
  * (32 written, 0 rejected, 0 retries); the model path is untested against the full roster.
- * The exemplar seats of 1.2.2 were written the same way, each spec's why lines by hand
+ * The exemplar seats of 1.2.2, and Grant in 1.3.2, were written the same way, each spec's why lines by hand
  * from the exemplars' PERSONA.md files.
  */
 import { existsSync, readFileSync, writeFileSync } from 'node:fs'
@@ -98,6 +98,7 @@ export const ROSTER: Seat[] = [
   seat(G[3], 'Mu', 'Music & Audio', 'music, voice production, sound design'),
   seat(G[3], 'Doc', 'Documentation', 'technical docs, knowledge bases, manuals'),
   seat(G[5], 'Gov', 'Government Affairs', 'public policy, government relationships, regulatory engagement'),
+  seat(G[4], 'Grant', 'Grants', 'open-source and research grants in crypto and AI, applications, budgets and milestones, grant reports'),
 ]
 
 /**
@@ -128,6 +129,7 @@ export const EXEMPLARS: Record<string, string[]> = {
   mu: ['george_martin', 'quincy_jones', 'duke_ellington'],
   doc: ['denis_diderot', 'samuel_johnson', 'james_murray'],
   gov: ['frances_perkins', 'otto_von_bismarck', 'dag_hammarskjold'],
+  grant: ['vannevar_bush', 'warren_weaver', 'jcr_licklider'],
 }
 
 /**
@@ -185,7 +187,7 @@ const SCHEMA = {
   },
 } as const
 
-const SYSTEM = `You write the persona of one member of Hanzo's team of thirty-four AI agents, each owning one business function. Hanzo is an AI lab and cloud. Reply with JSON only, in the schema given.
+const SYSTEM = `You write the persona of one member of Hanzo's team of twenty-four AI agents, each owning one business function. Hanzo is an AI lab and cloud. Reply with JSON only, in the schema given.
 
 ocean: the agent's five Big Five domain scores are given: the mean of its three exemplars' authored scores. For each domain write one line, at most 320 characters and no semicolons, on what in the exemplars' documented behaviour puts the score there (name them) and why that fits the function.
 voice: style is how it writes (sentence shape, what it leads with); tone is how it sounds. Specific to the function, never "professional and friendly".
@@ -200,7 +202,7 @@ const ask = (s: Seat, errors: string[]): string =>
     `Agent: ${s.name} (id ${s.id}), ${s.role}, in the group "${s.group}".`,
     `Owns: ${s.owns}.`,
     `Exemplars: ${blended(s).exemplars.map((e) => `${e.name} (${e.craft ?? ''})`).join('; ')}. Scores: ${DOMAINS.map((d) => `${d} ${blended(s).ocean.domains[d].toFixed(2)}`).join(', ')}.`,
-    `The thirty-four: ${ROSTER.map((r) => `${r.id} (${r.role})`).join('; ')}.`,
+    `The twenty-four: ${ROSTER.map((r) => `${r.id} (${r.role})`).join('; ')}.`,
     `Tools you may choose from: ${Object.entries(TOOLS)
       .map(([k, v]) => `${k} (${v})`)
       .join('; ')}.`,

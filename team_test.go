@@ -8,7 +8,7 @@ import (
 	"testing"
 )
 
-// TestTeam checks what a consumer relies on: thirty-four members, each named for a
+// TestTeam checks what a consumer relies on: twenty-four members, each named for a
 // person to read, keyed by a permanent lower-case handle, on an Enso tier, with a
 // system prompt that opens with the member's own name.
 func TestTeam(t *testing.T) {
@@ -20,7 +20,7 @@ func TestTeam(t *testing.T) {
 	for _, m := range team {
 		ids = append(ids, m.ID)
 	}
-	if got, want := strings.Join(ids, ","), "art,biz,cyber,data,des,dev,doc,edu,fin,gov,huma,lang,law,mana,mark,mu,opera,rev,sal,sci,su,vi,vid"; got != want {
+	if got, want := strings.Join(ids, ","), "art,biz,cyber,data,des,dev,doc,edu,fin,gov,grant,huma,lang,law,mana,mark,mu,opera,rev,sal,sci,su,vi,vid"; got != want {
 		t.Fatalf("team = %s, want %s", got, want)
 	}
 	word := regexp.MustCompile(`^[A-Z][A-Za-z]+$`)

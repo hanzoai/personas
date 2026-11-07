@@ -24,18 +24,18 @@ test('the roster: one entry per person, the named figures present', () => {
   assert.ok(z?.profile && z.persona?.includes('Architect'))
 })
 
-test('the managed agents: twenty-three seats in six departments, each who the product shows and what the model is told', () => {
+test('the managed agents: twenty-four seats in six departments, each who the product shows and what the model is told', () => {
   const crew = team()
   assert.deepEqual(crew.map((m) => m.id).sort(), ROSTER.map((s) => s.id).sort())
   assert.deepEqual(grouped(crew).map((g) => [g.group, g.members.length]), [
     ['Executive & Management', 4],
-    ['Financial & Commercial Infrastructure', 1],
+    ['Financial & Commercial Infrastructure', 2],
     ['Engineering & Intelligence', 4],
     ['Revenue & Relationships', 5],
     ['Creative & Knowledge', 7],
     ['Governance & Protection', 2],
   ])
-  assert.deepEqual(crew.map((m) => m.seat).sort((a, b) => a - b), Array.from({ length: 23 }, (_, i) => i + 1))
+  assert.deepEqual(crew.map((m) => m.seat).sort((a, b) => a - b), Array.from({ length: 24 }, (_, i) => i + 1))
   assert.deepEqual(
     [...crew].sort((a, b) => a.seat - b.seat).filter((m) => m.lead).map((m) => m.id),
     ['vi', 'fin', 'dev', 'mark', 'opera', 'des', 'sal', 'su', 'cyber', 'sci', 'huma', 'mana'],
@@ -57,7 +57,7 @@ test('the managed agents: twenty-three seats in six departments, each who the pr
     assert.ok(named.length >= 3 && new Set(named).size === named.length, `${m.id}: three or more distinct hand-offs`)
     for (const n of named) assert.ok(n !== m.name && crew.some((o) => o.name === n), `${m.id} hands off to ${n}, who is not another member`)
   }
-  assert.equal(new Set(crew.map((m) => m.role)).size, 23, 'a function of its own each')
+  assert.equal(new Set(crew.map((m) => m.role)).size, 24, 'a function of its own each')
   assert.equal(member('dev')?.name, 'Dev')
   assert.equal(member('nobody'), null)
   assert.equal(member('../README'), null)

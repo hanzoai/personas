@@ -10299,6 +10299,16 @@
     "palette": "ochre",
     "skin": "s1"
   },
+  "vannevar_bush": {
+    "attire": "suit_tie",
+    "beard": "none",
+    "expr": "wise",
+    "glasses": "round",
+    "hair": "gray",
+    "hairStyle": "receding",
+    "palette": "slate",
+    "skin": "s1"
+  },
   "vauban": {
     "attire": "victorian",
     "beard": "none",
@@ -10557,6 +10567,16 @@
     "hair": "gray",
     "hairStyle": "short",
     "palette": "navy",
+    "skin": "s1"
+  },
+  "warren_weaver": {
+    "attire": "suit_tie",
+    "beard": "none",
+    "expr": "smile",
+    "glasses": "round",
+    "hair": "gray",
+    "hairStyle": "receding",
+    "palette": "amber",
     "skin": "s1"
   },
   "wayne_gretzky": {

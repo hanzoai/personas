@@ -1,6 +1,6 @@
 # Company operating defaults
 
-The canonical company has 34 seats in the six departments defined by `team/`.
+The canonical company has 24 seats in the six departments defined by `team/`.
 Lang owns languages, translation and localization. There is no Loc seat.
 Vi is the founder's entry point. Audit reports independently to the human owner
 or governance body; the other seats coordinate through Vi.
@@ -21,7 +21,7 @@ or expose an internal security backend.
 import { companyDefaults, devConfigFiles } from '@hanzo/personas'
 
 const company = companyDefaults()
-// 34 disabled-by-default employees; tools are requestedTools, never grants.
+// 24 disabled-by-default employees; tools are requestedTools, never grants.
 const files = devConfigFiles(company)
 // filename -> TOML; writes nothing. Review before installing in .hanzo/dev/.
 ```
@@ -47,7 +47,7 @@ The Dev export uses the existing `[agents.<handle>]` role configuration and
 `config.toml` into a project's `.hanzo/dev/config.toml` and place the employee
 files beside it under `employees/`. Preserve existing settings. Installing this
 opt-in preset enables delegation, capped at four concurrent child threads per
-session; it does not start 34 background agents. The cap is not an organization
+session; it does not start 24 background agents. The cap is not an organization
 budget or a limit across multiple sessions. The export changes no sandbox,
 approval policy, credentials or MCP connections. It is a configuration template,
 not a new `dev company` command or a live company service.
@@ -67,6 +67,8 @@ are separate steps. Do not overwrite user-edited personas during migration.
   controls independently.
 - Doc owns reference material; Ed owns training; Lang owns translated language.
 - Proc owns sourcing and purchasing; Supply owns fulfillment and inventory.
+- Grant owns grant applications and reports; Sci supplies the research, Fin the
+  budget, Law the terms and IP.
 - Law owns legal analysis; Comp owns compliance controls; Risk owns risk treatment
   tracking; Gov owns public-policy engagement.
 
