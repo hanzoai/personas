@@ -14,7 +14,7 @@ func TestCompanyDefaults(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if defaults.SchemaVersion != 1 || defaults.Entrypoint != "vi" || len(defaults.Members) != 34 {
+	if defaults.SchemaVersion != 1 || defaults.Entrypoint != "vi" || len(defaults.Members) != 23 {
 		t.Fatalf("unexpected company bundle: %+v", defaults)
 	}
 	groups := map[string]bool{}
@@ -32,10 +32,7 @@ func TestCompanyDefaults(t *testing.T) {
 		if !strings.Contains(m.Instructions, "Delegation never expands authority") {
 			t.Fatalf("missing authority boundary for %s", m.ID)
 		}
-		if m.ID == "audit" && m.ReportsTo != "human-owner" {
-			t.Fatal("Audit must report independently")
-		}
-		if m.ID != "audit" && m.ReportsTo != "vi" {
+		if m.ReportsTo != "vi" {
 			t.Fatalf("unexpected reporting line for %s", m.ID)
 		}
 	}

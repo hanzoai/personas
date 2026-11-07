@@ -6,7 +6,7 @@ import { devConfigFiles } from './dev.ts'
 test('Dev preset has Vi at entry and one config per canonical role, without permission overrides', () => {
   const bundle = companyDefaults()
   const files = devConfigFiles(bundle)
-  assert.equal(Object.keys(files).length, 35)
+  assert.equal(Object.keys(files).length, 24)
   assert.match(files['config.toml'], /developer_instructions = "You are Vi,/)
   assert.match(files['config.toml'], /max_concurrent_threads_per_session = 4/)
   for (const m of bundle.members) {

@@ -20,7 +20,7 @@ func TestTeam(t *testing.T) {
 	for _, m := range team {
 		ids = append(ids, m.ID)
 	}
-	if got, want := strings.Join(ids, ","), "art,audit,auto,biz,com,comp,corp,cust,cyber,data,des,dev,doc,edu,fin,gov,huma,it,lang,law,mana,mark,mu,opera,proc,qa,rev,risk,sal,sci,su,supply,vi,vid"; got != want {
+	if got, want := strings.Join(ids, ","), "art,biz,cyber,data,des,dev,doc,edu,fin,gov,huma,lang,law,mana,mark,mu,opera,rev,sal,sci,su,vi,vid"; got != want {
 		t.Fatalf("team = %s, want %s", got, want)
 	}
 	word := regexp.MustCompile(`^[A-Z][A-Za-z]+$`)
@@ -63,7 +63,7 @@ func TestTeam(t *testing.T) {
 	}
 	// The role skills the cloud attaches as skill_<name>: Ponytail's dev mode and
 	// the quality review for Dev, the UI skill for Des.
-	for id, want := range map[string]string{"dev": "dev,code-review", "des": "ui", "qa": "code-review,dev", "cyber": "code-review"} {
+	for id, want := range map[string]string{"dev": "dev,code-review", "des": "ui", "cyber": "code-review"} {
 		if got := strings.Join(byID[id].Skills, ","); got != want {
 			t.Errorf("%s: skills %q, want %q", id, got, want)
 		}

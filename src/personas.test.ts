@@ -24,18 +24,18 @@ test('the roster: one entry per person, the named figures present', () => {
   assert.ok(z?.profile && z.persona?.includes('Architect'))
 })
 
-test('the managed agents: thirty-four seats in six departments, each who the product shows and what the model is told', () => {
+test('the managed agents: twenty-three seats in six departments, each who the product shows and what the model is told', () => {
   const crew = team()
   assert.deepEqual(crew.map((m) => m.id).sort(), ROSTER.map((s) => s.id).sort())
   assert.deepEqual(grouped(crew).map((g) => [g.group, g.members.length]), [
     ['Executive & Management', 4],
-    ['Financial & Commercial Infrastructure', 4],
-    ['Engineering & Intelligence', 7],
-    ['Revenue & Relationships', 7],
+    ['Financial & Commercial Infrastructure', 1],
+    ['Engineering & Intelligence', 4],
+    ['Revenue & Relationships', 5],
     ['Creative & Knowledge', 7],
-    ['Governance & Protection', 5],
+    ['Governance & Protection', 2],
   ])
-  assert.deepEqual(crew.map((m) => m.seat).sort((a, b) => a - b), Array.from({ length: 34 }, (_, i) => i + 1))
+  assert.deepEqual(crew.map((m) => m.seat).sort((a, b) => a - b), Array.from({ length: 23 }, (_, i) => i + 1))
   assert.deepEqual(
     [...crew].sort((a, b) => a.seat - b.seat).filter((m) => m.lead).map((m) => m.id),
     ['vi', 'fin', 'dev', 'mark', 'opera', 'des', 'sal', 'su', 'cyber', 'sci', 'huma', 'mana'],
@@ -57,7 +57,7 @@ test('the managed agents: thirty-four seats in six departments, each who the pro
     assert.ok(named.length >= 3 && new Set(named).size === named.length, `${m.id}: three or more distinct hand-offs`)
     for (const n of named) assert.ok(n !== m.name && crew.some((o) => o.name === n), `${m.id} hands off to ${n}, who is not another member`)
   }
-  assert.equal(new Set(crew.map((m) => m.role)).size, 34, 'a function of its own each')
+  assert.equal(new Set(crew.map((m) => m.role)).size, 23, 'a function of its own each')
   assert.equal(member('dev')?.name, 'Dev')
   assert.equal(member('nobody'), null)
   assert.equal(member('../README'), null)
@@ -116,7 +116,6 @@ test('every exemplar is a written figure who has died, with a bio, a craft and a
 test('the role skills: the hardcore software set for Dev, the UI skill for Des, nothing outside the catalogue', () => {
   assert.deepEqual(member('dev')?.skills, ['dev', 'code-review'])
   assert.deepEqual(member('des')?.skills, ['ui'])
-  assert.deepEqual(member('qa')?.skills, ['code-review', 'dev'])
   assert.deepEqual(member('cyber')?.skills, ['code-review'])
   // hanzo-inc/cloud apps/skills builtin.go: the role skills the cloud serves.
   for (const m of team()) {

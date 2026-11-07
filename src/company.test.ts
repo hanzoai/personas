@@ -3,17 +3,16 @@ import { test } from 'node:test'
 import { companyDefaults, companyPolicy, team } from './index.ts'
 import { buildCompanyDefaults, composeCompanyInstructions } from './company.ts'
 
-test('company defaults cover exactly the existing 34 seats and six departments', () => {
+test('company defaults cover exactly the existing 23 seats and six departments', () => {
   const defaults = companyDefaults()
   assert.equal(defaults.schemaVersion, 1)
   assert.equal(defaults.entrypoint, 'vi')
-  assert.equal(defaults.members.length, 34)
+  assert.equal(defaults.members.length, 23)
   assert.equal(new Set(defaults.members.map(m => m.group)).size, 6)
   assert.deepEqual(defaults.members.map(m => m.id), team().map(m => m.id))
   assert.deepEqual(Object.keys(companyPolicy().members).sort(), team().map(m => m.id))
   assert.ok(defaults.members.every(m => !m.enabledByDefault))
-  assert.equal(defaults.members.find(m => m.id === 'audit')?.reportsTo, 'human-owner')
-  assert.ok(defaults.members.filter(m => m.id !== 'audit').every(m => m.reportsTo === 'vi'))
+  assert.ok(defaults.members.every(m => m.reportsTo === 'vi'))
 })
 
 test('runtime instructions retain the persona and add boundaries without granting tools', () => {
@@ -34,7 +33,6 @@ test('runtime instructions retain the persona and add boundaries without grantin
   assert.match(cyber.instructions, /authorized targets/)
   assert.match(cyber.instructions, /outside the worker/)
   assert.match(defaults.members.find(m => m.id === 'lang')!.instructions, /sole owner/)
-  assert.match(defaults.members.find(m => m.id === 'audit')!.instructions, /including Vi/)
   assert.throws(() => composeCompanyInstructions({ ...team()[0], id: 'loc' }, policy), /no company policy/)
   assert.throws(() => composeCompanyInstructions({ ...team()[0], id: 'constructor' }, policy), /no company policy/)
   assert.throws(() => buildCompanyDefaults([...team(), team()[0]], policy), /match the member roster/)

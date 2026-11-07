@@ -98,17 +98,6 @@ export const ROSTER: Seat[] = [
   seat(G[3], 'Mu', 'Music & Audio', 'music, voice production, sound design'),
   seat(G[3], 'Doc', 'Documentation', 'technical docs, knowledge bases, manuals'),
   seat(G[5], 'Gov', 'Government Affairs', 'public policy, government relationships, regulatory engagement'),
-  seat(G[1], 'Cust', 'Customer Success', 'onboarding, retention, renewals, account health'),
-  seat(G[1], 'Com', 'Community', 'open source, developer relations, communities'),
-  seat(G[2], 'IT', 'Information Technology', 'internal software, devices, enterprise applications'),
-  seat(G[2], 'QA', 'Quality Assurance', 'testing, regression, release validation'),
-  seat(G[2], 'Auto', 'Automation', 'workflow building, integrations, agent orchestration'),
-  seat(G[4], 'Proc', 'Procurement', 'purchasing, sourcing, vendor negotiations'),
-  seat(G[4], 'Supply', 'Supply Chain', 'logistics, inventory, fulfillment, supplier operations'),
-  seat(G[4], 'Corp', 'Corporate Development', 'M&A, acquisitions, divestitures, strategic investments'),
-  seat(G[5], 'Comp', 'Compliance', 'regulatory requirements, monitoring and controls'),
-  seat(G[5], 'Risk', 'Risk Management', 'enterprise risk, continuity, assessment'),
-  seat(G[5], 'Audit', 'Internal Audit', 'independent testing and assurance'),
 ]
 
 /**
@@ -139,17 +128,6 @@ export const EXEMPLARS: Record<string, string[]> = {
   mu: ['george_martin', 'quincy_jones', 'duke_ellington'],
   doc: ['denis_diderot', 'samuel_johnson', 'james_murray'],
   gov: ['frances_perkins', 'otto_von_bismarck', 'dag_hammarskjold'],
-  cust: ['stanley_marcus', 'john_wanamaker', 'j_willard_marriott'],
-  com: ['jon_postel', 'joe_armstrong', 'jane_addams'],
-  it: ['hopper', 'jcr_licklider', 'douglas_engelbart'],
-  qa: ['joseph_juran', 'walter_shewhart', 'kaoru_ishikawa'],
-  auto: ['norbert_wiener', 'charles_babbage', 'herbert_simon'],
-  proc: ['francesco_datini', 'jakob_fugger', 'josiah_wedgwood'],
-  supply: ['taiichi_ohno', 'malcom_mclean', 'montgomery_meigs'],
-  corp: ['jp_morgan', 'john_d_rockefeller', 'harold_geneen'],
-  comp: ['frances_kelsey', 'harvey_wiley', 'ignaz_semmelweis'],
-  risk: ['daniel_kahneman', 'frank_knight', 'pascal'],
-  audit: ['arthur_andersen', 'cato_younger', 'ferdinand_pecora'],
 }
 
 /**
@@ -161,12 +139,8 @@ export const EXEMPLARS: Record<string, string[]> = {
  */
 export const SKILLS: Record<string, string[]> = {
   dev: ['dev', 'code-review'],
-  qa: ['code-review', 'dev'],
   cyber: ['code-review'],
-  it: ['dev', 'code-review'],
-  auto: ['dev', 'code-review'],
   data: ['dev'],
-  com: ['code-review'],
   des: ['ui'],
 }
 
