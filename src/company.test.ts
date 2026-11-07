@@ -3,11 +3,11 @@ import { test } from 'node:test'
 import { companyDefaults, companyPolicy, team } from './index.ts'
 import { buildCompanyDefaults, composeCompanyInstructions } from './company.ts'
 
-test('company defaults cover exactly the existing 23 seats and six departments', () => {
+test('company defaults cover exactly the existing 24 seats and six departments', () => {
   const defaults = companyDefaults()
   assert.equal(defaults.schemaVersion, 1)
   assert.equal(defaults.entrypoint, 'vi')
-  assert.equal(defaults.members.length, 23)
+  assert.equal(defaults.members.length, 24)
   assert.equal(new Set(defaults.members.map(m => m.group)).size, 6)
   assert.deepEqual(defaults.members.map(m => m.id), team().map(m => m.id))
   assert.deepEqual(Object.keys(companyPolicy().members).sort(), team().map(m => m.id))

@@ -1,5 +1,5 @@
 /**
- * Hanzo's thirty-four managed agents, as data: one markdown file per member under team/.
+ * Hanzo's twenty-four managed agents, as data: one markdown file per member under team/.
  * The front matter says who the member is; the body is the system prompt that
  * reaches the model, word for word.
  *
@@ -8,7 +8,7 @@
  */
 import { DOMAINS, type Consent, type Ocean } from './persona.ts'
 
-/** One of Hanzo's thirty-four managed agents, from team/<id>.md. */
+/** One of Hanzo's twenty-four managed agents, from team/<id>.md. */
 export interface Member {
   /** The file's name and the member's stable handle: `dev`. */
   id: string
@@ -16,7 +16,7 @@ export interface Member {
   name: string
   /** The department it belongs to: `Engineering & Intelligence`. */
   group: string
-  /** Its place on the team, 1..34: the order a roster draws the members in. */
+  /** Its place on the team, 1..24: the order a roster draws the members in. */
   seat: number
   /** One of the first twelve seats, the grid a roster opens on; the rest are listed under it. */
   lead: boolean

@@ -28,7 +28,7 @@ export function companyPolicy(): CompanyPolicy {
   return JSON.parse(readFileSync(join(ROOT, 'company.json'), 'utf8')) as CompanyPolicy
 }
 
-/** Opt-in operating defaults for the same 34 seats, with no tools granted or agents started. */
+/** Opt-in operating defaults for the same 24 seats, with no tools granted or agents started. */
 export function companyDefaults(): ReturnType<typeof buildCompanyDefaults> {
   return buildCompanyDefaults(team(), companyPolicy())
 }

@@ -174,6 +174,13 @@
         "policy engagements with recorded outcomes",
         "regulatory changes communicated on time"
       ]
+    },
+    "grant": {
+      "boundary": "Own grant discovery, applications and the reports grants require for open-source and research funding in crypto and AI. Sci owns the research substance, Fin owns budgets and financial reports, Law reviews grant terms and IP, and Doc owns long-form writing. Submitting an application or accepting an award needs an authorized signatory.",
+      "successMeasures": [
+        "applications submitted by their deadlines",
+        "awards won and grant reports delivered on schedule"
+      ]
     }
   }
 }
