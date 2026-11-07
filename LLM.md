@@ -1,11 +1,26 @@
 # Hanzo Personas
 
 ## Overview
-A roster of 1,044 figures (id, name, category) and 67 hand-written PERSONA.md
+A roster of 1,098 figures (id, name, category) and 153 hand-written PERSONA.md
 definitions carrying Big Five traits and NEO PI-R facets as authored judgement;
 Hanzo's thirty-four managed agents (team/, six departments; the first twelve seats are the grid a roster opens on), the people who lead it (people/), the one
 persona schema and compiler, and the public-domain IPIP OCEAN test (src/). README.md
-says what each is and the rules (consent for a living person; designed profiles).
+says what each is and the rules (consent for a living person; exemplar profiles).
+
+## Exemplars, blends and skills
+- `src/blend.ts` `blend(parts)` and `blend.go` `Blend` are the one way to combine personas: the
+  weighted mean of domains and facets, each part kept as an `Exemplar` (handle, name, share,
+  bio, craft). A living person (a figure with no `died` line) is refused until the file records
+  `consent: recorded` + `consent_by`.
+- `src/figure.ts` `parseFigure` / `figure.go` `ParseFigure`, `Figure` read a PERSONA.md front
+  matter (the YAML subset the files use) into the schema; Go embeds `personas/*/PERSONA.md`.
+- Each seat's three exemplars are `EXEMPLARS` in tools/personas.ts, its role skills `SKILLS`
+  (names from hanzo-inc/cloud apps/skills builtin.go: `dev`, `code-review`, `ui`). Its OCEAN is
+  the exemplars' blend, rounded to two places; `why_*` lines come from the spec. Regenerate a
+  seat with `node tools/personas.ts --spec <specs.json> --force`.
+- An exemplar's PERSONA.md carries `born`, `died`, `bio`, `craft`, the 5 traits and 30 facets,
+  and ends with `## OCEAN analysis` (35 lines, each citing `## Sources` by number) and
+  `## Sources`. `src/personas.test.ts` holds every exemplar to that.
 
 ## Tech Stack
 - **Language**: TypeScript (src/ builds to dist/); Go reads team/ for the cloud

@@ -4,15 +4,19 @@
  *   node tools/personas.ts [--only fin,law] [--force] [--url http://host:port/v1]
  *
  * The ROSTER below is the input and is the owner's, word for word: group, name,
- * function and ownership. The model is asked for the rest, as JSON the server
- * constrains to SCHEMA (json_schema, greedy): the five OCEAN scores 0..100 with a
- * one-line rationale each, voice, expertise, boundaries, the tools to use (from
- * TOOLS, which are names of the cloud's real subsystems), who it hands off to (the
- * other thirty-three) and its first message. Everything is then validated in code
- * (ranges, names, lengths, the compiled prompt's token budget); an invalid answer
- * is retried with its errors appended, up to ATTEMPTS. The valid answer becomes a
- * Persona, which compile() turns into the prompt, so a team member reads exactly
- * as any persona does; the result is rendered to team/<id>.md.
+ * function and ownership. EXEMPLARS names each seat's three masters of its role,
+ * figures of the roster who have died and have a written PERSONA.md; the seat's OCEAN
+ * is their equal-weight blend (blend.ts). SKILLS names the role skills from the
+ * cloud's catalogue its agent carries. The model is asked for the rest, as JSON the
+ * server constrains to SCHEMA (json_schema, greedy): for each OCEAN domain, a line on
+ * what in the exemplars' documented behaviour puts the seat's score there, then voice,
+ * expertise, boundaries, the tools to use (from TOOLS, which are names of the cloud's
+ * real subsystems), who it hands off to (the other thirty-three) and its first
+ * message. Everything is then validated in code (names, lengths, the compiled
+ * prompt's token budget); an invalid answer is retried with its errors appended, up
+ * to ATTEMPTS. The valid answer becomes a Persona, which compile() turns into the
+ * prompt, so a team member reads exactly as any persona does; the result is rendered
+ * to team/<id>.md.
  *
  * With --spec <file.json> (a map from id to a spec in the same shape) the specs are
  * read instead of asked for, and go through the same check, budget and render: for a
@@ -31,17 +35,21 @@
  * compacting, 79 GiB of GTT held) and shut itself down, twice, before returning a spec. The
  * specs were written by hand to the same SCHEMA and passed the same check and token budget
  * (32 written, 0 rejected, 0 retries); the model path is untested against the full roster.
+ * The exemplar seats of 1.2.2 were written the same way, each spec's why lines by hand
+ * from the exemplars' PERSONA.md files.
  */
 import { existsSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { blend, type Blend } from '../src/blend.ts'
 import { compile, tokens } from '../src/compile.ts'
-import { DOMAINS, validate, type Domain, type Persona } from '../src/persona.ts'
+import { figure } from '../src/index.ts'
+import { DOMAINS, validate, type Domain, type Ocean, type Persona } from '../src/persona.ts'
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
 const ATTEMPTS = 4
-/** The most a member's whole prompt may cost: compile()'s own budget and its hand-offs line. */
-const BUDGET = 300
+/** The most a member's whole prompt may cost: compile()'s own budget, its exemplars line and its hand-offs line. */
+export const BUDGET = 340
 
 interface Seat {
   id: string
@@ -103,6 +111,65 @@ export const ROSTER: Seat[] = [
   seat(G[5], 'Audit', 'Internal Audit', 'independent testing and assurance'),
 ]
 
+/**
+ * Each seat's exemplars: three roster ids (personas/<id>/), the top, best-documented
+ * masters of its role, all of whom have died, so none needs a consent record.
+ */
+export const EXEMPLARS: Record<string, string[]> = {
+  vi: ['jobs', 'walt_disney', 'akio_morita'],
+  fin: ['benjamin_graham', 'alexander_hamilton', 'john_maynard_keynes'],
+  dev: ['dennis_ritchie', 'dijkstra', 'john_backus'],
+  mark: ['david_ogilvy', 'bill_bernbach', 'leo_burnett'],
+  opera: ['henri_fayol', 'alfred_sloan', 'lillian_gilbreth'],
+  des: ['henry_dreyfuss', 'charles_eames', 'massimo_vignelli'],
+  sal: ['dale_carnegie', 'thomas_watson', 'estee_lauder'],
+  su: ['herb_kelleher', 'cesar_ritz', 'marshall_field'],
+  cyber: ['turing', 'shannon', 'william_friedman'],
+  sci: ['feynman', 'curie', 'darwin'],
+  huma: ['mary_parker_follett', 'douglas_mcgregor', 'kurt_lewin'],
+  mana: ['peter_drucker', 'andy_grove', 'edwards_deming'],
+  data: ['john_tukey', 'nightingale', 'edgar_codd'],
+  lang: ['xuanzang', 'jerome', 'constance_garnett'],
+  edu: ['maria_montessori', 'john_dewey', 'seymour_papert'],
+  art: ['picasso', 'henri_matisse', 'katsushika_hokusai'],
+  rev: ['sam_walton', 'andrew_carnegie', 'alfred_marshall'],
+  law: ['oliver_wendell_holmes', 'louis_brandeis', 'thurgood_marshall'],
+  vid: ['stanley_kubrick', 'kurosawa', 'hitchcock'],
+  biz: ['benjamin_franklin', 'jean_monnet', 'cosimo_de_medici'],
+  mu: ['george_martin', 'quincy_jones', 'duke_ellington'],
+  doc: ['denis_diderot', 'samuel_johnson', 'james_murray'],
+  gov: ['frances_perkins', 'otto_von_bismarck', 'dag_hammarskjold'],
+  cust: ['stanley_marcus', 'john_wanamaker', 'j_willard_marriott'],
+  com: ['jon_postel', 'joe_armstrong', 'jane_addams'],
+  it: ['hopper', 'jcr_licklider', 'douglas_engelbart'],
+  qa: ['joseph_juran', 'walter_shewhart', 'kaoru_ishikawa'],
+  auto: ['norbert_wiener', 'charles_babbage', 'herbert_simon'],
+  proc: ['francesco_datini', 'jakob_fugger', 'josiah_wedgwood'],
+  supply: ['taiichi_ohno', 'malcom_mclean', 'montgomery_meigs'],
+  corp: ['jp_morgan', 'john_d_rockefeller', 'harold_geneen'],
+  comp: ['frances_kelsey', 'harvey_wiley', 'ignaz_semmelweis'],
+  risk: ['daniel_kahneman', 'frank_knight', 'pascal'],
+  audit: ['arthur_andersen', 'cato_younger', 'ferdinand_pecora'],
+}
+
+/**
+ * Each seat's role skills, by their names in the cloud's catalogue (hanzo-inc/cloud
+ * apps/skills builtin.go, from hanzoai/skills): `dev` is Ponytail's senior-dev mode,
+ * `code-review` the thermo-nuclear quality review with its security pass, `ui` the
+ * @hanzo/ui parity skill. The cloud attaches each to the seat's agent as skill_<name>.
+ * A seat whose role has no skill in the catalogue carries none.
+ */
+export const SKILLS: Record<string, string[]> = {
+  dev: ['dev', 'code-review'],
+  qa: ['code-review', 'dev'],
+  cyber: ['code-review'],
+  it: ['dev', 'code-review'],
+  auto: ['dev', 'code-review'],
+  data: ['dev'],
+  com: ['code-review'],
+  des: ['ui'],
+}
+
 /** Names of the cloud's real subsystems (manifest/apps.go), with what each is where the name does not say. */
 export const TOOLS: Record<string, string> = {
   books: 'accounting ledger', treasury: 'cash and treasury', tax: 'tax', billing: 'invoices and payments', pricing: 'price books', plan: 'plans', commerce: 'orders and catalog',
@@ -127,7 +194,7 @@ const SCHEMA = {
       additionalProperties: false,
       required: [...DOMAINS],
       properties: Object.fromEntries(
-        DOMAINS.map((d) => [d, { type: 'object', additionalProperties: false, required: ['score', 'why'], properties: { score: { type: 'integer' }, why: { type: 'string', minLength: 12, maxLength: 140 } } }]),
+        DOMAINS.map((d) => [d, { type: 'object', additionalProperties: false, required: ['why'], properties: { why: { type: 'string', minLength: 60, maxLength: 320 } } }]),
       ),
     },
     voice: { type: 'object', additionalProperties: false, required: ['style', 'tone'], properties: { style: { type: 'string', minLength: 12, maxLength: 100 }, tone: { type: 'string', minLength: 6, maxLength: 60 } } },
@@ -146,7 +213,7 @@ const SCHEMA = {
 
 const SYSTEM = `You write the persona of one member of Hanzo's team of thirty-four AI agents, each owning one business function. Hanzo is an AI lab and cloud. Reply with JSON only, in the schema given.
 
-ocean: the five Big Five domain scores, whole numbers 0 to 100, DESIGNED for what this function asks of its owner, each with a one-line reason that names the work. Use the research: conscientiousness predicts performance in every job, so keep it 60 or more and raise it where errors are costly (finance, audit, security, legal, QA); extraversion matters for people-facing and persuading work (sales, marketing, community, executive) and is lower for solitary, careful work; agreeableness is high for service and community, moderate for management, lower for audit, negotiation and risk, where saying no is the job; neuroticism (emotional reactivity) stays low, 40 or less, for every agent; openness is high for creative, research and strategy work and moderate for compliance and audit. Differ across agents: a profile that is 50 everywhere says nothing.
+ocean: the agent's five Big Five domain scores are given: the mean of its three exemplars' authored scores. For each domain write one line, at most 320 characters and no semicolons, on what in the exemplars' documented behaviour puts the score there (name them) and why that fits the function.
 voice: style is how it writes (sentence shape, what it leads with); tone is how it sounds. Specific to the function, never "professional and friendly".
 expertise: three to five concrete skills of the function.
 boundaries: two to four things it never does. Always include what it must not claim or do without a person's approval in this function (a legal opinion, a payment, a hire, a publication, a deploy, a filing). Never claim an action was done that was not.
@@ -158,6 +225,7 @@ const ask = (s: Seat, errors: string[]): string =>
   [
     `Agent: ${s.name} (id ${s.id}), ${s.role}, in the group "${s.group}".`,
     `Owns: ${s.owns}.`,
+    `Exemplars: ${blended(s).exemplars.map((e) => `${e.name} (${e.craft ?? ''})`).join('; ')}. Scores: ${DOMAINS.map((d) => `${d} ${blended(s).ocean.domains[d].toFixed(2)}`).join(', ')}.`,
     `The thirty-four: ${ROSTER.map((r) => `${r.id} (${r.role})`).join('; ')}.`,
     `Tools you may choose from: ${Object.entries(TOOLS)
       .map(([k, v]) => `${k} (${v})`)
@@ -166,7 +234,7 @@ const ask = (s: Seat, errors: string[]): string =>
   ].join('\n')
 
 interface Spec {
-  ocean: Record<Domain, { score: number; why: string }>
+  ocean: Record<Domain, { why: string }>
   voice: { style: string; tone: string }
   expertise: string[]
   boundaries: string[]
@@ -177,17 +245,27 @@ interface Spec {
 
 const one = (s: string): boolean => !/[\n\r]/.test(s) && !/^\s|\s$/.test(s)
 
+/** A seat's exemplars blended, with the domain scores rounded to the two places its file states. */
+export function blended(s: Seat): Blend {
+  const b = blend(
+    (EXEMPLARS[s.id] ?? []).map((id) => {
+      const p = figure(id)
+      if (!p) throw new Error(`${s.id}: exemplar ${id} has no PERSONA.md`)
+      return { persona: p }
+    }),
+  )
+  return { exemplars: b.exemplars, ocean: { source: 'exemplars', domains: Object.fromEntries(DOMAINS.map((d) => [d, Math.round(b.ocean.domains[d] * 100) / 100])) as Ocean } }
+}
+
 /** The problems with a model's answer for a seat, as sentences to send back; empty when it is sound. */
 export function check(s: Seat, spec: Spec): string[] {
   const out: string[] = []
-  const scores = DOMAINS.map((d) => spec.ocean[d].score)
+  const names = blended(s).exemplars.map((e) => e.name)
   for (const d of DOMAINS) {
-    const v = spec.ocean[d].score
-    if (!Number.isInteger(v) || v < 0 || v > 100) out.push(`ocean.${d}.score must be a whole number from 0 to 100`)
+    const why = spec.ocean[d].why
+    if (why.length < 60 || why.length > 320) out.push(`ocean.${d}.why must be 60 to 320 characters`)
+    if (!names.some((n) => why.includes(n))) out.push(`ocean.${d}.why must name an exemplar: ${names.join(', ')}`)
   }
-  if (spec.ocean.conscientiousness.score < 60) out.push('conscientiousness must be 60 or more')
-  if (spec.ocean.neuroticism.score > 40) out.push('neuroticism must be 40 or less')
-  if (Math.max(...scores) - Math.min(...scores) < 30) out.push('the five scores must differ by at least 30 between the highest and the lowest')
   const seen = new Set<string>()
   for (const h of spec.handoffs) {
     if (h.to === s.id) out.push('handoffs must not name itself')
@@ -211,7 +289,7 @@ export function persona(s: Seat, spec: Spec): Persona {
     name: s.name,
     role: s.role,
     bio: `Hanzo's ${s.role} agent. It owns ${s.owns}.`,
-    ocean: { domains: Object.fromEntries(DOMAINS.map((d) => [d, spec.ocean[d].score / 100])) as Persona['ocean'] extends infer O ? (O extends { domains: infer D } ? D : never) : never, source: 'designed' },
+    ...blended(s),
     voice: { style: spec.voice.style, tone: spec.voice.tone },
     expertise: spec.expertise,
     boundaries: spec.boundaries,
@@ -227,7 +305,8 @@ export function prompt(s: Seat, spec: Spec): string {
 
 /** team/<id>.md: flat front matter, then the prompt word for word. */
 export function render(s: Seat, spec: Spec): string {
-  const o = (d: Domain) => (spec.ocean[d].score / 100).toFixed(2)
+  const b = blended(s)
+  const o = (d: Domain) => b.ocean.domains[d].toFixed(2)
   const head = [
     `name: ${s.name}`,
     `group: ${s.group}`,
@@ -236,10 +315,12 @@ export function render(s: Seat, spec: Spec): string {
     `role: ${s.role}`,
     `owns: ${s.owns}`,
     'model: enso',
-    'profile: designed',
+    'profile: exemplars',
+    `exemplars: ${EXEMPLARS[s.id].join(', ')}`,
     ...DOMAINS.map((d) => `${d}: ${o(d)}`),
     ...DOMAINS.map((d) => `why_${d}: ${spec.ocean[d].why}`),
     `tools: ${spec.tools.join(', ')}`,
+    ...(SKILLS[s.id]?.length ? [`skills: ${SKILLS[s.id].join(', ')}`] : []),
     `greeting: ${spec.greeting}`,
   ]
   return `---\n${head.join('\n')}\n---\n\n${prompt(s, spec)}\n`

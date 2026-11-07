@@ -29,8 +29,17 @@ type Member struct {
 	// Lead marks the first twelve seats, the grid a roster opens on.
 	Lead bool
 	Owns string
+	// Profile says how Ocean came to be: "exemplars" is the equal blend of
+	// Exemplars, the roster ids of the masters of its role it is drawn from.
+	Profile   string
+	Exemplars []string
+	// Ocean is the five domain scores, 0..1, where the file states them.
+	Ocean map[string]float64
 	// Tools are requested subsystems, never implicit permission grants.
 	Tools []string
+	// Skills are role skills from the cloud's catalogue, attached to the
+	// member's agent as skill_<name>.
+	Skills []string
 	// Role is the function it fills: "Development".
 	Role string
 	// Model is the model the member runs on: an Enso tier.
@@ -89,11 +98,17 @@ func Parse(id, text string) (Member, error) {
 		}
 	}
 	seat, _ := strconv.Atoi(meta["seat"])
-	var tools []string
-	for _, value := range strings.Split(meta["tools"], ",") {
-		if value = strings.TrimSpace(value); value != "" {
-			tools = append(tools, value)
+	var ocean map[string]float64
+	for _, d := range Domains {
+		v, err := strconv.ParseFloat(meta[d], 64)
+		if err != nil {
+			ocean = nil
+			break
 		}
+		if ocean == nil {
+			ocean = map[string]float64{}
+		}
+		ocean[d] = v
 	}
 	return Member{
 		ID:           id,
@@ -102,9 +117,24 @@ func Parse(id, text string) (Member, error) {
 		Seat:         seat,
 		Lead:         meta["lead"] == "true",
 		Owns:         meta["owns"],
-		Tools:        tools,
+		Profile:      meta["profile"],
+		Exemplars:    words(meta["exemplars"]),
+		Ocean:        ocean,
+		Tools:        words(meta["tools"]),
+		Skills:       words(meta["skills"]),
 		Role:         meta["role"],
 		Model:        meta["model"],
 		Instructions: strings.TrimSpace(body),
 	}, nil
+}
+
+// words is a comma-separated front matter value as its items.
+func words(v string) []string {
+	var out []string
+	for _, w := range strings.Split(v, ",") {
+		if w = strings.TrimSpace(w); w != "" {
+			out = append(out, w)
+		}
+	}
+	return out
 }

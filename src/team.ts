@@ -28,10 +28,14 @@ export interface Member {
   model: string
   /** The five OCEAN domain scores, 0..1, when the file states them. */
   ocean: Ocean | null
-  /** How `ocean` came to be: `designed` for a managed teammate's role. */
-  profile: 'designed' | null
+  /** How `ocean` came to be: `exemplars` is the equal-weight blend of `exemplars`; `designed` was written for the role. */
+  profile: 'designed' | 'exemplars' | null
+  /** The roster ids (personas/<id>/) of the masters of its role it is drawn from. */
+  exemplars: string[]
   /** Requested cloud subsystems; the host must authorize actual tool access. */
   tools: string[]
+  /** Skills from the cloud's catalogue its agent carries, attached as `skill_<name>`. */
+  skills: string[]
   /** Its first message to a person. */
   greeting: string
   /** The system prompt, word for word. */
@@ -70,7 +74,8 @@ export function parse(id: string, text: string): Member {
   const present = DOMAINS.every((d) => (meta[d] ?? '') !== '')
   const scores = DOMAINS.map((d) => Number(meta[d]))
   const ocean = present && scores.every((v) => Number.isFinite(v) && v >= 0 && v <= 1) ? (Object.fromEntries(DOMAINS.map((d, i) => [d, scores[i]])) as Ocean) : null
-  const profile = meta.profile === 'designed' ? meta.profile : null
+  const profile = meta.profile === 'designed' || meta.profile === 'exemplars' ? meta.profile : null
+  const words = (key: string) => (meta[key] ?? '').split(',').map((t) => t.trim()).filter(Boolean)
   return {
     id,
     name: meta.name,
@@ -82,7 +87,9 @@ export function parse(id: string, text: string): Member {
     model: meta.model,
     ocean,
     profile,
-    tools: (meta.tools ?? '').split(',').map((t) => t.trim()).filter(Boolean),
+    exemplars: words('exemplars'),
+    tools: words('tools'),
+    skills: words('skills'),
     greeting: meta.greeting,
     instructions: body,
   }
