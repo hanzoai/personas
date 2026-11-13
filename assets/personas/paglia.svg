@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-label="paglia">
 <defs>
-<linearGradient id="g-paglia" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4c1d95"/><stop offset="1" stop-color="#170930"/></linearGradient>
+<linearGradient id="g-paglia" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#595959"/><stop offset="1" stop-color="#1c1c1c"/></linearGradient>
 <radialGradient id="f-paglia" cx=".36" cy=".3" r=".8"><stop offset="0" stop-color="#ffe3bf"/><stop offset="1" stop-color="#d8b08c"/></radialGradient>
 <clipPath id="c-paglia"><circle cx="128" cy="128" r="128"/></clipPath>
 </defs>
 <g clip-path="url(#c-paglia)">
 <rect width="256" height="256" fill="url(#g-paglia)"/>
-<circle cx="96" cy="76" r="84" fill="#a78bfa" opacity=".14"/>
+<circle cx="96" cy="76" r="84" fill="#c2c2c2" opacity=".14"/>
 <path d="M62 118 C52 190 60 218 84 226 L172 226 C196 218 204 190 194 118 Z" fill="#d6a84a"/><path d="M26 256 C30 212 66 194 128 194 C190 194 226 212 230 256 Z" fill="#18181b"/><rect x="104" y="182" width="48" height="24" rx="8" fill="#27272a"/>
 <rect x="110" y="168" width="36" height="36" rx="14" fill="#d2aa86"/>
 <ellipse cx="68" cy="128" rx="9" ry="13" fill="#e4bc98"/><ellipse cx="188" cy="128" rx="9" ry="13" fill="#e4bc98"/>

@@ -56,7 +56,7 @@
     "glasses": "none",
     "hair": "brown",
     "hairStyle": "bun",
-    "palette": "violet",
+    "palette": "graphite",
     "skin": "s2"
   },
   "adam_smith": {
@@ -756,7 +756,7 @@
     "glasses": "none",
     "hair": "brown",
     "hairStyle": "short",
-    "palette": "violet",
+    "palette": "graphite",
     "skin": "s1"
   },
   "anselm_canterbury": {
@@ -2046,7 +2046,7 @@
     "glasses": "none",
     "hair": "brown",
     "hairStyle": "short",
-    "palette": "violet",
+    "palette": "graphite",
     "skin": "s2"
   },
   "claude_bernard": {
@@ -2146,7 +2146,7 @@
     "glasses": "round",
     "hair": "gray",
     "hairStyle": "bun",
-    "palette": "violet",
+    "palette": "graphite",
     "skin": "s1"
   },
   "constance_tipper": {
@@ -2616,7 +2616,7 @@
     "glasses": "none",
     "hair": "black",
     "hairStyle": "short",
-    "palette": "violet",
+    "palette": "graphite",
     "skin": "s6"
   },
   "dhh": {
@@ -2976,7 +2976,7 @@
     "glasses": "none",
     "hair": "black",
     "hairStyle": "long",
-    "palette": "burgundy",
+    "palette": "charcoal",
     "skin": "s3"
   },
   "eileen_gray": {
@@ -3116,7 +3116,7 @@
     "glasses": "none",
     "hair": "brown",
     "hairStyle": "bun",
-    "palette": "burgundy",
+    "palette": "charcoal",
     "skin": "s2"
   },
   "emily_warren_roebling": {
@@ -3156,7 +3156,7 @@
     "glasses": "none",
     "hair": "brown",
     "hairStyle": "bob",
-    "palette": "burgundy",
+    "palette": "charcoal",
     "skin": "s2"
   },
   "emmy_noether": {
@@ -3536,7 +3536,7 @@
     "glasses": "none",
     "hair": "black",
     "hairStyle": "long",
-    "palette": "violet",
+    "palette": "graphite",
     "skin": "s3"
   },
   "foucault": {
@@ -3586,7 +3586,7 @@
     "glasses": "none",
     "hair": "gray",
     "hairStyle": "bob",
-    "palette": "burgundy",
+    "palette": "charcoal",
     "skin": "s3"
   },
   "francesco_datini": {
@@ -3786,7 +3786,7 @@
     "glasses": "none",
     "hair": "gray",
     "hairStyle": "bun",
-    "palette": "violet",
+    "palette": "graphite",
     "skin": "s3"
   },
   "galen": {
@@ -3886,7 +3886,7 @@
     "glasses": "none",
     "hair": "gray",
     "hairStyle": "short",
-    "palette": "violet",
+    "palette": "graphite",
     "skin": "s3"
   },
   "george_carlin": {
@@ -3906,7 +3906,7 @@
     "glasses": "none",
     "hair": "brown",
     "hairStyle": "bun",
-    "palette": "burgundy",
+    "palette": "charcoal",
     "skin": "s2"
   },
   "george_fox": {
@@ -3976,7 +3976,7 @@
     "glasses": "none",
     "hair": "brown",
     "hairStyle": "wig",
-    "palette": "burgundy",
+    "palette": "charcoal",
     "skin": "s2"
   },
   "gian_lorenzo_bernini": {
@@ -4066,7 +4066,7 @@
     "glasses": "none",
     "hair": "brown",
     "hairStyle": "long",
-    "palette": "burgundy",
+    "palette": "charcoal",
     "skin": "s2"
   },
   "goffman": {
@@ -4516,7 +4516,7 @@
     "glasses": "none",
     "hair": "brown",
     "hairStyle": "veil",
-    "palette": "violet",
+    "palette": "graphite",
     "skin": "s1"
   },
   "hipparchus": {
@@ -4626,7 +4626,7 @@
     "glasses": "none",
     "hair": "gray",
     "hairStyle": "short",
-    "palette": "violet",
+    "palette": "graphite",
     "skin": "s3"
   },
   "hugh_victor": {
@@ -4646,7 +4646,7 @@
     "glasses": "none",
     "hair": "gray",
     "hairStyle": "long",
-    "palette": "burgundy",
+    "palette": "charcoal",
     "skin": "s2"
   },
   "hugo_grotius": {
@@ -4736,7 +4736,7 @@
     "glasses": "none",
     "hair": "black",
     "hairStyle": "long",
-    "palette": "violet",
+    "palette": "graphite",
     "skin": "s4"
   },
   "ibn_khaldun": {
@@ -5066,7 +5066,7 @@
     "glasses": "none",
     "hair": "brown",
     "hairStyle": "long",
-    "palette": "violet",
+    "palette": "graphite",
     "skin": "s2"
   },
   "jcr_licklider": {
@@ -5146,7 +5146,7 @@
     "glasses": "none",
     "hair": "brown",
     "hairStyle": "long",
-    "palette": "burgundy",
+    "palette": "charcoal",
     "skin": "s3"
   },
   "jerry_seinfeld": {
@@ -5176,7 +5176,7 @@
     "glasses": "none",
     "hair": "black",
     "hairStyle": "long",
-    "palette": "violet",
+    "palette": "graphite",
     "skin": "s4"
   },
   "jiro_horikoshi": {
@@ -5416,7 +5416,7 @@
     "glasses": "none",
     "hair": "dark",
     "hairStyle": "side",
-    "palette": "burgundy",
+    "palette": "charcoal",
     "skin": "s2"
   },
   "john_wesley": {
@@ -5776,7 +5776,7 @@
     "glasses": "round",
     "hair": "brown",
     "hairStyle": "short",
-    "palette": "violet",
+    "palette": "graphite",
     "skin": "s2"
   },
   "karl_jaspers": {
@@ -6006,7 +6006,7 @@
     "glasses": "none",
     "hair": "brown",
     "hairStyle": "bun",
-    "palette": "violet",
+    "palette": "graphite",
     "skin": "s2"
   },
   "kunihiko_fukushima": {
@@ -6286,7 +6286,7 @@
     "glasses": "none",
     "hair": "black",
     "hairStyle": "bun",
-    "palette": "violet",
+    "palette": "graphite",
     "skin": "s3"
   },
   "li_shizhen": {
@@ -6596,7 +6596,7 @@
     "glasses": "none",
     "hair": "blond",
     "hairStyle": "short",
-    "palette": "violet",
+    "palette": "graphite",
     "skin": "s2"
   },
   "mahalanobis": {
@@ -6826,7 +6826,7 @@
     "glasses": "none",
     "hair": "brown",
     "hairStyle": "long",
-    "palette": "violet",
+    "palette": "graphite",
     "skin": "s2"
   },
   "mario_vargas_llosa": {
@@ -6926,7 +6926,7 @@
     "glasses": "none",
     "hair": "gray",
     "hairStyle": "bun",
-    "palette": "violet",
+    "palette": "graphite",
     "skin": "s2"
   },
   "mary_shelley": {
@@ -6936,7 +6936,7 @@
     "glasses": "none",
     "hair": "brown",
     "hairStyle": "long",
-    "palette": "violet",
+    "palette": "graphite",
     "skin": "s1"
   },
   "mary_wollstonecraft": {
@@ -7106,7 +7106,7 @@
     "glasses": "none",
     "hair": "black",
     "hairStyle": "short",
-    "palette": "burgundy",
+    "palette": "charcoal",
     "skin": "s3"
   },
   "miguel_de_cervantes": {
@@ -7216,7 +7216,7 @@
     "glasses": "none",
     "hair": "black",
     "hairStyle": "long",
-    "palette": "burgundy",
+    "palette": "charcoal",
     "skin": "s3"
   },
   "mirzakhani": {
@@ -7316,7 +7316,7 @@
     "glasses": "none",
     "hair": "gray",
     "hairStyle": "short",
-    "palette": "burgundy",
+    "palette": "charcoal",
     "skin": "s5"
   },
   "moses": {
@@ -7396,7 +7396,7 @@
     "glasses": "none",
     "hair": "black",
     "hairStyle": "long",
-    "palette": "violet",
+    "palette": "graphite",
     "skin": "s1"
   },
   "mustafa_kemal_ataturk": {
@@ -7626,7 +7626,7 @@
     "glasses": "none",
     "hair": "black",
     "hairStyle": "short",
-    "palette": "violet",
+    "palette": "graphite",
     "skin": "s5"
   },
   "nishida_kitaro": {
@@ -7906,7 +7906,7 @@
     "glasses": "none",
     "hair": "blond",
     "hairStyle": "long",
-    "palette": "violet",
+    "palette": "graphite",
     "skin": "s2"
   },
   "pancho_villa": {
@@ -7936,7 +7936,7 @@
     "glasses": "none",
     "hair": "brown",
     "hairStyle": "long",
-    "palette": "violet",
+    "palette": "graphite",
     "skin": "s2"
   },
   "patrice_lumumba": {
@@ -8266,7 +8266,7 @@
     "glasses": "none",
     "hair": "black",
     "hairStyle": "short",
-    "palette": "violet",
+    "palette": "graphite",
     "skin": "s4"
   },
   "proust": {
@@ -8436,7 +8436,7 @@
     "glasses": "none",
     "hair": "brown",
     "hairStyle": "short",
-    "palette": "violet",
+    "palette": "graphite",
     "skin": "s2"
   },
   "ram_mohan_roy": {
@@ -8466,7 +8466,7 @@
     "glasses": "none",
     "hair": "black",
     "hairStyle": "short",
-    "palette": "violet",
+    "palette": "graphite",
     "skin": "s3"
   },
   "rani_lakshmibai": {
@@ -8566,7 +8566,7 @@
     "glasses": "none",
     "hair": "brown",
     "hairStyle": "short",
-    "palette": "violet",
+    "palette": "graphite",
     "skin": "s1"
   },
   "richard_wright": {
@@ -8826,7 +8826,7 @@
     "glasses": "none",
     "hair": "black",
     "hairStyle": "long",
-    "palette": "violet",
+    "palette": "graphite",
     "skin": "s3"
   },
   "rumi_contextual": {
@@ -8836,7 +8836,7 @@
     "glasses": "none",
     "hair": "black",
     "hairStyle": "long",
-    "palette": "violet",
+    "palette": "graphite",
     "skin": "s3"
   },
   "russell": {
@@ -8986,7 +8986,7 @@
     "glasses": "none",
     "hair": "brown",
     "hairStyle": "wig",
-    "palette": "burgundy",
+    "palette": "charcoal",
     "skin": "s2"
   },
   "santiago_ramon_y_cajal": {
@@ -9096,7 +9096,7 @@
     "glasses": "none",
     "hair": "black",
     "hairStyle": "long",
-    "palette": "violet",
+    "palette": "graphite",
     "skin": "s2"
   },
   "seki_takakazu": {
@@ -9566,7 +9566,7 @@
     "glasses": "none",
     "hair": "gray",
     "hairStyle": "short",
-    "palette": "burgundy",
+    "palette": "charcoal",
     "skin": "s2"
   },
   "stephanie_kwolek": {
@@ -9876,7 +9876,7 @@
     "glasses": "none",
     "hair": "black",
     "hairStyle": "short",
-    "palette": "violet",
+    "palette": "graphite",
     "skin": "s3"
   },
   "tayeb_salih": {
@@ -10076,7 +10076,7 @@
     "glasses": "round",
     "hair": "gray",
     "hairStyle": "short",
-    "palette": "burgundy",
+    "palette": "charcoal",
     "skin": "s5"
   },
   "tiger_woods": {
@@ -10096,7 +10096,7 @@
     "glasses": "round",
     "hair": "black",
     "hairStyle": "messy",
-    "palette": "violet",
+    "palette": "graphite",
     "skin": "s1"
   },
   "tina_fey": {
@@ -10186,7 +10186,7 @@
     "glasses": "none",
     "hair": "black",
     "hairStyle": "short",
-    "palette": "violet",
+    "palette": "graphite",
     "skin": "s1"
   },
   "trevor_noah": {
@@ -10206,7 +10206,7 @@
     "glasses": "none",
     "hair": "black",
     "hairStyle": "short",
-    "palette": "violet",
+    "palette": "graphite",
     "skin": "s3"
   },
   "tulsidas": {
@@ -10886,7 +10886,7 @@
     "glasses": "none",
     "hair": "black",
     "hairStyle": "short",
-    "palette": "violet",
+    "palette": "graphite",
     "skin": "s1"
   },
   "zeno_elea": {
@@ -10976,7 +10976,7 @@
     "glasses": "none",
     "hair": "black",
     "hairStyle": "bun",
-    "palette": "burgundy",
+    "palette": "charcoal",
     "skin": "s5"
   },
   "zoroaster": {

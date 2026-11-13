@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-label="karen_sparck_jones">
 <defs>
-<linearGradient id="g-karen_sparck_jones" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4c1d95"/><stop offset="1" stop-color="#170930"/></linearGradient>
+<linearGradient id="g-karen_sparck_jones" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#595959"/><stop offset="1" stop-color="#1c1c1c"/></linearGradient>
 <radialGradient id="f-karen_sparck_jones" cx=".36" cy=".3" r=".8"><stop offset="0" stop-color="#ffe3bf"/><stop offset="1" stop-color="#d8b08c"/></radialGradient>
 <clipPath id="c-karen_sparck_jones"><circle cx="128" cy="128" r="128"/></clipPath>
 </defs>
 <g clip-path="url(#c-karen_sparck_jones)">
 <rect width="256" height="256" fill="url(#g-karen_sparck_jones)"/>
-<circle cx="96" cy="76" r="84" fill="#a78bfa" opacity=".14"/>
-<path d="M26 256 C30 212 66 194 128 194 C190 194 226 212 230 256 Z" fill="#5b21b6"/><path d="M26 256 C30 212 66 194 128 194 C100 212 96 240 98 256 Z" fill="#6f35ca" opacity=".5"/><path d="M104 194 L128 226 L152 194 Z" fill="#ede9fe"/><path d="M122 210 L134 210 L138 252 L128 260 L118 252 Z" fill="#a78bfa"/>
+<circle cx="96" cy="76" r="84" fill="#c2c2c2" opacity=".14"/>
+<path d="M26 256 C30 212 66 194 128 194 C190 194 226 212 230 256 Z" fill="#6c6c6c"/><path d="M26 256 C30 212 66 194 128 194 C100 212 96 240 98 256 Z" fill="#808080" opacity=".5"/><path d="M104 194 L128 226 L152 194 Z" fill="#f3f3f3"/><path d="M122 210 L134 210 L138 252 L128 260 L118 252 Z" fill="#c2c2c2"/>
 <rect x="110" y="168" width="36" height="36" rx="14" fill="#d2aa86"/>
 <ellipse cx="68" cy="128" rx="9" ry="13" fill="#e4bc98"/><ellipse cx="188" cy="128" rx="9" ry="13" fill="#e4bc98"/>
 <ellipse cx="128" cy="120" rx="58" ry="62" fill="url(#f-karen_sparck_jones)"/>
