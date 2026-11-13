@@ -72,7 +72,7 @@ export interface PersonaLook {
 
 /** A department's colours: the ground (light, dark), the top, its collar, and the badge's ink. */
 const GROUP: Record<string, { ground: [string, string]; top: string; trim: string; ink: string }> = {
-  'Executive & Management': { ground: ['#a5b4fc', '#4338ca'], top: '#4338ca', trim: '#e0e7ff', ink: '#3730a3' },
+  'Executive & Management': { ground: ['#d0d0d0', '#818181'], top: '#818181', trim: '#f0f0f0', ink: '#6a6a6a' },
   'Revenue & Relationships': { ground: ['#fdba74', '#c2410c'], top: '#ea580c', trim: '#ffedd5', ink: '#9a3412' },
   'Engineering & Intelligence': { ground: ['#5eead4', '#0f766e'], top: '#0f766e', trim: '#ccfbf1', ink: '#115e59' },
   'Creative & Knowledge': { ground: ['#d9d9d9', '#787878'], top: '#787878', trim: '#f3f3f3', ink: '#646464' },
@@ -81,7 +81,7 @@ const GROUP: Record<string, { ground: [string, string]; top: string; trim: strin
 }
 
 const PALETTE: Record<string, { ground: [string, string]; top: string; trim: string; accent: string }> = {
-  indigo: { ground: ['#312e81', '#0f172a'], top: '#3730a3', trim: '#e0e7ff', accent: '#818cf8' },
+  pewter: { ground: ['#585858', '#141414'], top: '#6a6a6a', trim: '#f0f0f0', accent: '#bcbcbc' },
   emerald: { ground: ['#065f46', '#062c22'], top: '#047857', trim: '#d1fae5', accent: '#34d399' },
   amber: { ground: ['#78350f', '#271306'], top: '#92400e', trim: '#fef3c7', accent: '#fbbf24' },
   crimson: { ground: ['#7f1d1d', '#280909'], top: '#991b1b', trim: '#fee2e2', accent: '#f87171' },
@@ -372,7 +372,7 @@ export function drawPersona(slug: string, spec: PersonaLook): string {
   const skin = SKIN[spec.skin] ?? SKIN.s2
   const hair = HAIR[spec.hair] ?? HAIR.brown
   const style = spec.hairStyle ?? 'short'
-  const pal = PALETTE[spec.palette ?? 'indigo'] ?? PALETTE.indigo
+  const pal = PALETTE[spec.palette ?? 'pewter'] ?? PALETTE.pewter
   const id = slug.replace(/[^a-zA-Z0-9_-]/g, '')
   const browColor = hair === 'transparent' ? '#4b5563' : shade(hair, -0.05)
   const brows =
@@ -426,7 +426,7 @@ if (existsSync(looksPath)) {
   mkdirSync(personasOut, { recursive: true })
   const slugs = readdirSync(join(rootDir, 'personas')).sort()
   for (const slug of slugs) {
-    const spec = looks[slug] ?? { skin: 's2', hair: 'brown', hairStyle: 'short', palette: 'indigo' }
+    const spec = looks[slug] ?? { skin: 's2', hair: 'brown', hairStyle: 'short', palette: 'pewter' }
     writeFileSync(join(personasOut, `${slug}.svg`), drawPersona(slug, spec))
   }
   console.log(`personas: ${slugs.length} memojis written to assets/personas`)

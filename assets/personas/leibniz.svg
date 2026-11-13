@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-label="leibniz">
 <defs>
-<linearGradient id="g-leibniz" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#312e81"/><stop offset="1" stop-color="#0f172a"/></linearGradient>
+<linearGradient id="g-leibniz" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#585858"/><stop offset="1" stop-color="#141414"/></linearGradient>
 <radialGradient id="f-leibniz" cx=".36" cy=".3" r=".8"><stop offset="0" stop-color="#ffe3bf"/><stop offset="1" stop-color="#d8b08c"/></radialGradient>
 <clipPath id="c-leibniz"><circle cx="128" cy="128" r="128"/></clipPath>
 </defs>
 <g clip-path="url(#c-leibniz)">
 <rect width="256" height="256" fill="url(#g-leibniz)"/>
-<circle cx="96" cy="76" r="84" fill="#818cf8" opacity=".14"/>
-<path d="M62 118 C52 190 60 218 84 226 L172 226 C196 218 204 190 194 118 Z" fill="#5a3a22"/><path d="M26 256 C30 212 66 194 128 194 C190 194 226 212 230 256 Z" fill="#3730a3"/><path d="M26 256 C30 212 66 194 128 194 C100 212 96 240 98 256 Z" fill="#4b44b7" opacity=".5"/><path d="M58 206 L146 256 L198 206" stroke="#e0e7ff" stroke-width="14" opacity=".85" fill="none"/>
+<circle cx="96" cy="76" r="84" fill="#bcbcbc" opacity=".14"/>
+<path d="M62 118 C52 190 60 218 84 226 L172 226 C196 218 204 190 194 118 Z" fill="#5a3a22"/><path d="M26 256 C30 212 66 194 128 194 C190 194 226 212 230 256 Z" fill="#6a6a6a"/><path d="M26 256 C30 212 66 194 128 194 C100 212 96 240 98 256 Z" fill="#7e7e7e" opacity=".5"/><path d="M58 206 L146 256 L198 206" stroke="#f0f0f0" stroke-width="14" opacity=".85" fill="none"/>
 <rect x="110" y="168" width="36" height="36" rx="14" fill="#d2aa86"/>
 <ellipse cx="68" cy="128" rx="9" ry="13" fill="#e4bc98"/><ellipse cx="188" cy="128" rx="9" ry="13" fill="#e4bc98"/>
 <ellipse cx="128" cy="120" rx="58" ry="62" fill="url(#f-leibniz)"/>

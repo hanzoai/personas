@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-label="radia_perlman">
 <defs>
-<linearGradient id="g-radia_perlman" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#312e81"/><stop offset="1" stop-color="#0f172a"/></linearGradient>
+<linearGradient id="g-radia_perlman" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#585858"/><stop offset="1" stop-color="#141414"/></linearGradient>
 <radialGradient id="f-radia_perlman" cx=".36" cy=".3" r=".8"><stop offset="0" stop-color="#ffe3bf"/><stop offset="1" stop-color="#d8b08c"/></radialGradient>
 <clipPath id="c-radia_perlman"><circle cx="128" cy="128" r="128"/></clipPath>
 </defs>
 <g clip-path="url(#c-radia_perlman)">
 <rect width="256" height="256" fill="url(#g-radia_perlman)"/>
-<circle cx="96" cy="76" r="84" fill="#818cf8" opacity=".14"/>
-<path d="M26 256 C30 212 66 194 128 194 C190 194 226 212 230 256 Z" fill="#f1f5f9"/><path d="M98 194 L128 242 L158 194 Z" fill="#3730a3"/><path d="M92 194 L116 244 M164 194 L140 244" stroke="#cbd5e1" stroke-width="4"/>
+<circle cx="96" cy="76" r="84" fill="#bcbcbc" opacity=".14"/>
+<path d="M26 256 C30 212 66 194 128 194 C190 194 226 212 230 256 Z" fill="#f1f5f9"/><path d="M98 194 L128 242 L158 194 Z" fill="#6a6a6a"/><path d="M92 194 L116 244 M164 194 L140 244" stroke="#cbd5e1" stroke-width="4"/>
 <rect x="110" y="168" width="36" height="36" rx="14" fill="#d2aa86"/>
 <ellipse cx="68" cy="128" rx="9" ry="13" fill="#e4bc98"/><ellipse cx="188" cy="128" rx="9" ry="13" fill="#e4bc98"/>
 <ellipse cx="128" cy="120" rx="58" ry="62" fill="url(#f-radia_perlman)"/>
