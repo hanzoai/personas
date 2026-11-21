@@ -1,6 +1,10 @@
 # Hanzo Personas
 
-712 personality profiles for AI agents, grounded in personality psychology.
+A roster of 715 figures, and 19 personas written by hand.
+
+The roster carries a name and a category. The personas carry Big Five and
+NEO PI-R facets, and those are authored judgements about a documented life,
+not measurements — nobody administered an inventory to Turing.
 
 ## Install
 
@@ -13,7 +17,7 @@ npm install @hanzo/personas
 ```javascript
 import { list, get, getProfile, getPersonaMd } from '@hanzo/personas'
 
-// List all 712 persona slugs
+// List all persona slugs
 const slugs = list()
 
 // Load a persona (profile.json + PERSONA.md)
@@ -44,7 +48,16 @@ personas/
     profile.json    # JSON-only personas (no PERSONA.md yet)
 ```
 
-**712 total** — 14 have deep PERSONA.md files, all have JSON profiles.
+**715 in the roster, 19 written.** A roster entry is `{id, name, category}`.
+
+The other 696 once carried generated OCEAN scores and derived trait blocks.
+They were removed: openness had mean 89.8 and sd 6.2 across all of them,
+`work_methodology` took seven distinct values over 703 people, `cognitive_style`
+was constant within 21 of 33 categories, and 83 profiles duplicated another
+person's exactly. `enhancement_metadata` recorded `ocean_based: true,
+linguistic_based: false` — every block below OCEAN was derived from OCEAN.
+Numbers that are a function of a category are not a description of a person,
+and leaving them in invites reading them as evidence.
 
 ### profile.json
 
