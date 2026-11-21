@@ -1,7 +1,7 @@
 # Hanzo Personas
 
 ## Overview
-A roster of 715 figures (id, name, category) and 19 hand-written PERSONA.md
+A roster of 1,044 figures (id, name, category) and 67 hand-written PERSONA.md
 definitions carrying Big Five traits and NEO PI-R facets as authored judgement.
 
 ## Tech Stack
